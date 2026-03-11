@@ -19,7 +19,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-surface/95 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 lg:px-8">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2.5">
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent/10">
@@ -31,14 +31,14 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-0.5 md:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
                 pathname === item.href
-                  ? "bg-surface-2 text-foreground"
+                  ? "bg-accent/8 text-accent"
                   : "text-muted hover:text-foreground"
               }`}
             >
@@ -49,9 +49,9 @@ export function SiteHeader() {
 
         {/* CTA */}
         <div className="hidden md:block">
-          <span className="inline-flex items-center rounded-lg bg-foreground px-3.5 py-1.5 text-[13px] font-medium text-surface transition-colors hover:bg-foreground/90 cursor-pointer">
+          <Link href="/evaluation" className="btn-primary !text-[13px] !py-1.5 !px-4">
             Request Access
-          </span>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -74,7 +74,7 @@ export function SiteHeader() {
                 onClick={() => setMobileOpen(false)}
                 className={`rounded-lg px-3 py-2 text-[14px] font-medium ${
                   pathname === item.href
-                    ? "bg-surface-2 text-foreground"
+                    ? "bg-accent/8 text-accent"
                     : "text-muted hover:text-foreground"
                 }`}
               >
@@ -82,9 +82,9 @@ export function SiteHeader() {
               </Link>
             ))}
             <div className="mt-3 border-t border-border pt-3">
-              <span className="inline-flex w-full items-center justify-center rounded-lg bg-foreground px-3.5 py-2 text-[14px] font-medium text-surface cursor-pointer">
+              <Link href="/evaluation" className="btn-primary w-full justify-center !text-[14px]">
                 Request Access
-              </span>
+              </Link>
             </div>
           </nav>
         </div>

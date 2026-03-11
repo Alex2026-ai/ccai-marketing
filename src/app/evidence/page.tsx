@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+import { AnimateOnScroll } from "@/components/animate-on-scroll"
+import { ReceiptDemo } from "@/components/receipt-demo"
 
 export const metadata: Metadata = {
   title: "Evidence — CoreCompliance AI",
@@ -34,25 +36,25 @@ const receiptFields = [
 
 export default function EvidencePage() {
   return (
-    <div className="mx-auto max-w-3xl px-5 py-16 md:py-24">
+    <div className="mx-auto max-w-3xl px-5 py-20 md:py-32 lg:px-8">
       {/* Header */}
       <div className="fade-in-up">
         <p className="section-label">Evidence</p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+        <h1 className="mt-4 text-[2.5rem] font-semibold tracking-tight leading-[1.1] md:text-[2.75rem]">
           Every decision produces a verifiable record.
         </h1>
-        <p className="mt-4 text-[16px] leading-relaxed text-muted">
+        <p className="mt-5 text-lg leading-relaxed text-muted">
           This is not a log or a score. It is a complete, structured account of
           what was decided, why, and with what data.
         </p>
       </div>
 
       {/* Evidence Bundle */}
-      <section className="mt-16 fade-in-up">
-        <h2 className="text-xl font-semibold tracking-tight">
+      <AnimateOnScroll className="mt-20">
+        <h2 className="text-2xl font-semibold tracking-tight">
           Evidence Bundle
         </h2>
-        <p className="mt-3 text-[15px] leading-relaxed text-muted">
+        <p className="mt-3 text-base leading-relaxed text-muted">
           The core evidence object is the DecisionEventPackage. Once assembled,
           it is immutable — no field can be modified, appended, or removed.
         </p>
@@ -61,10 +63,10 @@ export default function EvidencePage() {
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-border bg-surface-2/50">
-                <th className="px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">
+                <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">
                   Component
                 </th>
-                <th className="px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">
+                <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">
                   Content
                 </th>
               </tr>
@@ -72,10 +74,10 @@ export default function EvidencePage() {
             <tbody>
               {bundleComponents.map((c) => (
                 <tr key={c.component} className="border-b border-border-light last:border-0">
-                  <td className="px-4 py-3 text-[13px] font-medium text-foreground whitespace-nowrap align-top">
+                  <td className="px-4 py-3 text-sm font-medium text-foreground whitespace-nowrap align-top">
                     {c.component}
                   </td>
-                  <td className="px-4 py-3 text-[13px] text-muted">
+                  <td className="px-4 py-3 text-sm text-muted">
                     {c.content}
                   </td>
                 </tr>
@@ -83,59 +85,45 @@ export default function EvidencePage() {
             </tbody>
           </table>
         </div>
-      </section>
+      </AnimateOnScroll>
 
       {/* Example */}
-      <section className="mt-12 fade-in-up">
-        <h3 className="text-[14px] font-semibold text-foreground">
+      <AnimateOnScroll className="mt-12">
+        <h3 className="text-base font-semibold text-foreground">
           Example evidence record
         </h3>
-        <div className="mt-4 overflow-x-auto rounded-xl border border-border bg-[#1a1f2e] px-5 py-4 font-mono text-[12px] leading-relaxed">
-          <div className="text-[#9ca3af]">
-            <span className="text-[#6b7280]">trace_id:</span>{" "}
-            <span className="text-[#14b8a6]">tr_2026_03_11_08421234</span>
-          </div>
-          <div className="text-[#9ca3af]">
-            <span className="text-[#6b7280]">decision_state:</span>{" "}
-            <span className="text-[#14b8a6]">CLEARED</span>
-          </div>
-          <div className="text-[#9ca3af]">
-            <span className="text-[#6b7280]">resolution_layer:</span>{" "}
-            <span className="text-[#14b8a6]">L1_EXACT</span>
-          </div>
-          <div className="text-[#9ca3af]">
-            <span className="text-[#6b7280]">confidence:</span>{" "}
-            <span className="text-[#14b8a6]">0.98</span>
-          </div>
-          <div className="text-[#9ca3af]">
-            <span className="text-[#6b7280]">rule_pack_version:</span>{" "}
-            <span className="text-[#14b8a6]">rp_v3.2.1</span>
-          </div>
-          <div className="text-[#9ca3af]">
-            <span className="text-[#6b7280]">watchlist_snapshot:</span>{" "}
-            <span className="text-[#14b8a6]">ws_2026_03_10_daily</span>
-          </div>
-          <div className="text-[#9ca3af]">
-            <span className="text-[#6b7280]">config_snapshot:</span>{" "}
-            <span className="text-[#14b8a6]">cs_2026_03_11_0842</span>
-          </div>
-          <div className="text-[#9ca3af]">
-            <span className="text-[#6b7280]">receipt_id:</span>{" "}
-            <span className="text-[#14b8a6]">rct_5b6d…e91c</span>
-          </div>
-          <div className="text-[#9ca3af]">
-            <span className="text-[#6b7280]">receipt_status:</span>{" "}
-            <span className="text-[#14b8a6]">BOUND</span>
-          </div>
+        <div className="mt-4 overflow-x-auto rounded-xl border border-border bg-[#111827] px-5 py-4 font-mono text-[13px] leading-relaxed">
+          {[
+            ["trace_id", "tr_2026_03_11_08421234"],
+            ["decision_state", "CLEARED"],
+            ["resolution_layer", "L1_EXACT"],
+            ["confidence", "0.98"],
+            ["rule_pack_version", "rp_v3.2.1"],
+            ["watchlist_snapshot", "ws_2026_03_10_daily"],
+            ["config_snapshot", "cs_2026_03_11_0842"],
+            ["receipt_id", "rct_5b6d…e91c"],
+            ["receipt_status", "BOUND"],
+          ].map(([key, val]) => (
+            <div key={key} className="text-gray-400">
+              <span className="text-gray-500">{key}:</span>{" "}
+              <span className="text-sky-400">{val}</span>
+            </div>
+          ))}
         </div>
-      </section>
+      </AnimateOnScroll>
+
+      {/* Interactive Receipt Demo */}
+      <AnimateOnScroll className="mt-20">
+        <p className="section-label mb-4">Try It</p>
+        <ReceiptDemo />
+      </AnimateOnScroll>
 
       {/* Receipt References */}
-      <section className="mt-16 fade-in-up">
-        <h2 className="text-xl font-semibold tracking-tight">
+      <AnimateOnScroll className="mt-20">
+        <h2 className="text-2xl font-semibold tracking-tight">
           Receipt References
         </h2>
-        <p className="mt-3 text-[15px] leading-relaxed text-muted">
+        <p className="mt-3 text-base leading-relaxed text-muted">
           After evidence assembly, the package is handed to Intelligent Analyst
           for attestation. The receipt is stored in the IA truth ledger and can
           be independently retrieved and verified without access to CCAI.
@@ -145,10 +133,10 @@ export default function EvidencePage() {
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-border bg-surface-2/50">
-                <th className="px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">
+                <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">
                   Field
                 </th>
-                <th className="px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">
+                <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">
                   Purpose
                 </th>
               </tr>
@@ -156,10 +144,10 @@ export default function EvidencePage() {
             <tbody>
               {receiptFields.map((f) => (
                 <tr key={f.field} className="border-b border-border-light last:border-0">
-                  <td className="px-4 py-3 font-mono text-[12px] font-medium text-foreground whitespace-nowrap">
+                  <td className="px-4 py-3 font-mono text-[13px] font-medium text-foreground whitespace-nowrap">
                     {f.field}
                   </td>
-                  <td className="px-4 py-3 text-[13px] text-muted">
+                  <td className="px-4 py-3 text-sm text-muted">
                     {f.purpose}
                   </td>
                 </tr>
@@ -167,12 +155,12 @@ export default function EvidencePage() {
             </tbody>
           </table>
         </div>
-      </section>
+      </AnimateOnScroll>
 
       {/* Audit Export */}
-      <section className="mt-16 fade-in-up">
-        <h2 className="text-xl font-semibold tracking-tight">Audit Export</h2>
-        <p className="mt-3 text-[15px] leading-relaxed text-muted">
+      <AnimateOnScroll className="mt-20">
+        <h2 className="text-2xl font-semibold tracking-tight">Audit Export</h2>
+        <p className="mt-3 text-base leading-relaxed text-muted">
           Evidence can be exported in formats suitable for regulatory
           examination. Audit reports include governance context: rule pack
           version, threshold policy, approval chain, and configuration snapshot.
@@ -182,13 +170,13 @@ export default function EvidencePage() {
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-border bg-surface-2/50">
-                <th className="px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">
+                <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">
                   Type
                 </th>
-                <th className="px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">
+                <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">
                   Format
                 </th>
-                <th className="hidden px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light sm:table-cell">
+                <th className="hidden px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light sm:table-cell">
                   Contents
                 </th>
               </tr>
@@ -196,7 +184,7 @@ export default function EvidencePage() {
             <tbody>
               {exportTypes.map((e) => (
                 <tr key={e.type} className="border-b border-border-light last:border-0">
-                  <td className="px-4 py-3 text-[13px] font-medium text-foreground whitespace-nowrap">
+                  <td className="px-4 py-3 text-sm font-medium text-foreground whitespace-nowrap">
                     {e.type}
                   </td>
                   <td className="px-4 py-3">
@@ -204,7 +192,7 @@ export default function EvidencePage() {
                       {e.format}
                     </span>
                   </td>
-                  <td className="hidden px-4 py-3 text-[13px] text-muted sm:table-cell">
+                  <td className="hidden px-4 py-3 text-sm text-muted sm:table-cell">
                     {e.contents}
                   </td>
                 </tr>
@@ -212,14 +200,14 @@ export default function EvidencePage() {
             </tbody>
           </table>
         </div>
-      </section>
+      </AnimateOnScroll>
 
       {/* Why This Matters */}
-      <section className="mt-16 fade-in-up">
-        <h2 className="text-xl font-semibold tracking-tight">
+      <AnimateOnScroll className="mt-20">
+        <h2 className="text-2xl font-semibold tracking-tight">
           Why this matters for regulated use.
         </h2>
-        <div className="mt-6 space-y-5">
+        <div className="mt-6 space-y-4">
           {[
             {
               q: "What was the decision?",
@@ -243,23 +231,23 @@ export default function EvidencePage() {
             },
           ].map((item) => (
             <div key={item.q} className="rounded-xl border border-border bg-surface px-5 py-4">
-              <h3 className="text-[14px] font-semibold text-foreground">
+              <h3 className="text-[15px] font-semibold text-foreground">
                 {item.q}
               </h3>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-muted">
+              <p className="mt-1.5 text-sm leading-relaxed text-muted">
                 {item.a}
               </p>
             </div>
           ))}
         </div>
 
-        <p className="mt-8 text-[14px] leading-relaxed text-muted">
+        <p className="mt-8 text-base leading-relaxed text-muted">
           CCAI does not claim to eliminate compliance risk. It provides the
           evidence infrastructure that allows regulated institutions to
           demonstrate the rigor, consistency, and traceability of their
           screening operations.
         </p>
-      </section>
+      </AnimateOnScroll>
     </div>
   )
 }

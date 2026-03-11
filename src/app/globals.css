@@ -1,32 +1,33 @@
 @import "tailwindcss";
 
-/* ── CCAI Marketing — Design Tokens ── */
+/* ── CCAI Marketing — Refined Design Tokens ── */
 
 @theme inline {
-  --color-background: #fafbfc;
-  --color-foreground: #1a1f2e;
+  --color-background: #fafafa;
+  --color-foreground: #111827;
   --color-surface: #ffffff;
-  --color-surface-2: #f4f5f7;
-  --color-border: #e2e5ea;
-  --color-border-light: #edf0f3;
+  --color-surface-2: #f5f5f5;
+  --color-border: #e5e7eb;
+  --color-border-light: #f0f0f0;
   --color-muted: #6b7280;
   --color-muted-light: #9ca3af;
-  --color-accent: #0d9488;
-  --color-accent-light: #14b8a6;
-  --color-accent-subtle: #f0fdfa;
-  --color-violet: #7c3aed;
+  --color-accent: #0ea5e9;
+  --color-accent-light: #38bdf8;
+  --color-accent-subtle: #f0f9ff;
+  --color-violet: #a78bfa;
   --color-violet-subtle: #f5f3ff;
   --color-danger: #dc2626;
-  --color-layer-l1: #0d9488;
-  --color-layer-l2: #7c3aed;
-  --color-layer-l3: #d97706;
-  --color-layer-l4: #dc2626;
+  --color-success: #10b981;
+  --color-layer-l1: #0ea5e9;
+  --color-layer-l2: #a78bfa;
+  --color-layer-l3: #f59e0b;
+  --color-layer-l4: #ef4444;
 
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), "SF Mono", ui-monospace, monospace;
 
   --animate-fade-in: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-  --animate-fade-in-up: fade-in-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes fade-in {
@@ -35,7 +36,7 @@
 }
 
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -52,19 +53,19 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.7;
 }
 
 ::selection {
-  background: rgba(13, 148, 136, 0.12);
-  color: #1a1f2e;
+  background: rgba(14, 165, 233, 0.12);
+  color: #111827;
 }
 
 h1, h2, h3, h4 {
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
   color: var(--color-foreground);
 }
 
@@ -77,13 +78,54 @@ code, pre {
 /* ── Utilities ── */
 
 .fade-in-up {
-  animation: fade-in-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .section-label {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-accent);
+}
+
+/* ── CTA Buttons ── */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: #0284c7;
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.2);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  background: transparent;
+  color: var(--color-foreground);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
 }
