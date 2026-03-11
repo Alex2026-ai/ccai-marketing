@@ -10,9 +10,16 @@ import {
   Globe,
   ShieldCheck,
   TrendingUp,
+  Upload,
+  Zap,
+  FileOutput,
+  Activity,
+  ClipboardCheck,
+  Lock,
 } from "lucide-react"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { KpiSparkline } from "@/components/kpi-sparkline"
+import { ReceiptDemo } from "@/components/receipt-demo"
 
 export default function HomePage() {
   return (
@@ -25,7 +32,7 @@ export default function HomePage() {
             "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(14,165,233,0.035), transparent 70%)",
         }}
       >
-        <div className="mx-auto max-w-3xl px-5 pt-28 pb-24 md:pt-40 md:pb-36 lg:px-8 text-center">
+        <div className="mx-auto max-w-3xl px-5 pt-32 pb-28 md:pt-44 md:pb-40 lg:px-8 text-center">
           <div className="fade-in-up">
             <p className="section-label">Compliance Screening Infrastructure</p>
             <h1 className="mt-5 text-[2.75rem] font-semibold tracking-tight text-foreground leading-[1.08] md:text-[4rem]">
@@ -65,7 +72,7 @@ export default function HomePage() {
 
       {/* ── Operational Impact (Proof Section) ── */}
       <section className="border-t border-border-light bg-surface">
-        <div className="mx-auto max-w-6xl px-5 py-24 md:py-32 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-28 md:py-36 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
               <p className="section-label">Operational Impact</p>
@@ -123,7 +130,7 @@ export default function HomePage() {
 
       {/* ── What CCAI Is ── */}
       <section className="border-t border-border-light">
-        <div className="mx-auto max-w-3xl px-5 py-24 md:py-32 lg:px-8">
+        <div className="mx-auto max-w-3xl px-5 py-28 md:py-36 lg:px-8">
           <AnimateOnScroll>
             <p className="section-label">What CCAI Is</p>
             <div className="section-divider mt-4" />
@@ -148,7 +155,7 @@ export default function HomePage() {
 
       {/* ── Why It Is Different ── */}
       <section className="border-t border-border-light bg-surface">
-        <div className="mx-auto max-w-6xl px-5 py-24 md:py-32 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-28 md:py-36 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
               <p className="section-label">Why It Is Different</p>
@@ -201,7 +208,7 @@ export default function HomePage() {
 
       {/* ── Key Capabilities ── */}
       <section className="border-t border-border-light">
-        <div className="mx-auto max-w-6xl px-5 py-24 md:py-32 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-28 md:py-36 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
               <p className="section-label">Capabilities</p>
@@ -215,35 +222,46 @@ export default function HomePage() {
             <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2">
               {[
                 {
+                  icon: Upload,
                   title: "Batch Screening",
                   desc: "Upload entity files (CSV, XLSX, JSON, Parquet) for bulk resolution against sanctions and watchlists.",
                 },
                 {
+                  icon: Zap,
                   title: "Real-Time API",
                   desc: "Single-entity resolution via REST endpoint with full evidence in the response.",
                 },
                 {
+                  icon: FileOutput,
                   title: "Evidence Generation",
                   desc: "Structured decision packages with full lineage, rule bindings, and data provenance per entity.",
                 },
                 {
+                  icon: Activity,
                   title: "Continuous Monitoring",
                   desc: "Ongoing re-screening against updated watchlist snapshots with delta alerting.",
                 },
                 {
+                  icon: ClipboardCheck,
                   title: "Audit Export",
                   desc: "Regulatory-formatted evidence bundles and PDF audit reports for examination readiness.",
                 },
                 {
+                  icon: Lock,
                   title: "Multi-Tenant Isolation",
                   desc: "Tenant-scoped data, configuration, and access controls with regional data residency.",
                 },
               ].map((item) => (
                 <div key={item.title} className="bg-surface px-7 py-7">
-                  <h3 className="text-[15px] font-semibold text-foreground">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-muted">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/6 border border-accent/10">
+                      <item.icon size={15} className="text-accent" />
+                    </div>
+                    <h3 className="text-[15px] font-semibold text-foreground">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
                     {item.desc}
                   </p>
                 </div>
@@ -253,9 +271,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Target Verticals ── */}
+      {/* ── Receipt Demo Teaser ── */}
       <section className="border-t border-border-light bg-surface">
-        <div className="mx-auto max-w-6xl px-5 py-24 md:py-32 lg:px-8">
+        <div className="mx-auto max-w-3xl px-5 py-28 md:py-36 lg:px-8">
+          <AnimateOnScroll>
+            <div className="text-center">
+              <p className="section-label">See It Work</p>
+              <h2 className="mt-4 text-2xl font-semibold tracking-tight md:text-[2.75rem] md:leading-[1.1]">
+                Screen an entity. Inspect the evidence.
+              </h2>
+              <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted">
+                Every screening decision produces a structured evidence record
+                with full resolution lineage and cryptographic receipt binding.
+              </p>
+            </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll className="mt-12">
+            <ReceiptDemo />
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ── Target Verticals ── */}
+      <section className="border-t border-border-light">
+        <div className="mx-auto max-w-6xl px-5 py-28 md:py-36 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
               <p className="section-label">Verticals</p>
@@ -302,7 +342,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="border-t border-border-light">
+      <section className="border-t border-border-light bg-surface">
         <div className="mx-auto max-w-3xl px-5 py-28 md:py-36 lg:px-8 text-center">
           <AnimateOnScroll>
             <p className="section-label">Get Started</p>

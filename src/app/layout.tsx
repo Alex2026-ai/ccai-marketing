@@ -18,6 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon-32.svg" />
+      </head>
       <body className="min-h-screen antialiased">
         <SiteHeader />
         <main>{children}</main>

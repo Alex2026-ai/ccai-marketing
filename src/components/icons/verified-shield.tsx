@@ -1,0 +1,24 @@
+export function VerifiedShieldIcon({ size = 24, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M32 4L8 14V30C8 46 18.5 54.5 32 60C45.5 54.5 56 46 56 30V14L32 4Z"
+        fill="currentColor"
+      />
+      <path
+        d="M22 32L28.5 38.5L42 25"
+        stroke="white"
+        strokeWidth="4.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}

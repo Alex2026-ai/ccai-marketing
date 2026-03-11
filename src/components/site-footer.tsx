@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Shield } from "lucide-react"
+import { VerifiedShieldIcon } from "@/components/icons/verified-shield"
 
 const footerNav = [
   {
@@ -28,7 +28,7 @@ export function SiteFooter() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5">
               <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent/8">
-                <Shield size={14} className="text-accent" />
+                <VerifiedShieldIcon size={14} className="text-accent" />
               </div>
               <span className="text-[15px] font-semibold tracking-tight text-foreground">
                 CoreCompliance AI

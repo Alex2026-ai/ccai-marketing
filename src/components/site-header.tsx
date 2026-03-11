@@ -3,7 +3,8 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { Shield, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
+import { VerifiedShieldIcon } from "@/components/icons/verified-shield"
 
 const nav = [
   { label: "How It Works", href: "/how-it-works" },
@@ -23,7 +24,7 @@ export function SiteHeader() {
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2.5 transition-opacity hover:opacity-80">
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent/8">
-            <Shield size={14} className="text-accent" />
+            <VerifiedShieldIcon size={14} className="text-accent" />
           </div>
           <span className="text-[15px] font-semibold tracking-tight text-foreground">
             CoreCompliance

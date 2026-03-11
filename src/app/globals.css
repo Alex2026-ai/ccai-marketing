@@ -24,6 +24,13 @@
   --color-layer-l3: #f59e0b;
   --color-layer-l4: #ef4444;
 
+  --color-surface-light: #f8fafc;
+  --color-warning: #ef4444;
+
+  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-premium: 0 4px 20px rgba(14, 165, 233, 0.12);
+  --shadow-premium-hover: 0 8px 32px rgba(14, 165, 233, 0.18);
+
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), "SF Mono", ui-monospace, monospace;
 
@@ -60,7 +67,11 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-sans);
   font-size: 1.125rem;
-  line-height: 1.75;
+  line-height: 1.65;
+}
+
+code, .font-mono {
+  line-height: 1.45;
 }
 
 ::selection {
@@ -116,21 +127,19 @@ code, pre {
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  border-radius: 0.625rem;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 0.75rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   text-decoration: none;
 }
 .btn-primary:hover {
   background: var(--color-accent-deep);
-  transform: translateY(-1px);
-  box-shadow:
-    0 4px 12px rgba(14, 165, 233, 0.2),
-    0 1px 3px rgba(14, 165, 233, 0.1);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.25), 0 4px 12px rgba(14, 165, 233, 0.15);
 }
 .btn-primary:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(14, 165, 233, 0.15);
+  transform: scale(0.99);
+  box-shadow: 0 0 10px rgba(14, 165, 233, 0.15);
 }
 
 .btn-secondary {
@@ -144,8 +153,8 @@ code, pre {
   font-weight: 500;
   letter-spacing: 0.01em;
   border: 1px solid var(--color-border);
-  border-radius: 0.625rem;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 0.75rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   text-decoration: none;
 }
@@ -153,11 +162,11 @@ code, pre {
   border-color: var(--color-accent);
   color: var(--color-accent);
   background: var(--color-accent-subtle);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.08);
+  transform: scale(1.02);
+  box-shadow: 0 2px 12px rgba(14, 165, 233, 0.08);
 }
 .btn-secondary:active {
-  transform: translateY(0);
+  transform: scale(0.99);
 }
 
 /* ── Premium card treatments ── */
@@ -166,11 +175,12 @@ code, pre {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 0.875rem;
+  box-shadow: var(--shadow-soft);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .card-surface:hover {
   border-color: rgba(14, 165, 233, 0.18);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: var(--shadow-premium-hover);
 }
 
 /* ── Table refinement ── */
