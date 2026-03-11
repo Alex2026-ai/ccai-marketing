@@ -304,70 +304,111 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
             </div>
 
             {/* Intelligent Analyst Verification Receipt */}
-            <div className="rounded-xl border border-border bg-surface">
-              {/* Receipt header */}
-              <div className="flex flex-col gap-2 border-b border-border-light px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-light">
-                    Intelligent Analyst Verification Receipt
-                  </p>
-                  <p className="mt-1 font-mono text-sm font-semibold text-accent">
-                    {result.state === "CLEARED" ? "IA-ATTEST-8F2C91A4" : "IA-ATTEST-PENDING"}
-                  </p>
-                </div>
-                <span className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1 text-[10px] font-bold uppercase tracking-wider ${
-                  result.state === "CLEARED"
-                    ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
-                    : "bg-amber-50 text-amber-700 border border-amber-200"
+            {(() => {
+              const isVerified = result.state === "CLEARED"
+              const fields = isVerified
+                ? [
+                    { label: "attestation_id", value: "IA-ATTEST-8F2C91A4", highlight: "accent" as const },
+                    { label: "artifact_id", value: "DECISION-7D3B2F90" },
+                    { label: "verified_at", value: "2026-03-11T14:21:08Z" },
+                    { label: "protocol_version", value: "1.0" },
+                    { label: "engine_version", value: "CCAI-3.2.1" },
+                    { label: "rules_version", value: "sanctions_rules_v14" },
+                    { label: "registry_snapshot", value: "OFAC_SDN_2026-03-10" },
+                    { label: "input_hash", value: "sha256:8a1c3b...d47e" },
+                    { label: "output_hash", value: "sha256:f94b7a...19ad" },
+                    { label: "decision_type", value: "sanctions_screening" },
+                    { label: "entity", value: "Acme Shipping Ltd" },
+                    { label: "result", value: "CLEAR", highlight: "success" as const },
+                    { label: "verification_status", value: "VERIFIED", highlight: "success" as const },
+                    { label: "receipt_signature", value: "ECDSA-P256" },
+                  ]
+                : [
+                    { label: "attestation_id", value: "PENDING", highlight: "warn" as const },
+                    { label: "artifact_id", value: "DECISION-91C7E2B5" },
+                    { label: "verified_at", value: "pending_human_review" },
+                    { label: "protocol_version", value: "1.0" },
+                    { label: "engine_version", value: "CCAI-3.2.1" },
+                    { label: "rules_version", value: "sanctions_rules_v14" },
+                    { label: "registry_snapshot", value: "EU_CONSOLIDATED_2026-03-10" },
+                    { label: "input_hash", value: "sha256:4d91aa...8c10" },
+                    { label: "output_hash", value: "pending_final_decision" },
+                    { label: "decision_type", value: "sanctions_screening" },
+                    { label: "entity", value: "Global Trade Partners" },
+                    { label: "result", value: "REVIEW", highlight: "warn" as const },
+                    { label: "verification_status", value: "PENDING_HUMAN_REVIEW", highlight: "warn" as const },
+                    { label: "receipt_signature", value: "not_issued" },
+                  ]
+
+              return (
+                <div className={`rounded-xl border overflow-hidden ${
+                  isVerified ? "border-emerald-200" : "border-amber-200"
                 }`}>
-                  <CheckCircle size={10} />
-                  {result.state === "CLEARED" ? "Verified by Intelligent Analyst" : "Attestation Pending"}
-                </span>
-              </div>
-
-              {/* Receipt fields */}
-              <div className="grid grid-cols-1 gap-px bg-border-light sm:grid-cols-2">
-                {[
-                  { label: "attestation_id", value: result.state === "CLEARED" ? "IA-ATTEST-8F2C91A4" : "IA-ATTEST-PENDING", highlight: true },
-                  { label: "artifact_id", value: "DECISION-7D3B2F90" },
-                  { label: "verified_at", value: "2026-03-11T14:21:08Z" },
-                  { label: "protocol_version", value: "1.0" },
-                  { label: "engine_version", value: "CCAI-3.2.1" },
-                  { label: "rules_version", value: "sanctions_rules_v14" },
-                  { label: "registry_snapshot", value: "OFAC_SDN_2026-03-10" },
-                  { label: "input_hash", value: "sha256:8a1c3b...d47e" },
-                  { label: "output_hash", value: "sha256:f94b7a...19ad" },
-                  { label: "decision_type", value: "sanctions_screening" },
-                  { label: "entity", value: result.entity },
-                  { label: "result", value: result.state, highlight: true },
-                  { label: "verification_status", value: result.state === "CLEARED" ? "VERIFIED" : "PENDING", highlight: true },
-                  { label: "receipt_signature", value: "ECDSA-P256" },
-                ].map((field) => (
-                  <div key={field.label} className="flex items-baseline justify-between gap-2 bg-surface px-5 py-2.5">
-                    <span className="font-mono text-[11px] text-muted-light shrink-0">{field.label}</span>
-                    <span className={`font-mono text-[11px] text-right truncate ${
-                      field.highlight
-                        ? field.value === "VERIFIED" || field.value === "CLEARED"
-                          ? "font-semibold text-emerald-600"
-                          : field.value === "PENDING" || field.value === "REVIEW"
-                            ? "font-semibold text-amber-600"
-                            : "font-semibold text-accent"
-                        : "text-foreground"
-                    }`}>
-                      {field.value}
-                    </span>
+                  {/* Header */}
+                  <div className={`px-5 py-4 ${
+                    isVerified ? "bg-emerald-50/50" : "bg-amber-50/50"
+                  }`}>
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-light">
+                          Intelligent Analyst Verification Receipt
+                        </p>
+                        <p className={`mt-1.5 text-xs leading-relaxed ${isVerified ? "text-emerald-700" : "text-amber-700"}`}>
+                          {isVerified
+                            ? "Independent attestation issued by Intelligent Analyst."
+                            : "Final attestation will be issued after human review is completed."}
+                        </p>
+                      </div>
+                      <span className={`shrink-0 inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider ${
+                        isVerified
+                          ? "bg-emerald-100 text-emerald-800 border border-emerald-200"
+                          : "bg-amber-100 text-amber-800 border border-amber-200"
+                      }`}>
+                        {isVerified
+                          ? <CheckCircle size={10} />
+                          : <AlertCircle size={10} />}
+                        {isVerified ? "Verified by Intelligent Analyst" : "Pending Human Review"}
+                      </span>
+                    </div>
                   </div>
-                ))}
-              </div>
 
-              {/* Download */}
-              <div className="border-t border-border-light px-5 py-3 flex justify-end">
-                <button className="flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1.5 text-xs font-medium text-muted transition-all duration-200 hover:text-foreground hover:border-foreground hover:shadow-sm">
-                  <Download size={12} />
-                  Download Receipt
-                </button>
-              </div>
-            </div>
+                  {/* Fields */}
+                  <div className="grid grid-cols-1 gap-px bg-border-light sm:grid-cols-2">
+                    {fields.map((field) => (
+                      <div key={field.label} className="flex items-baseline justify-between gap-3 bg-surface px-5 py-2.5">
+                        <span className="font-mono text-[11px] text-muted-light shrink-0">{field.label}</span>
+                        <span className={`font-mono text-[11px] text-right truncate ${
+                          field.highlight === "success"
+                            ? "font-semibold text-emerald-600"
+                            : field.highlight === "warn"
+                              ? "font-semibold text-amber-600"
+                              : field.highlight === "accent"
+                                ? "font-semibold text-accent"
+                                : "text-foreground"
+                        }`}>
+                          {field.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Download */}
+                  <div className="border-t border-border-light bg-surface px-5 py-3 flex justify-end">
+                    {isVerified ? (
+                      <button className="flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1.5 text-xs font-medium text-muted transition-all duration-200 hover:text-foreground hover:border-foreground hover:shadow-sm">
+                        <Download size={12} />
+                        Download Receipt
+                      </button>
+                    ) : (
+                      <span className="flex items-center gap-1.5 rounded-lg border border-border-light bg-surface-2/50 px-3 py-1.5 text-xs font-medium text-muted-light cursor-not-allowed">
+                        <Download size={12} />
+                        Available after attestation
+                      </span>
+                    )}
+                  </div>
+                </div>
+              )
+            })()}
           </div>
         )}
       </div>
