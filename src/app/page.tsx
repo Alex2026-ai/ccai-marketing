@@ -369,7 +369,7 @@ export default function HomePage() {
               {
                 icon: Shield,
                 title: "Separate Attestation",
-                desc: "CCAI produces decisions. Intelligent Analyst attests them. The screening engine and truth ledger are architecturally independent.",
+                desc: "CCAI produces decisions. Intelligent Analyst independently attests them, creating a verifiable receipt that proves how and why the decision was made.",
               },
               {
                 icon: Search,
