@@ -113,7 +113,7 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && runDemo()}
-              placeholder="Try: Acme Shipping Ltd"
+              placeholder="Acme Shipping Ltd  or  Global Trade Partners"
               className="w-full rounded-lg border border-border bg-surface-2/50 py-3 pl-10 pr-4 text-sm text-foreground placeholder:text-muted-light outline-none transition-all duration-200 focus:border-accent focus:ring-2 focus:ring-accent/8"
             />
           </div>
@@ -121,13 +121,6 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
             Screen
             <ArrowRight size={13} />
           </button>
-        </div>
-
-        {/* Helper text — always visible regardless of input, loading, or result state */}
-        <div className="mt-2.5 min-h-[1.25rem]">
-          <p className="text-xs text-muted-light">
-            Try <span className="font-medium text-muted">&quot;Acme Shipping Ltd&quot;</span> (L1 match) or <span className="font-medium text-muted">&quot;Global Trade Partners&quot;</span> (L4 escalation).
-          </p>
         </div>
 
         {/* Loading */}
