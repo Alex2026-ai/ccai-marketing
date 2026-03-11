@@ -303,26 +303,70 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
               </div>
             </div>
 
-            {/* Receipt badge */}
-            <div className={`flex flex-col gap-3 rounded-xl border px-5 py-4 sm:flex-row sm:items-center sm:justify-between ${
-              result.receipt.status === "BOUND"
-                ? "border-emerald-100 bg-emerald-50/40"
-                : "border-amber-100 bg-amber-50/40"
-            }`}>
-              <div className="flex items-center gap-3">
-                {result.receipt.status === "BOUND"
-                  ? <CheckCircle size={16} className="text-emerald-500" />
-                  : <AlertCircle size={16} className="text-amber-500" />}
+            {/* Intelligent Analyst Verification Receipt */}
+            <div className="rounded-xl border border-border bg-surface">
+              {/* Receipt header */}
+              <div className="flex flex-col gap-2 border-b border-border-light px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-light">IA Veracity Receipt</p>
-                  <p className="mt-0.5 font-mono text-xs font-medium text-foreground">{result.receipt.id}</p>
-                  <p className="font-mono text-[11px] text-muted">{result.receipt.hash}</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-light">
+                    Intelligent Analyst Verification Receipt
+                  </p>
+                  <p className="mt-1 font-mono text-sm font-semibold text-accent">
+                    {result.state === "CLEARED" ? "IA-ATTEST-8F2C91A4" : "IA-ATTEST-PENDING"}
+                  </p>
                 </div>
+                <span className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1 text-[10px] font-bold uppercase tracking-wider ${
+                  result.state === "CLEARED"
+                    ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                    : "bg-amber-50 text-amber-700 border border-amber-200"
+                }`}>
+                  <CheckCircle size={10} />
+                  {result.state === "CLEARED" ? "Verified by Intelligent Analyst" : "Attestation Pending"}
+                </span>
               </div>
-              <button className="flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1.5 text-xs font-medium text-muted transition-all duration-200 hover:text-foreground hover:border-foreground hover:shadow-sm">
-                <Download size={12} />
-                Download Receipt
-              </button>
+
+              {/* Receipt fields */}
+              <div className="grid grid-cols-1 gap-px bg-border-light sm:grid-cols-2">
+                {[
+                  { label: "attestation_id", value: result.state === "CLEARED" ? "IA-ATTEST-8F2C91A4" : "IA-ATTEST-PENDING", highlight: true },
+                  { label: "artifact_id", value: "DECISION-7D3B2F90" },
+                  { label: "verified_at", value: "2026-03-11T14:21:08Z" },
+                  { label: "protocol_version", value: "1.0" },
+                  { label: "engine_version", value: "CCAI-3.2.1" },
+                  { label: "rules_version", value: "sanctions_rules_v14" },
+                  { label: "registry_snapshot", value: "OFAC_SDN_2026-03-10" },
+                  { label: "input_hash", value: "sha256:8a1c3b...d47e" },
+                  { label: "output_hash", value: "sha256:f94b7a...19ad" },
+                  { label: "decision_type", value: "sanctions_screening" },
+                  { label: "entity", value: result.entity },
+                  { label: "result", value: result.state, highlight: true },
+                  { label: "verification_status", value: result.state === "CLEARED" ? "VERIFIED" : "PENDING", highlight: true },
+                  { label: "receipt_signature", value: "ECDSA-P256" },
+                ].map((field) => (
+                  <div key={field.label} className="flex items-baseline justify-between gap-2 bg-surface px-5 py-2.5">
+                    <span className="font-mono text-[11px] text-muted-light shrink-0">{field.label}</span>
+                    <span className={`font-mono text-[11px] text-right truncate ${
+                      field.highlight
+                        ? field.value === "VERIFIED" || field.value === "CLEARED"
+                          ? "font-semibold text-emerald-600"
+                          : field.value === "PENDING" || field.value === "REVIEW"
+                            ? "font-semibold text-amber-600"
+                            : "font-semibold text-accent"
+                        : "text-foreground"
+                    }`}>
+                      {field.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Download */}
+              <div className="border-t border-border-light px-5 py-3 flex justify-end">
+                <button className="flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1.5 text-xs font-medium text-muted transition-all duration-200 hover:text-foreground hover:border-foreground hover:shadow-sm">
+                  <Download size={12} />
+                  Download Receipt
+                </button>
+              </div>
             </div>
           </div>
         )}

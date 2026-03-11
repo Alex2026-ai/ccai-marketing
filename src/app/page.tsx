@@ -126,15 +126,6 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Testimonial */}
-            <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-surface px-8 py-6 text-center">
-              <p className="text-base leading-relaxed text-foreground italic">
-                &ldquo;CCAI gives us deterministic screening with evidence we can actually defend.&rdquo;
-              </p>
-              <p className="mt-4 text-sm text-muted">
-                — Compliance Lead, Design Partner
-              </p>
-            </div>
           </AnimateOnScroll>
         </div>
       </section>
