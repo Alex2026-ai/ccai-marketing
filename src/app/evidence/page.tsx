@@ -36,30 +36,31 @@ const receiptFields = [
 
 export default function EvidencePage() {
   return (
-    <div className="mx-auto max-w-3xl px-5 py-20 md:py-32 lg:px-8">
+    <div className="mx-auto max-w-3xl px-5 py-24 md:py-36 lg:px-8">
       {/* Header */}
       <div className="fade-in-up">
         <p className="section-label">Evidence</p>
-        <h1 className="mt-4 text-[2.5rem] font-semibold tracking-tight leading-[1.1] md:text-[2.75rem]">
+        <div className="section-divider mt-4" />
+        <h1 className="mt-6 text-[2.5rem] font-semibold tracking-tight leading-[1.08] md:text-[2.75rem]">
           Every decision produces a verifiable record.
         </h1>
-        <p className="mt-5 text-lg leading-relaxed text-muted">
+        <p className="mt-6 text-lg leading-relaxed text-muted">
           This is not a log or a score. It is a complete, structured account of
           what was decided, why, and with what data.
         </p>
       </div>
 
       {/* Evidence Bundle */}
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">
           Evidence Bundle
         </h2>
-        <p className="mt-3 text-base leading-relaxed text-muted">
+        <p className="mt-4 text-base leading-relaxed text-muted">
           The core evidence object is the DecisionEventPackage. Once assembled,
           it is immutable — no field can be modified, appended, or removed.
         </p>
 
-        <div className="mt-6 overflow-hidden rounded-xl border border-border">
+        <div className="mt-8 overflow-hidden rounded-2xl border border-border">
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-border bg-surface-2/50">
@@ -88,11 +89,11 @@ export default function EvidencePage() {
       </AnimateOnScroll>
 
       {/* Example */}
-      <AnimateOnScroll className="mt-12">
+      <AnimateOnScroll className="mt-14">
         <h3 className="text-base font-semibold text-foreground">
           Example evidence record
         </h3>
-        <div className="mt-4 overflow-x-auto rounded-xl border border-border bg-[#111827] px-5 py-4 font-mono text-[13px] leading-relaxed">
+        <div className="mt-5 overflow-x-auto rounded-2xl border border-border bg-[#111827] px-6 py-5 font-mono text-[13px] leading-[1.7]">
           {[
             ["trace_id", "tr_2026_03_11_08421234"],
             ["decision_state", "CLEARED"],
@@ -101,7 +102,7 @@ export default function EvidencePage() {
             ["rule_pack_version", "rp_v3.2.1"],
             ["watchlist_snapshot", "ws_2026_03_10_daily"],
             ["config_snapshot", "cs_2026_03_11_0842"],
-            ["receipt_id", "rct_5b6d…e91c"],
+            ["receipt_id", "rct_5b6d\u2026e91c"],
             ["receipt_status", "BOUND"],
           ].map(([key, val]) => (
             <div key={key} className="text-gray-400">
@@ -113,23 +114,23 @@ export default function EvidencePage() {
       </AnimateOnScroll>
 
       {/* Interactive Receipt Demo */}
-      <AnimateOnScroll className="mt-20">
-        <p className="section-label mb-4">Try It</p>
+      <AnimateOnScroll className="mt-24">
+        <p className="section-label mb-5">Try It</p>
         <ReceiptDemo />
       </AnimateOnScroll>
 
       {/* Receipt References */}
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">
           Receipt References
         </h2>
-        <p className="mt-3 text-base leading-relaxed text-muted">
+        <p className="mt-4 text-base leading-relaxed text-muted">
           After evidence assembly, the package is handed to Intelligent Analyst
           for attestation. The receipt is stored in the IA truth ledger and can
           be independently retrieved and verified without access to CCAI.
         </p>
 
-        <div className="mt-6 overflow-hidden rounded-xl border border-border">
+        <div className="mt-8 overflow-hidden rounded-2xl border border-border">
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-border bg-surface-2/50">
@@ -158,15 +159,15 @@ export default function EvidencePage() {
       </AnimateOnScroll>
 
       {/* Audit Export */}
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">Audit Export</h2>
-        <p className="mt-3 text-base leading-relaxed text-muted">
+        <p className="mt-4 text-base leading-relaxed text-muted">
           Evidence can be exported in formats suitable for regulatory
           examination. Audit reports include governance context: rule pack
           version, threshold policy, approval chain, and configuration snapshot.
         </p>
 
-        <div className="mt-6 overflow-hidden rounded-xl border border-border">
+        <div className="mt-8 overflow-hidden rounded-2xl border border-border">
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-border bg-surface-2/50">
@@ -188,7 +189,7 @@ export default function EvidencePage() {
                     {e.type}
                   </td>
                   <td className="px-4 py-3">
-                    <span className="rounded bg-surface-2 px-2 py-0.5 font-mono text-[11px] font-medium text-muted">
+                    <span className="rounded-md bg-surface-2 px-2 py-0.5 font-mono text-[11px] font-medium text-muted">
                       {e.format}
                     </span>
                   </td>
@@ -203,11 +204,11 @@ export default function EvidencePage() {
       </AnimateOnScroll>
 
       {/* Why This Matters */}
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">
           Why this matters for regulated use.
         </h2>
-        <div className="mt-6 space-y-4">
+        <div className="mt-8 space-y-4">
           {[
             {
               q: "What was the decision?",
@@ -230,18 +231,18 @@ export default function EvidencePage() {
               a: "The VeracityReceipt is stored in a separate system (IA) with its own integrity guarantees. The hash binding allows independent verification without trusting either system alone.",
             },
           ].map((item) => (
-            <div key={item.q} className="rounded-xl border border-border bg-surface px-5 py-4">
+            <div key={item.q} className="card-surface px-6 py-5">
               <h3 className="text-[15px] font-semibold text-foreground">
                 {item.q}
               </h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted">
+              <p className="mt-2 text-sm leading-relaxed text-muted">
                 {item.a}
               </p>
             </div>
           ))}
         </div>
 
-        <p className="mt-8 text-base leading-relaxed text-muted">
+        <p className="mt-10 text-base leading-relaxed text-muted">
           CCAI does not claim to eliminate compliance risk. It provides the
           evidence infrastructure that allows regulated institutions to
           demonstrate the rigor, consistency, and traceability of their

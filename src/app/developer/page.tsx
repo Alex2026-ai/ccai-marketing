@@ -27,24 +27,25 @@ const events = [
 
 export default function DeveloperPage() {
   return (
-    <div className="mx-auto max-w-3xl px-5 py-20 md:py-32 lg:px-8">
+    <div className="mx-auto max-w-3xl px-5 py-24 md:py-36 lg:px-8">
       <div className="fade-in-up">
         <p className="section-label">Developer</p>
-        <h1 className="mt-4 text-[2.5rem] font-semibold tracking-tight leading-[1.1] md:text-[2.75rem]">
+        <div className="section-divider mt-4" />
+        <h1 className="mt-6 text-[2.5rem] font-semibold tracking-tight leading-[1.08] md:text-[2.75rem]">
           API-first screening infrastructure.
         </h1>
-        <p className="mt-5 text-lg leading-relaxed text-muted">
+        <p className="mt-6 text-lg leading-relaxed text-muted">
           CCAI is designed for programmatic consumption. Platform teams integrate
           screening into existing workflows without adopting a standalone product.
         </p>
       </div>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">API Endpoints</h2>
-        <p className="mt-3 text-base leading-relaxed text-muted">
+        <p className="mt-4 text-base leading-relaxed text-muted">
           Authentication via API key. Tenant context bound via request header. All responses include trace identifiers for audit correlation.
         </p>
-        <div className="mt-6 overflow-hidden rounded-xl border border-border">
+        <div className="mt-8 overflow-hidden rounded-2xl border border-border">
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-border bg-surface-2/50">
@@ -57,7 +58,7 @@ export default function DeveloperPage() {
               {endpoints.map((ep) => (
                 <tr key={ep.path} className="border-b border-border-light last:border-0">
                   <td className="px-4 py-3">
-                    <span className="rounded bg-accent/8 px-2 py-0.5 font-mono text-[11px] font-semibold text-accent">{ep.method}</span>
+                    <span className="rounded-md bg-accent/8 px-2 py-0.5 font-mono text-[11px] font-semibold text-accent">{ep.method}</span>
                   </td>
                   <td className="px-4 py-3 font-mono text-sm text-foreground">{ep.path}</td>
                   <td className="hidden px-4 py-3 text-sm text-muted sm:table-cell">{ep.desc}</td>
@@ -68,13 +69,13 @@ export default function DeveloperPage() {
         </div>
       </AnimateOnScroll>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">Batch Screening</h2>
-        <p className="mt-3 text-base leading-relaxed text-muted">
+        <p className="mt-4 text-base leading-relaxed text-muted">
           Batch processing is the primary operational mode for most integrations. Batches support up to 10,000 entities per submission, parallelized across resolution layers.
         </p>
-        <div className="mt-6 rounded-xl border border-border bg-[#111827] px-5 py-4">
-          <ol className="space-y-2.5">
+        <div className="mt-8 rounded-2xl border border-border bg-[#111827] px-6 py-5">
+          <ol className="space-y-3">
             {[
               "Submit entity file (CSV, XLSX, JSON, Parquet) or JSON array",
               "Receive batch_id and trace_id in the response",
@@ -91,12 +92,12 @@ export default function DeveloperPage() {
         </div>
       </AnimateOnScroll>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">Event and Webhook Model</h2>
-        <p className="mt-3 text-base leading-relaxed text-muted">
+        <p className="mt-4 text-base leading-relaxed text-muted">
           CCAI emits events at key points in the screening lifecycle. Webhooks are delivered via HTTP POST with signed payloads. Events include trace_id and batch_id for correlation.
         </p>
-        <div className="mt-6 overflow-hidden rounded-xl border border-border">
+        <div className="mt-8 overflow-hidden rounded-2xl border border-border">
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-border bg-surface-2/50">
@@ -116,42 +117,42 @@ export default function DeveloperPage() {
         </div>
       </AnimateOnScroll>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">Evaluation Workspace</h2>
-        <p className="mt-3 text-base leading-relaxed text-muted">
+        <p className="mt-4 text-base leading-relaxed text-muted">
           Before production integration, teams can evaluate CCAI in a sandboxed environment. Submit test batches against reference data, inspect resolution results and evidence output, and validate API integration patterns.
         </p>
-        <p className="mt-3 text-base leading-relaxed text-muted">
+        <p className="mt-4 text-base leading-relaxed text-muted">
           The evaluation workspace uses the same engine and protocol as production. The only difference is the data scope and access tier.
         </p>
       </AnimateOnScroll>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">CCAI as a screening layer</h2>
-        <p className="mt-3 text-base leading-relaxed text-muted">
+        <p className="mt-4 text-base leading-relaxed text-muted">
           CCAI is infrastructure, not a product you switch to. It fits into existing compliance architectures.
         </p>
-        <div className="mt-6 space-y-4">
+        <div className="mt-8 space-y-4">
           {[
             { label: "For platform teams", desc: "Embed screening as an API call within existing entity onboarding, transaction monitoring, or KYC workflows. CCAI handles resolution and evidence generation. Your platform handles the business logic." },
             { label: "For compliance systems", desc: "Feed CCAI the entity lists your existing systems produce. Consume the structured evidence output for regulatory reporting. CCAI does not replace your compliance program — it provides the screening execution and evidence layer." },
             { label: "For data pipelines", desc: "Submit batch files on a schedule. Receive structured results with full lineage. Load results into your data warehouse or reporting system. CCAI operates as a processing stage, not a destination." },
           ].map((item) => (
-            <div key={item.label} className="rounded-xl border border-border bg-surface px-5 py-4">
+            <div key={item.label} className="card-surface px-6 py-5">
               <h3 className="text-[15px] font-semibold text-foreground">{item.label}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted">{item.desc}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{item.desc}</p>
             </div>
           ))}
         </div>
       </AnimateOnScroll>
 
-      <AnimateOnScroll className="mt-20">
-        <div className="rounded-xl border border-border bg-accent/4 px-6 py-10 text-center">
+      <AnimateOnScroll className="mt-24">
+        <div className="rounded-2xl border border-accent/15 bg-accent/3 px-8 py-12 text-center">
           <h2 className="text-xl font-semibold tracking-tight">Get API access.</h2>
-          <p className="mx-auto mt-2 max-w-md text-base leading-relaxed text-muted">
+          <p className="mx-auto mt-3 max-w-md text-base leading-relaxed text-muted">
             Request evaluation credentials to test the API against your integration requirements.
           </p>
-          <div className="mt-6">
+          <div className="mt-8">
             <Link href="/evaluation" className="btn-primary">
               Request Evaluation Access
               <ArrowRight size={15} />

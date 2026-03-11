@@ -57,20 +57,21 @@ const stages = [
 
 export default function HowItWorksPage() {
   return (
-    <div className="mx-auto max-w-3xl px-5 py-20 md:py-32 lg:px-8">
+    <div className="mx-auto max-w-3xl px-5 py-24 md:py-36 lg:px-8">
       <div className="fade-in-up">
         <p className="section-label">Protocol</p>
-        <h1 className="mt-4 text-[2.5rem] font-semibold tracking-tight leading-[1.1] md:text-[2.75rem]">
+        <div className="section-divider mt-4" />
+        <h1 className="mt-6 text-[2.5rem] font-semibold tracking-tight leading-[1.08] md:text-[2.75rem]">
           How CCAI works.
         </h1>
-        <p className="mt-5 text-lg leading-relaxed text-muted">
+        <p className="mt-6 text-lg leading-relaxed text-muted">
           CCAI screens entities through a structured protocol. Each stage
           produces traceable output. The full path from intake to attestation is
           deterministic, auditable, and reproducible.
         </p>
       </div>
 
-      <div className="mt-20 space-y-20">
+      <div className="mt-24 space-y-24">
         {stages.map((stage) => (
           <AnimateOnScroll key={stage.num}>
             <div className="flex items-baseline gap-4">
@@ -81,7 +82,7 @@ export default function HowItWorksPage() {
                 {stage.title}
               </h2>
             </div>
-            <div className="mt-5 space-y-3 pl-11">
+            <div className="mt-6 space-y-4 pl-11">
               {stage.content.map((p, i) => (
                 <p key={i} className="text-base leading-relaxed text-muted">
                   {p}
@@ -90,7 +91,7 @@ export default function HowItWorksPage() {
             </div>
 
             {stage.showLayers && (
-              <div className="mt-8 ml-11 overflow-hidden rounded-xl border border-border">
+              <div className="mt-10 ml-11 overflow-hidden rounded-2xl border border-border">
                 <table className="w-full text-left">
                   <thead>
                     <tr className="border-b border-border bg-surface-2/50">
@@ -103,8 +104,8 @@ export default function HowItWorksPage() {
                   <tbody>
                     {layers.map((layer) => (
                       <tr key={layer.id} className="border-b border-border-light last:border-0">
-                        <td className="px-4 py-3 font-mono text-sm font-medium text-accent">{layer.id}</td>
-                        <td className="px-4 py-3 text-sm text-foreground">{layer.name}</td>
+                        <td className="px-4 py-3 font-mono text-sm font-semibold text-accent">{layer.id}</td>
+                        <td className="px-4 py-3 text-sm font-medium text-foreground">{layer.name}</td>
                         <td className="px-4 py-3 font-mono text-sm text-muted">{layer.cost}</td>
                         <td className="hidden px-4 py-3 text-sm text-muted sm:table-cell">{layer.desc}</td>
                       </tr>

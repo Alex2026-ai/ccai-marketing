@@ -34,35 +34,36 @@ const steps = [
 
 export default function EvaluationPage() {
   return (
-    <div className="mx-auto max-w-3xl px-5 py-20 md:py-32 lg:px-8">
+    <div className="mx-auto max-w-3xl px-5 py-24 md:py-36 lg:px-8">
       <div className="fade-in-up">
         <p className="section-label">Evaluation</p>
-        <h1 className="mt-4 text-[2.5rem] font-semibold tracking-tight leading-[1.1] md:text-[2.75rem]">
+        <div className="section-divider mt-4" />
+        <h1 className="mt-6 text-[2.5rem] font-semibold tracking-tight leading-[1.08] md:text-[2.75rem]">
           Test the protocol with your own data.
         </h1>
-        <p className="mt-5 text-lg leading-relaxed text-muted">
+        <p className="mt-6 text-lg leading-relaxed text-muted">
           The evaluation environment runs the same engine and protocol as production. It is not a demo or simulation — it executes real screening logic against reference data.
         </p>
       </div>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">What you can try.</h2>
-        <div className="mt-6 space-y-3">
+        <div className="mt-8 space-y-3">
           {tryItems.map((item) => (
-            <div key={item.title} className="rounded-xl border border-border bg-surface px-5 py-4 transition-colors hover:border-accent/20">
+            <div key={item.title} className="card-surface px-6 py-5">
               <h3 className="text-[15px] font-semibold text-foreground">{item.title}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted">{item.desc}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{item.desc}</p>
             </div>
           ))}
         </div>
       </AnimateOnScroll>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">Limits and safety.</h2>
-        <p className="mt-3 text-base leading-relaxed text-muted">
+        <p className="mt-4 text-base leading-relaxed text-muted">
           The evaluation environment has defined boundaries. Evaluation access does not grant production API keys, production data, or system configuration access.
         </p>
-        <div className="mt-6 overflow-hidden rounded-xl border border-border">
+        <div className="mt-8 overflow-hidden rounded-2xl border border-border">
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-border bg-surface-2/50">
@@ -82,13 +83,13 @@ export default function EvaluationPage() {
         </div>
       </AnimateOnScroll>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">Request access.</h2>
-        <p className="mt-3 text-base leading-relaxed text-muted">
+        <p className="mt-4 text-base leading-relaxed text-muted">
           There is no sales process required to begin evaluation. Access is granted based on use case fit.
         </p>
-        <div className="mt-6 rounded-xl border border-border bg-[#111827] px-5 py-4">
-          <ol className="space-y-2.5">
+        <div className="mt-8 rounded-2xl border border-border bg-[#111827] px-6 py-5">
+          <ol className="space-y-3">
             {steps.map((step, i) => (
               <li key={i} className="flex items-start gap-3">
                 <span className="mt-0.5 font-mono text-xs text-sky-400/60">{i + 1}.</span>
@@ -99,10 +100,10 @@ export default function EvaluationPage() {
         </div>
       </AnimateOnScroll>
 
-      <AnimateOnScroll className="mt-20">
-        <div className="rounded-xl border border-accent/20 bg-accent/4 px-6 py-12 text-center">
+      <AnimateOnScroll className="mt-24">
+        <div className="rounded-2xl border border-accent/15 bg-accent/3 px-8 py-14 text-center">
           <h2 className="text-2xl font-semibold tracking-tight">Ready to evaluate.</h2>
-          <p className="mx-auto mt-3 max-w-md text-base leading-relaxed text-muted">
+          <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-muted">
             Request evaluation access. We provision your tenant and credentials within one business day.
           </p>
           <div className="mt-8">

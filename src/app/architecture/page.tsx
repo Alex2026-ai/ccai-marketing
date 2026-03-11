@@ -31,68 +31,69 @@ const infraProperties = [
 
 export default function ArchitecturePage() {
   return (
-    <div className="mx-auto max-w-3xl px-5 py-20 md:py-32 lg:px-8">
+    <div className="mx-auto max-w-3xl px-5 py-24 md:py-36 lg:px-8">
       <div className="fade-in-up">
         <p className="section-label">Architecture</p>
-        <h1 className="mt-4 text-[2.5rem] font-semibold tracking-tight leading-[1.1] md:text-[2.75rem]">
+        <div className="section-divider mt-4" />
+        <h1 className="mt-6 text-[2.5rem] font-semibold tracking-tight leading-[1.08] md:text-[2.75rem]">
           Three-layer separation.
         </h1>
-        <p className="mt-5 text-lg leading-relaxed text-muted">
+        <p className="mt-6 text-lg leading-relaxed text-muted">
           CCAI is organized into three architectural layers. Each has distinct
           responsibilities, separate data stores, and enforced boundaries.
         </p>
       </div>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <div className="flex items-baseline gap-4">
           <span className="font-mono text-sm font-semibold tabular-nums text-accent">01</span>
           <h2 className="text-2xl font-semibold tracking-tight">CCAI Execution Layer</h2>
         </div>
-        <div className="mt-5 space-y-6 pl-11">
+        <div className="mt-6 space-y-8 pl-11">
           <div>
             <h3 className="text-base font-semibold text-foreground">Data Plane</h3>
-            <p className="mt-2 text-base leading-relaxed text-muted">
+            <p className="mt-3 text-base leading-relaxed text-muted">
               Processes entity data through the resolution waterfall. Handles ingestion, schema detection, entity type classification, normalization, L0–L4 layer execution, lineage tracking, and DecisionEventPackage assembly.
             </p>
-            <p className="mt-2 text-base leading-relaxed text-muted">
+            <p className="mt-3 text-base leading-relaxed text-muted">
               The data plane handles all entity-level computation. It reads configuration from the control plane but never modifies it.
             </p>
           </div>
           <div>
             <h3 className="text-base font-semibold text-foreground">Control Plane</h3>
-            <p className="mt-2 text-base leading-relaxed text-muted">
+            <p className="mt-3 text-base leading-relaxed text-muted">
               Manages operational configuration and governance: tenancy, rule packs, auth, quotas, observability, incident control, config snapshots, and audit exports. The control plane constrains the data plane&apos;s behavior but does not execute screening logic.
             </p>
           </div>
         </div>
       </AnimateOnScroll>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <div className="flex items-baseline gap-4">
           <span className="font-mono text-sm font-semibold tabular-nums text-accent">02</span>
           <h2 className="text-2xl font-semibold tracking-tight">Intelligent Analyst Verification Layer</h2>
         </div>
-        <div className="mt-5 pl-11">
+        <div className="mt-6 pl-11">
           <p className="text-base leading-relaxed text-muted">
             The truth and attestation system. Architecturally separate from CCAI. Receives DecisionEventPackages, records decisions in an append-only truth ledger, binds VeracityReceipts with cryptographic hashes, and enables independent replay and verification.
           </p>
-          <p className="mt-3 text-base leading-relaxed text-muted">
+          <p className="mt-4 text-base leading-relaxed text-muted">
             IA does not influence screening decisions. CCAI does not modify IA records. The boundary is enforced at the system level, not by convention.
           </p>
         </div>
       </AnimateOnScroll>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <div className="flex items-baseline gap-4">
           <span className="font-mono text-sm font-semibold tabular-nums text-accent">03</span>
           <h2 className="text-2xl font-semibold tracking-tight">Modular Control Plane</h2>
         </div>
-        <div className="mt-5 pl-11">
+        <div className="mt-6 pl-11">
           <p className="text-base leading-relaxed text-muted">
             The control plane is composed of independent modules, each with a single responsibility. Modules communicate through an internal event bus. No module directly imports another module&apos;s internals. Isolation is enforced by automated boundary checks in CI.
           </p>
 
-          <div className="mt-6 overflow-hidden rounded-xl border border-border">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-border">
             <table className="w-full text-left">
               <thead>
                 <tr className="border-b border-border bg-surface-2/50">
@@ -113,24 +114,24 @@ export default function ArchitecturePage() {
         </div>
       </AnimateOnScroll>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <div className="flex items-baseline gap-4">
           <span className="font-mono text-sm font-semibold tabular-nums text-accent">04</span>
           <h2 className="text-2xl font-semibold tracking-tight">Developer and API Consumption</h2>
         </div>
-        <div className="mt-5 pl-11">
+        <div className="mt-6 pl-11">
           <p className="text-base leading-relaxed text-muted">
             CCAI is consumed as infrastructure. REST API for single-entity resolution, batch submission, audit retrieval, and health monitoring. Web dashboard for operators managing screening workflows, case triage, and evidence export. Webhooks for event notifications.
           </p>
-          <p className="mt-3 text-base leading-relaxed text-muted">
+          <p className="mt-4 text-base leading-relaxed text-muted">
             The API is the primary integration surface. The dashboard is the operational interface. Both consume the same underlying engine.
           </p>
         </div>
       </AnimateOnScroll>
 
-      <AnimateOnScroll className="mt-20">
+      <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">Infrastructure Properties</h2>
-        <div className="mt-6 overflow-hidden rounded-xl border border-border">
+        <div className="mt-8 overflow-hidden rounded-2xl border border-border">
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-border bg-surface-2/50">

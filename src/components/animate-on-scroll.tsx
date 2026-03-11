@@ -5,9 +5,11 @@ import { useEffect, useRef, useState, type ReactNode } from "react"
 export function AnimateOnScroll({
   children,
   className = "",
+  delay = 0,
 }: {
   children: ReactNode
   className?: string
+  delay?: number
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
@@ -23,7 +25,7 @@ export function AnimateOnScroll({
           observer.unobserve(el)
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -60px 0px" }
     )
 
     observer.observe(el)
@@ -36,8 +38,8 @@ export function AnimateOnScroll({
       className={className}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(16px)",
-        transition: "opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
+        transform: visible ? "translateY(0)" : "translateY(20px)",
+        transition: `opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
       }}
     >
       {children}

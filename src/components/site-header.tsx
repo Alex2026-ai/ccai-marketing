@@ -18,11 +18,11 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-surface/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-surface/80 backdrop-blur-xl">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 lg:px-8">
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent/10">
+        <Link href="/" className="flex items-center gap-2.5 transition-opacity hover:opacity-80">
+          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent/8">
             <Shield size={14} className="text-accent" />
           </div>
           <span className="text-[15px] font-semibold tracking-tight text-foreground">
@@ -31,15 +31,15 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-0.5 md:flex">
+        <nav className="hidden items-center gap-1 md:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 ${
+              className={`rounded-lg px-3 py-1.5 text-[13px] font-medium transition-all duration-200 ${
                 pathname === item.href
                   ? "bg-accent/8 text-accent"
-                  : "text-muted hover:text-foreground"
+                  : "text-muted hover:text-foreground hover:bg-surface-2/80"
               }`}
             >
               {item.label}
@@ -72,7 +72,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className={`rounded-lg px-3 py-2 text-[14px] font-medium ${
+                className={`rounded-lg px-3 py-2 text-[14px] font-medium transition-colors ${
                   pathname === item.href
                     ? "bg-accent/8 text-accent"
                     : "text-muted hover:text-foreground"

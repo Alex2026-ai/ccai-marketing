@@ -17,30 +17,42 @@ const sparkData: Record<string, { v: number }[]> = {
   ],
 }
 
+const deltas: Record<string, string> = {
+  audit: "+12% QoQ",
+  speed: "-38% latency",
+  lineage: "100% since v3",
+}
+
 export function KpiSparkline({ dataKey }: { dataKey: "audit" | "speed" | "lineage" }) {
   const data = sparkData[dataKey]
 
   return (
-    <div className="h-10 w-full">
-      <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={data}>
-          <defs>
-            <linearGradient id={`grad-${dataKey}`} x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#0ea5e9" stopOpacity={0.15} />
-              <stop offset="100%" stopColor="#0ea5e9" stopOpacity={0} />
-            </linearGradient>
-          </defs>
-          <Area
-            type="monotone"
-            dataKey="v"
-            stroke="#0ea5e9"
-            strokeWidth={1.5}
-            fill={`url(#grad-${dataKey})`}
-            dot={false}
-            animationDuration={1200}
-          />
-        </AreaChart>
-      </ResponsiveContainer>
+    <div>
+      <div className="h-12 w-full">
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={data} margin={{ top: 2, right: 0, left: 0, bottom: 0 }}>
+            <defs>
+              <linearGradient id={`grad-${dataKey}`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#0ea5e9" stopOpacity={0.12} />
+                <stop offset="100%" stopColor="#0ea5e9" stopOpacity={0.01} />
+              </linearGradient>
+            </defs>
+            <Area
+              type="monotone"
+              dataKey="v"
+              stroke="#0ea5e9"
+              strokeWidth={1.5}
+              fill={`url(#grad-${dataKey})`}
+              dot={false}
+              animationDuration={1400}
+              animationEasing="ease-out"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+      <p className="mt-2 font-mono text-[11px] font-medium text-accent/70">
+        {deltas[dataKey]}
+      </p>
     </div>
   )
 }
