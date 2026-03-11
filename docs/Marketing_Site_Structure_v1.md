@@ -2,7 +2,7 @@
 
 | Field   | Value                           |
 |---------|---------------------------------|
-| Version | v1.0                            |
+| Version | v1.1                            |
 | Status  | Draft                           |
 | Date    | 2026-03-11                      |
 | Author  | Principal Systems Architect     |
@@ -15,7 +15,67 @@ The CCAI marketing site communicates what CoreCompliance AI is, how it works, an
 
 It is a public-facing informational website. It does not provide operational functionality, dashboard access, or API endpoints.
 
-## 2. Separation from Dashboard and Engine
+## 2. Site Goals
+
+1. **Explain** — Clearly communicate what CCAI does and how it works, without overstating capability
+2. **Differentiate** — Establish why deterministic screening with verifiable evidence is structurally different from probabilistic or opaque alternatives
+3. **Qualify** — Help prospective users determine if CCAI fits their compliance infrastructure needs
+4. **Convert** — Drive qualified leads toward evaluation access or direct contact
+5. **Reference** — Serve as a durable reference for technical and procurement teams during evaluation cycles
+
+## 3. Target Audiences
+
+### 3.1 Compliance Operators
+
+Sanctions screening analysts and compliance officers who run screening operations daily. They care about:
+
+- Accuracy and false positive rates
+- Evidence quality for regulatory examination
+- Auditability and reproducibility of decisions
+- Operational reliability and monitoring
+
+### 3.2 Enterprise Buyers
+
+Heads of compliance, CTOs, and procurement leads evaluating screening infrastructure. They care about:
+
+- Regulatory defensibility
+- Total cost of ownership
+- Multi-tenant isolation and data residency
+- Vendor independence and portability
+- Integration complexity and timeline
+
+### 3.3 Developers / Platform Teams
+
+Engineering teams responsible for integrating screening into existing workflows. They care about:
+
+- API design and developer experience
+- Batch processing throughput
+- Event model and webhook integration
+- Evaluation and sandbox access
+- Infrastructure requirements and deployment model
+
+## 4. Core Positioning
+
+### 4.1 What CCAI Is
+
+Deterministic compliance screening infrastructure. CCAI screens entities against sanctions and watchlists using a layered resolution protocol that produces verifiable evidence for every decision.
+
+### 4.2 Positioning Pillars
+
+| Pillar                  | Statement                                                                 |
+|-------------------------|---------------------------------------------------------------------------|
+| Deterministic screening | Decisions are produced by a defined protocol, not opaque models           |
+| Evidence-first          | Every decision generates a structured evidence bundle with full lineage   |
+| API + Dashboard         | Consumed as infrastructure via API, operated via dashboard                |
+| Attestation via IA      | Decisions are attested and receipted through the Intelligent Analyst truth layer |
+
+### 4.3 What CCAI Is Not
+
+- Not a general-purpose AI product
+- Not a chatbot or conversational interface
+- Not a replacement for compliance judgment — it is infrastructure that supports it
+
+## 5. Separation from Dashboard and Engine
 
 The marketing site is deliberately isolated from the operator dashboard and backend engine:
 
@@ -33,9 +93,9 @@ This separation ensures:
 - The public surface area is minimal and auditable
 - No operational credentials or API keys are present in this repository
 
-## 3. Information Architecture
+## 6. Information Architecture
 
-### 3.1 Page Map
+### 6.1 Page Map
 
 ```
 /                          Homepage
@@ -49,7 +109,19 @@ This separation ensures:
 └── /evaluation            Evaluation methodology and benchmarks
 ```
 
-### 3.2 Page Descriptions
+### 6.2 Page Purpose
+
+| Route              | Primary Audience      | Purpose                                                        |
+|--------------------|-----------------------|----------------------------------------------------------------|
+| `/`                | All                   | Establish what CCAI is, why it exists, and how to evaluate it  |
+| `/how-it-works`    | Operators, Buyers     | Explain the screening protocol without implementation detail   |
+| `/architecture`    | Developers, Buyers    | Show system structure for technical and security evaluation     |
+| `/use-cases/*`     | Buyers, Operators     | Demonstrate domain applicability with concrete scenarios        |
+| `/developer`       | Developers            | Provide integration guidance and API consumption model         |
+| `/evidence`        | Operators, Buyers     | Explain the evidence model that supports regulatory defense    |
+| `/evaluation`      | All                   | Guide users into hands-on evaluation with clear scope          |
+
+### 6.3 Page Descriptions
 
 **`/` — Homepage**
 
@@ -83,7 +155,7 @@ Explains the evidence and transparency architecture. Covers DecisionEventPackage
 
 Describes how CCAI is evaluated and benchmarked. Covers resolution accuracy metrics, layer distribution analysis, false positive/negative rates, confidence calibration, and the evaluation harness methodology.
 
-### 3.3 Navigation Model
+### 6.4 Navigation Model
 
 - **Primary nav:** Homepage, How It Works, Architecture, Use Cases, Developer
 - **Secondary nav (footer):** Evidence, Evaluation, Legal, Contact
