@@ -123,10 +123,12 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
           </button>
         </div>
 
-        {/* Hint */}
-        <p className="mt-2.5 text-xs text-muted-light">
-          Try &quot;Acme Shipping Ltd&quot; (L1 match) or &quot;Global Trade Partners&quot; (L4 escalation).
-        </p>
+        {/* Helper text — always visible regardless of input, loading, or result state */}
+        <div className="mt-2.5 min-h-[1.25rem]">
+          <p className="text-xs text-muted-light">
+            Try <span className="font-medium text-muted">&quot;Acme Shipping Ltd&quot;</span> (L1 match) or <span className="font-medium text-muted">&quot;Global Trade Partners&quot;</span> (L4 escalation).
+          </p>
+        </div>
 
         {/* Loading */}
         {loading && (
