@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+/* ── CCAI Marketing — Design Tokens ── */
+
+@theme inline {
+  --color-background: #fafbfc;
+  --color-foreground: #1a1f2e;
+  --color-surface: #ffffff;
+  --color-surface-2: #f4f5f7;
+  --color-border: #e2e5ea;
+  --color-border-light: #edf0f3;
+  --color-muted: #6b7280;
+  --color-muted-light: #9ca3af;
+  --color-accent: #0d9488;
+  --color-accent-light: #14b8a6;
+  --color-accent-subtle: #f0fdfa;
+  --color-violet: #7c3aed;
+  --color-violet-subtle: #f5f3ff;
+  --color-danger: #dc2626;
+  --color-layer-l1: #0d9488;
+  --color-layer-l2: #7c3aed;
+  --color-layer-l3: #d97706;
+  --color-layer-l4: #dc2626;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+
+  --animate-fade-in: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in-up: fade-in-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Base ── */
+
+html {
+  font-feature-settings: "rlig" 1, "calt" 1;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+::selection {
+  background: rgba(13, 148, 136, 0.12);
+  color: #1a1f2e;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--color-foreground);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+}
+
+/* ── Utilities ── */
+
+.fade-in-up {
+  animation: fade-in-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.section-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
