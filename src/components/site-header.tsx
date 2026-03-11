@@ -8,7 +8,9 @@ import { VerifiedShieldIcon } from "@/components/icons/verified-shield"
 
 const nav = [
   { label: "How It Works", href: "/how-it-works" },
-  { label: "Architecture", href: "/architecture" },
+  { label: "Maritime", href: "/maritime-screening" },
+  { label: "Insurance", href: "/insurance-screening" },
+  { label: "Integrations", href: "/platform-integrations" },
   { label: "Developer", href: "/developer" },
   { label: "Evidence", href: "/evidence" },
   { label: "Evaluation", href: "/evaluation" },

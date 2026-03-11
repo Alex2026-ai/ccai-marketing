@@ -11,6 +11,14 @@ const footerNav = [
     ],
   },
   {
+    heading: "Verticals",
+    links: [
+      { label: "Maritime Screening", href: "/maritime-screening" },
+      { label: "Insurance Screening", href: "/insurance-screening" },
+      { label: "Platform Integrations", href: "/platform-integrations" },
+    ],
+  },
+  {
     heading: "Developers",
     links: [
       { label: "API Overview", href: "/developer" },
@@ -24,7 +32,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-surface-2/30">
       <div className="mx-auto max-w-6xl px-5 py-14 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-5">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5">

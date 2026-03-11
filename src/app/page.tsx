@@ -314,24 +314,27 @@ export default function HomePage() {
               {
                 icon: Ship,
                 title: "Shipping & Maritime",
+                href: "/maritime-screening",
                 desc: "Screen vessel owners, operators, and beneficial ownership chains against OFAC, EU, and UN sanctions lists. Monitor ongoing exposure across fleet portfolios.",
                 lift: "92% audit prep reduction",
               },
               {
                 icon: Building2,
                 title: "Insurance",
+                href: "/insurance-screening",
                 desc: "Screen policyholders, counterparties, and reinsurance chains at underwriting and renewal. Batch-process portfolio-scale entity lists with full evidence.",
                 lift: "87% fewer false positives",
               },
               {
                 icon: Globe,
                 title: "Enterprise Platforms",
+                href: "/platform-integrations",
                 desc: "Embed CCAI as a screening layer within existing compliance workflows. API-first integration for platforms that need screening as infrastructure.",
                 lift: "<2s average latency",
               },
             ].map((item, i) => (
               <AnimateOnScroll key={item.title} delay={i * 0.08}>
-                <div className="card-surface p-7">
+                <Link href={item.href} className="card-surface p-7 block transition-all duration-300 hover:border-accent/20 hover:shadow-sm">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-surface-2">
                     <item.icon size={18} className="text-muted" />
                   </div>
@@ -347,7 +350,7 @@ export default function HomePage() {
                       {item.lift}
                     </div>
                   )}
-                </div>
+                </Link>
               </AnimateOnScroll>
             ))}
           </div>
