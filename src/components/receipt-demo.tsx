@@ -79,6 +79,12 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
     }
   }, [autoPlay, hasAutoPlayed])
 
+  function handleFocus() {
+    if (hasAutoPlayed && input === defaultEntity) {
+      setInput("")
+    }
+  }
+
   function runDemo() {
     setLoading(true)
     setResult(null)
@@ -112,6 +118,7 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onFocus={handleFocus}
               onKeyDown={(e) => e.key === "Enter" && runDemo()}
               placeholder="Acme Shipping Ltd  or  Global Trade Partners"
               className="w-full rounded-lg border border-border bg-surface-2/50 py-3 pl-10 pr-4 text-sm text-foreground placeholder:text-muted-light outline-none transition-all duration-200 focus:border-accent focus:ring-2 focus:ring-accent/8"
