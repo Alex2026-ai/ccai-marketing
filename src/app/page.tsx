@@ -79,6 +79,26 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Screening Demo (primary conversion) ── */}
+      <section className="border-t border-border-light bg-surface">
+        <div className="mx-auto max-w-3xl px-5 py-20 md:py-28 lg:px-8">
+          <AnimateOnScroll>
+            <div className="text-center mb-10">
+              <p className="section-label">Try It Now</p>
+              <h2 className="mt-4 text-2xl font-semibold tracking-tight md:text-[2.75rem] md:leading-[1.1]">
+                Screen an entity. Inspect the evidence.
+              </h2>
+            </div>
+          </AnimateOnScroll>
+
+          <ReceiptDemo autoPlay />
+
+          <p className="mt-5 text-center text-xs text-muted-light">
+            Every result includes a verifiable evidence receipt.
+          </p>
+        </div>
+      </section>
+
       {/* ── Social Proof ── */}
       <section className="border-t border-border-light bg-surface">
         <div className="mx-auto max-w-6xl px-5 py-20 md:py-24 lg:px-8">
@@ -457,36 +477,6 @@ export default function HomePage() {
               ))}
             </div>
           </AnimateOnScroll>
-        </div>
-      </section>
-
-      {/* ── Receipt Demo Teaser ── */}
-      <section className="border-t border-border-light">
-        <div className="mx-auto max-w-3xl px-5 py-36 md:py-44 lg:px-8">
-          <AnimateOnScroll>
-            <div className="text-center">
-              <p className="section-label">See It Work</p>
-              <h2 className="mt-4 text-2xl font-semibold tracking-tight md:text-[2.75rem] md:leading-[1.1]">
-                Screen an entity. Inspect the evidence.
-              </h2>
-              <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted">
-                Every screening decision produces a structured evidence record
-                with full resolution lineage and cryptographic receipt binding.
-              </p>
-            </div>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll className="mt-12">
-            <ReceiptDemo autoPlay />
-          </AnimateOnScroll>
-
-          {/* Mid-funnel CTA */}
-          <div className="mt-8 text-center">
-            <Link href="/evidence" className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-accent-deep">
-              View full evidence bundle example
-              <ArrowRight size={13} />
-            </Link>
-          </div>
         </div>
       </section>
 

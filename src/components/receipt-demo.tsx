@@ -1,12 +1,14 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Search, CheckCircle, AlertCircle, Download, ArrowRight } from "lucide-react"
+import { useState, useEffect, useCallback } from "react"
+import { Search, CheckCircle, AlertCircle, Download, ArrowRight, ShieldAlert } from "lucide-react"
 
 const demoEntities: Record<string, {
   entity: string
   result: string
   state: string
+  riskLevel: string
+  matchedRegistry: string
   layer: string
   layerLabel: string
   confidence: string
@@ -16,8 +18,10 @@ const demoEntities: Record<string, {
 }> = {
   "Acme Shipping Ltd": {
     entity: "Acme Shipping Ltd",
-    result: "Acme Shipping Ltd \u2192 Acme Shipping Corporation",
+    result: "Acme Shipping Ltd → Acme Shipping Corporation",
     state: "CLEARED",
+    riskLevel: "Low",
+    matchedRegistry: "OFAC SDN — No match",
     layer: "L1",
     layerLabel: "Deterministic Match",
     confidence: "0.97",
@@ -26,18 +30,20 @@ const demoEntities: Record<string, {
       { label: "Input received", detail: "Acme Shipping Ltd" },
       { label: "Normalized", detail: "acme shipping (suffix strip: Ltd)" },
       { label: "L1 exact match", detail: "Acme Shipping Corporation" },
-      { label: "Decision", detail: "CLEARED \u2014 confidence 0.97" },
+      { label: "Decision", detail: "CLEARED — confidence 0.97" },
     ],
     receipt: {
-      id: "rct_a4f2\u20267b3e",
-      hash: "sha256:e91c\u20263f4a",
+      id: "rct_a4f2…7b3e",
+      hash: "sha256:e91c…3f4a",
       status: "BOUND",
     },
   },
   "Global Trade Partners": {
     entity: "Global Trade Partners",
-    result: "Global Trade Partners \u2192 [No canonical match]",
+    result: "Global Trade Partners → [No canonical match]",
     state: "REVIEW",
+    riskLevel: "High",
+    matchedRegistry: "EU Consolidated List — Potential match",
     layer: "L4",
     layerLabel: "Human Review",
     confidence: "0.42",
@@ -46,13 +52,13 @@ const demoEntities: Record<string, {
       { label: "Input received", detail: "Global Trade Partners" },
       { label: "Normalized", detail: "global trade partners" },
       { label: "L1 miss", detail: "No exact, norm, or alias match" },
-      { label: "L2 miss", detail: "Cosine 0.42 \u2014 below threshold 0.55" },
+      { label: "L2 miss", detail: "Cosine 0.42 — below threshold 0.55" },
       { label: "L3 ambiguous", detail: "Multiple candidates, no confident resolution" },
       { label: "Escalated to L4", detail: "Queued for human review" },
     ],
     receipt: {
       id: "rct_pending",
-      hash: "\u2014",
+      hash: "—",
       status: "ATTESTATION_PENDING",
     },
   },
@@ -60,41 +66,62 @@ const demoEntities: Record<string, {
 
 const defaultEntity = "Acme Shipping Ltd"
 
+const layerSteps = [
+  { id: "L0", label: "Garbage Detection" },
+  { id: "L1", label: "Deterministic" },
+  { id: "L2", label: "Vector Similarity" },
+  { id: "L3", label: "LLM Reasoning" },
+]
+
 export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
   const [input, setInput] = useState("")
   const [result, setResult] = useState<typeof demoEntities[string] | null>(null)
   const [loading, setLoading] = useState(false)
   const [hasAutoPlayed, setHasAutoPlayed] = useState(false)
+  const [activeLayer, setActiveLayer] = useState(-1)
+
+  const runDemo = useCallback((entityName?: string) => {
+    const name = entityName || input
+    if (entityName) setInput(entityName)
+    setLoading(true)
+    setResult(null)
+    setActiveLayer(0)
+
+    const key = Object.keys(demoEntities).find(
+      (k) => k.toLowerCase() === name.trim().toLowerCase()
+    )
+    const entity = demoEntities[key || defaultEntity]
+    const resolveLayer = parseInt(entity.layer.replace("L", ""), 10)
+    const stepsToShow = Math.min(resolveLayer + 1, layerSteps.length)
+
+    let step = 0
+    const interval = setInterval(() => {
+      step++
+      if (step < stepsToShow) {
+        setActiveLayer(step)
+      } else {
+        clearInterval(interval)
+        setTimeout(() => {
+          setResult(entity)
+          setLoading(false)
+          setActiveLayer(-1)
+        }, 300)
+      }
+    }, 350)
+  }, [input])
 
   useEffect(() => {
     if (autoPlay && !hasAutoPlayed) {
       setHasAutoPlayed(true)
-      setInput(defaultEntity)
-      setLoading(true)
-      const t = setTimeout(() => {
-        setResult(demoEntities[defaultEntity])
-        setLoading(false)
-      }, 1200)
+      const t = setTimeout(() => runDemo(defaultEntity), 600)
       return () => clearTimeout(t)
     }
-  }, [autoPlay, hasAutoPlayed])
+  }, [autoPlay, hasAutoPlayed, runDemo])
 
   function handleFocus() {
     if (hasAutoPlayed && input === defaultEntity) {
       setInput("")
     }
-  }
-
-  function runDemo() {
-    setLoading(true)
-    setResult(null)
-    const key = Object.keys(demoEntities).find(
-      (k) => k.toLowerCase() === input.trim().toLowerCase()
-    )
-    setTimeout(() => {
-      setResult(demoEntities[key || defaultEntity])
-      setLoading(false)
-    }, 900)
   }
 
   return (
@@ -110,6 +137,20 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
       </div>
 
       <div className="p-6">
+        {/* Quick-test presets */}
+        <div className="mb-4 flex flex-wrap items-center gap-2">
+          <span className="text-xs font-medium text-muted-light">Try:</span>
+          {Object.keys(demoEntities).map((name) => (
+            <button
+              key={name}
+              onClick={() => runDemo(name)}
+              className="rounded-lg border border-border bg-surface-2/50 px-3 py-1.5 text-xs font-medium text-muted transition-all duration-200 hover:border-accent hover:text-accent hover:bg-accent-subtle"
+            >
+              {name}
+            </button>
+          ))}
+        </div>
+
         {/* Input */}
         <div className="flex gap-3">
           <div className="relative flex-1">
@@ -120,52 +161,106 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
               onChange={(e) => setInput(e.target.value)}
               onFocus={handleFocus}
               onKeyDown={(e) => e.key === "Enter" && runDemo()}
-              placeholder="Acme Shipping Ltd  or  Global Trade Partners"
+              placeholder="Enter entity name..."
               className="w-full rounded-lg border border-border bg-surface-2/50 py-3 pl-10 pr-4 text-sm text-foreground placeholder:text-muted-light outline-none transition-all duration-200 focus:border-accent focus:ring-2 focus:ring-accent/8"
             />
           </div>
-          <button onClick={runDemo} className="btn-primary whitespace-nowrap !text-sm !px-5 !py-3">
+          <button onClick={() => runDemo()} className="btn-primary whitespace-nowrap !text-sm !px-5 !py-3">
             Screen
             <ArrowRight size={13} />
           </button>
         </div>
 
-        {/* Loading */}
+        {/* Helper text — always visible */}
+        <p className="mt-2.5 text-xs text-muted-light">
+          Try <span className="font-medium text-muted">&quot;Acme Shipping Ltd&quot;</span> (L1 match) or <span className="font-medium text-muted">&quot;Global Trade Partners&quot;</span> (L4 escalation).
+        </p>
+
+        {/* Loading — layer progress */}
         {loading && (
-          <div className="mt-8 flex items-center justify-center gap-2.5 py-8 text-sm text-muted">
-            <div className="h-4 w-4 animate-spin rounded-full border-2 border-accent/30 border-t-accent" />
-            Resolving entity through screening layers...
+          <div className="mt-8 py-6">
+            <div className="flex items-center justify-center gap-2.5 mb-5 text-sm text-muted">
+              <div className="h-4 w-4 animate-spin rounded-full border-2 border-accent/30 border-t-accent" />
+              Resolving entity through screening layers...
+            </div>
+            <div className="grid grid-cols-4 gap-2">
+              {layerSteps.map((step, i) => (
+                <div
+                  key={step.id}
+                  className={`rounded-lg border px-3 py-2.5 text-center transition-all duration-300 ${
+                    i < activeLayer
+                      ? "border-emerald-200 bg-emerald-50/50"
+                      : i === activeLayer
+                        ? "border-accent bg-accent/5"
+                        : "border-border-light bg-surface-2/30"
+                  }`}
+                >
+                  <p className={`font-mono text-xs font-semibold ${
+                    i < activeLayer
+                      ? "text-emerald-600"
+                      : i === activeLayer
+                        ? "text-accent"
+                        : "text-muted-light"
+                  }`}>
+                    {step.id}
+                  </p>
+                  <p className={`mt-0.5 text-[10px] ${
+                    i <= activeLayer ? "text-muted" : "text-muted-light/60"
+                  }`}>
+                    {step.label}
+                  </p>
+                  {i < activeLayer && (
+                    <CheckCircle size={10} className="mx-auto mt-1 text-emerald-500" />
+                  )}
+                  {i === activeLayer && (
+                    <div className="mx-auto mt-1 h-2.5 w-2.5 animate-spin rounded-full border border-accent/30 border-t-accent" />
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
         {/* Result */}
         {result && !loading && (
           <div className="mt-6 space-y-5 fade-in-up">
-            {/* Result header */}
+            {/* Result header — Entity + Verdict + Risk */}
             <div className="flex items-start justify-between gap-4 rounded-xl border border-border-light bg-surface-2/40 px-5 py-4">
               <div className="min-w-0">
-                <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-light">Resolution</p>
-                <p className="mt-1.5 text-sm font-medium text-foreground">{result.result}</p>
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-light">Entity</p>
+                <p className="mt-1 text-sm font-medium text-foreground">{result.entity}</p>
+                <p className="mt-2 text-[10px] font-semibold uppercase tracking-widest text-muted-light">Resolution</p>
+                <p className="mt-1 text-sm text-muted">{result.result}</p>
               </div>
-              <span className={`mt-1 shrink-0 inline-flex items-center gap-1.5 rounded-lg px-3 py-1 text-xs font-semibold ${
-                result.state === "CLEARED"
-                  ? "bg-emerald-50 text-emerald-700 border border-emerald-100"
-                  : "bg-amber-50 text-amber-700 border border-amber-100"
-              }`}>
-                {result.state === "CLEARED"
-                  ? <CheckCircle size={11} />
-                  : <AlertCircle size={11} />}
-                {result.state}
-              </span>
+              <div className="flex shrink-0 flex-col items-end gap-2">
+                <span className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1 text-xs font-semibold ${
+                  result.state === "CLEARED"
+                    ? "bg-emerald-50 text-emerald-700 border border-emerald-100"
+                    : "bg-amber-50 text-amber-700 border border-amber-100"
+                }`}>
+                  {result.state === "CLEARED"
+                    ? <CheckCircle size={11} />
+                    : <AlertCircle size={11} />}
+                  {result.state}
+                </span>
+                <span className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-0.5 text-[10px] font-semibold ${
+                  result.riskLevel === "Low"
+                    ? "bg-emerald-50 text-emerald-600 border border-emerald-100"
+                    : "bg-red-50 text-red-600 border border-red-100"
+                }`}>
+                  <ShieldAlert size={9} />
+                  {result.riskLevel} Risk
+                </span>
+              </div>
             </div>
 
             {/* Metrics grid */}
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {[
                 { label: "Layer", value: result.layer, sub: result.layerLabel },
                 { label: "Confidence", value: result.confidence },
+                { label: "Matched Registry", value: result.matchedRegistry },
                 { label: "Latency", value: result.time },
-                { label: "Receipt", value: result.receipt.status },
               ].map((m) => (
                 <div key={m.label} className="rounded-xl border border-border-light bg-surface px-3.5 py-3">
                   <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-light">{m.label}</p>
@@ -184,7 +279,7 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
             {/* Lineage */}
             <div className="rounded-xl border border-border bg-surface-2/30 px-5 py-4">
               <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-light mb-3">
-                Resolution Lineage
+                Evidence Lineage
               </p>
               <div className="space-y-0">
                 {result.lineage.map((node, i) => (
@@ -209,7 +304,7 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
             </div>
 
             {/* Receipt badge */}
-            <div className={`flex items-center justify-between rounded-xl border px-5 py-4 ${
+            <div className={`flex flex-col gap-3 rounded-xl border px-5 py-4 sm:flex-row sm:items-center sm:justify-between ${
               result.receipt.status === "BOUND"
                 ? "border-emerald-100 bg-emerald-50/40"
                 : "border-amber-100 bg-amber-50/40"
@@ -219,7 +314,8 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
                   ? <CheckCircle size={16} className="text-emerald-500" />
                   : <AlertCircle size={16} className="text-amber-500" />}
                 <div>
-                  <p className="font-mono text-xs font-medium text-foreground">{result.receipt.id}</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-light">IA Veracity Receipt</p>
+                  <p className="mt-0.5 font-mono text-xs font-medium text-foreground">{result.receipt.id}</p>
                   <p className="font-mono text-[11px] text-muted">{result.receipt.hash}</p>
                 </div>
               </div>
