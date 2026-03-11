@@ -16,6 +16,8 @@ import {
   Activity,
   ClipboardCheck,
   Lock,
+  CheckCircle,
+  Eye,
 } from "lucide-react"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { KpiSparkline } from "@/components/kpi-sparkline"
@@ -30,9 +32,12 @@ export default function HomePage() {
         className="relative overflow-hidden"
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(14,165,233,0.035), transparent 70%)",
+            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(14,165,233,0.05), transparent 70%)",
         }}
       >
+        {/* Subtle top border accent */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+
         <div className="mx-auto max-w-3xl px-5 pt-40 pb-36 md:pt-52 md:pb-48 lg:px-8 text-center">
           <div className="fade-in-up">
             <p className="section-label">Compliance Screening Infrastructure</p>
@@ -40,7 +45,7 @@ export default function HomePage() {
               Deterministic screening.{" "}
               <span className="text-accent">Verifiable evidence.</span>
             </h1>
-            <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-muted">
+            <p className="mx-auto mt-7 max-w-xl text-[1.125rem] leading-relaxed text-muted">
               CCAI screens entities against sanctions and watchlists using a
               layered resolution protocol. Every decision produces a complete,
               structured evidence record.
@@ -50,8 +55,8 @@ export default function HomePage() {
                 Request Evaluation Access
                 <ArrowRight size={15} />
               </Link>
-              <Link href="/how-it-works" className="btn-secondary">
-                How It Works
+              <Link href="/evidence" className="btn-secondary">
+                See Live Receipt Demo
               </Link>
             </div>
 
@@ -74,8 +79,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Operational Impact (Proof Section) ── */}
+      {/* ── Social Proof ── */}
       <section className="border-t border-border-light bg-surface">
+        <div className="mx-auto max-w-6xl px-5 py-20 md:py-24 lg:px-8">
+          <AnimateOnScroll>
+            <p className="text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-light">
+              Built for regulated teams
+            </p>
+
+            {/* Partner logos */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              {[
+                "Early Design Partner",
+                "Insurance Pilot",
+                "Maritime Pilot",
+                "Enterprise Platform",
+              ].map((partner) => (
+                <div
+                  key={partner}
+                  className="flex h-12 items-center rounded-xl border border-border-light bg-surface-2/40 px-6"
+                >
+                  <span className="text-[13px] font-medium tracking-tight text-muted-light">
+                    {partner}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Testimonial */}
+            <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-surface px-8 py-6 text-center">
+              <p className="text-base leading-relaxed text-foreground italic">
+                &ldquo;CCAI gives us deterministic screening with evidence we can actually defend.&rdquo;
+              </p>
+              <p className="mt-4 text-sm text-muted">
+                — Compliance Lead, Design Partner
+              </p>
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ── Operational Impact (Proof Section) ── */}
+      <section className="border-t border-border-light">
         <div className="mx-auto max-w-6xl px-5 py-36 md:py-44 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
@@ -132,8 +177,148 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── What CCAI Is ── */}
+      {/* ── Architecture Flow ── */}
+      <section className="border-t border-border-light bg-surface">
+        <div className="mx-auto max-w-4xl px-5 py-36 md:py-44 lg:px-8">
+          <AnimateOnScroll>
+            <div className="text-center">
+              <p className="section-label">How It Works</p>
+              <h2 className="mt-4 text-2xl font-semibold tracking-tight md:text-[2.75rem] md:leading-[1.1]">
+                From entity to verified evidence.
+              </h2>
+              <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted">
+                Every entity follows the same deterministic path. No exceptions, no shortcuts.
+              </p>
+            </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll className="mt-14">
+            <div className="overflow-hidden rounded-2xl border border-border bg-surface">
+              {/* Flow steps */}
+              <div className="grid grid-cols-1 gap-px bg-border md:grid-cols-5">
+                {[
+                  { label: "Input", sub: "Entity submitted", icon: Upload, color: "text-foreground" },
+                  { label: "CCAI Screening", sub: "L0–L4 waterfall", icon: Layers, color: "text-accent" },
+                  { label: "Decision Event", sub: "Verdict + confidence", icon: CheckCircle, color: "text-emerald-600" },
+                  { label: "IA Verification", sub: "Independent attestation", icon: Eye, color: "text-violet" },
+                  { label: "Evidence + Receipt", sub: "Immutable record", icon: FileCheck, color: "text-accent" },
+                ].map((step, i) => (
+                  <div key={step.label} className="bg-surface px-5 py-6 text-center">
+                    <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-surface-2 border border-border-light">
+                      <step.icon size={16} className={step.color} />
+                    </div>
+                    <p className="mt-3 text-sm font-semibold text-foreground">{step.label}</p>
+                    <p className="mt-1 text-xs text-muted">{step.sub}</p>
+                    {i < 4 && (
+                      <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2">
+                        <ArrowRight size={12} className="text-muted-light" />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              {/* Bottom annotation */}
+              <div className="border-t border-border bg-surface-2/30 px-6 py-3 text-center">
+                <p className="text-xs text-muted">
+                  ~85% resolved at L1 (deterministic) &middot; ~8% at L2 (vector) &middot; ~2% at L3 (LLM) &middot; ~5% escalated to L4 (human review)
+                </p>
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          <div className="mt-6 text-center">
+            <Link href="/how-it-works" className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-accent-deep">
+              Explore the full architecture
+              <ArrowRight size={13} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Dashboard Mock ── */}
       <section className="border-t border-border-light">
+        <div className="mx-auto max-w-4xl px-5 py-36 md:py-44 lg:px-8">
+          <AnimateOnScroll>
+            <div className="text-center">
+              <p className="section-label">Operator Dashboard</p>
+              <h2 className="mt-4 text-2xl font-semibold tracking-tight md:text-[2.75rem] md:leading-[1.1]">
+                Screening results at a glance.
+              </h2>
+              <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted">
+                Compliance officers see batch results, resolution layers, evidence lineage, and audit exports in a single view.
+              </p>
+            </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll className="mt-14">
+            <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-soft">
+              {/* Mock title bar */}
+              <div className="flex items-center gap-2 border-b border-border bg-surface-2/50 px-5 py-3">
+                <div className="flex gap-1.5">
+                  <div className="h-2.5 w-2.5 rounded-full bg-red-300/60" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-amber-300/60" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-emerald-300/60" />
+                </div>
+                <span className="ml-3 text-[11px] font-medium text-muted-light">CoreCompliance AI — Screening Results</span>
+              </div>
+              {/* Mock content */}
+              <div className="p-5">
+                {/* Stats row */}
+                <div className="grid grid-cols-4 gap-3">
+                  {[
+                    { label: "Entities", value: "2,847" },
+                    { label: "Cleared", value: "2,714" },
+                    { label: "Flagged", value: "89" },
+                    { label: "Review", value: "44" },
+                  ].map((stat) => (
+                    <div key={stat.label} className="rounded-lg border border-border-light bg-surface-2/30 px-3 py-2.5">
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-light">{stat.label}</p>
+                      <p className="mt-1 font-mono text-lg font-semibold text-foreground">{stat.value}</p>
+                    </div>
+                  ))}
+                </div>
+                {/* Mock table */}
+                <div className="mt-4 overflow-hidden rounded-lg border border-border-light">
+                  <div className="grid grid-cols-5 gap-px bg-border-light text-[11px] font-semibold uppercase tracking-[0.06em] text-muted-light">
+                    <div className="bg-surface-2/50 px-3 py-2">Entity</div>
+                    <div className="bg-surface-2/50 px-3 py-2">Layer</div>
+                    <div className="bg-surface-2/50 px-3 py-2">Confidence</div>
+                    <div className="bg-surface-2/50 px-3 py-2">Status</div>
+                    <div className="bg-surface-2/50 px-3 py-2">Receipt</div>
+                  </div>
+                  {[
+                    { entity: "Acme Shipping Corp", layer: "L1", conf: "0.97", status: "CLEARED", receipt: "BOUND" },
+                    { entity: "Nordic Marine Holdings", layer: "L2", conf: "0.82", status: "CLEARED", receipt: "BOUND" },
+                    { entity: "Global Trade Partners", layer: "L4", conf: "0.42", status: "REVIEW", receipt: "PENDING" },
+                    { entity: "Pacific Freight Ltd", layer: "L1", conf: "0.99", status: "CLEARED", receipt: "BOUND" },
+                  ].map((row) => (
+                    <div key={row.entity} className="grid grid-cols-5 gap-px bg-border-light text-sm">
+                      <div className="bg-surface px-3 py-2 font-medium text-foreground truncate">{row.entity}</div>
+                      <div className="bg-surface px-3 py-2">
+                        <span className="rounded bg-accent/8 px-1.5 py-0.5 font-mono text-xs font-semibold text-accent">{row.layer}</span>
+                      </div>
+                      <div className="bg-surface px-3 py-2 font-mono text-xs text-muted">{row.conf}</div>
+                      <div className="bg-surface px-3 py-2">
+                        <span className={`text-xs font-semibold ${row.status === "CLEARED" ? "text-emerald-600" : "text-amber-600"}`}>
+                          {row.status}
+                        </span>
+                      </div>
+                      <div className="bg-surface px-3 py-2">
+                        <span className={`font-mono text-xs ${row.receipt === "BOUND" ? "text-emerald-600" : "text-amber-600"}`}>
+                          {row.receipt}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ── What CCAI Is ── */}
+      <section className="border-t border-border-light bg-surface">
         <div className="mx-auto max-w-3xl px-5 py-36 md:py-44 lg:px-8">
           <AnimateOnScroll>
             <p className="section-label">What CCAI Is</p>
@@ -158,7 +343,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Why It Is Different ── */}
-      <section className="border-t border-border-light bg-surface">
+      <section className="border-t border-border-light">
         <div className="mx-auto max-w-6xl px-5 py-36 md:py-44 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
@@ -211,7 +396,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Key Capabilities ── */}
-      <section className="border-t border-border-light">
+      <section className="border-t border-border-light bg-surface">
         <div className="mx-auto max-w-6xl px-5 py-36 md:py-44 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
@@ -276,7 +461,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Receipt Demo Teaser ── */}
-      <section className="border-t border-border-light bg-surface">
+      <section className="border-t border-border-light">
         <div className="mx-auto max-w-3xl px-5 py-36 md:py-44 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
@@ -294,11 +479,19 @@ export default function HomePage() {
           <AnimateOnScroll className="mt-12">
             <ReceiptDemo autoPlay />
           </AnimateOnScroll>
+
+          {/* Mid-funnel CTA */}
+          <div className="mt-8 text-center">
+            <Link href="/evidence" className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-accent-deep">
+              View full evidence bundle example
+              <ArrowRight size={13} />
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* ── Target Verticals ── */}
-      <section className="border-t border-border-light">
+      <section className="border-t border-border-light bg-surface">
         <div className="mx-auto max-w-6xl px-5 py-36 md:py-44 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
@@ -354,6 +547,26 @@ export default function HomePage() {
               </AnimateOnScroll>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Mid-funnel CTA ── */}
+      <section className="border-t border-border-light">
+        <div className="mx-auto max-w-3xl px-5 py-20 md:py-24 lg:px-8 text-center">
+          <AnimateOnScroll>
+            <p className="text-base leading-relaxed text-muted">
+              Want to understand the screening protocol before requesting access?
+            </p>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-4">
+              <Link href="/evidence" className="btn-secondary !text-[13px]">
+                <Eye size={14} />
+                View Example Evidence Bundle
+              </Link>
+              <Link href="/contact" className="btn-secondary !text-[13px]">
+                Talk to a Compliance Engineer
+              </Link>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
