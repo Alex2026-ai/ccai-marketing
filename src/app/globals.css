@@ -109,10 +109,11 @@ code, pre {
 }
 
 .section-divider {
-  width: 2rem;
-  height: 1px;
-  background: var(--color-accent);
-  opacity: 0.4;
+  width: 2.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-violet));
+  opacity: 0.5;
+  border-radius: 1px;
 }
 
 /* ── CTA Buttons ── */
@@ -181,6 +182,16 @@ code, pre {
 .card-surface:hover {
   border-color: rgba(14, 165, 233, 0.18);
   box-shadow: var(--shadow-premium-hover);
+}
+
+/* ── Violet accent hover for icon containers ── */
+
+.icon-container {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.icon-container:hover {
+  border-color: rgba(167, 139, 250, 0.2);
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.08);
 }
 
 /* ── Table refinement ── */

@@ -32,7 +32,7 @@ export default function HomePage() {
             "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(14,165,233,0.035), transparent 70%)",
         }}
       >
-        <div className="mx-auto max-w-3xl px-5 pt-32 pb-28 md:pt-44 md:pb-40 lg:px-8 text-center">
+        <div className="mx-auto max-w-3xl px-5 pt-40 pb-36 md:pt-52 md:pb-48 lg:px-8 text-center">
           <div className="fade-in-up">
             <p className="section-label">Compliance Screening Infrastructure</p>
             <h1 className="mt-5 text-[2.75rem] font-semibold tracking-tight text-foreground leading-[1.08] md:text-[4rem]">
@@ -72,7 +72,7 @@ export default function HomePage() {
 
       {/* ── Operational Impact (Proof Section) ── */}
       <section className="border-t border-border-light bg-surface">
-        <div className="mx-auto max-w-6xl px-5 py-28 md:py-36 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-36 md:py-44 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
               <p className="section-label">Operational Impact</p>
@@ -130,7 +130,7 @@ export default function HomePage() {
 
       {/* ── What CCAI Is ── */}
       <section className="border-t border-border-light">
-        <div className="mx-auto max-w-3xl px-5 py-28 md:py-36 lg:px-8">
+        <div className="mx-auto max-w-3xl px-5 py-36 md:py-44 lg:px-8">
           <AnimateOnScroll>
             <p className="section-label">What CCAI Is</p>
             <div className="section-divider mt-4" />
@@ -155,7 +155,7 @@ export default function HomePage() {
 
       {/* ── Why It Is Different ── */}
       <section className="border-t border-border-light bg-surface">
-        <div className="mx-auto max-w-6xl px-5 py-28 md:py-36 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-36 md:py-44 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
               <p className="section-label">Why It Is Different</p>
@@ -190,7 +190,7 @@ export default function HomePage() {
             ].map((item, i) => (
               <AnimateOnScroll key={item.title} delay={i * 0.08}>
                 <div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/6 border border-accent/10">
+                  <div className="icon-container flex h-11 w-11 items-center justify-center rounded-xl bg-accent/6 border border-accent/10">
                     <item.icon size={18} className="text-accent" />
                   </div>
                   <h3 className="mt-5 text-[15px] font-semibold text-foreground">
@@ -208,7 +208,7 @@ export default function HomePage() {
 
       {/* ── Key Capabilities ── */}
       <section className="border-t border-border-light">
-        <div className="mx-auto max-w-6xl px-5 py-28 md:py-36 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-36 md:py-44 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
               <p className="section-label">Capabilities</p>
@@ -273,7 +273,7 @@ export default function HomePage() {
 
       {/* ── Receipt Demo Teaser ── */}
       <section className="border-t border-border-light bg-surface">
-        <div className="mx-auto max-w-3xl px-5 py-28 md:py-36 lg:px-8">
+        <div className="mx-auto max-w-3xl px-5 py-36 md:py-44 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
               <p className="section-label">See It Work</p>
@@ -295,7 +295,7 @@ export default function HomePage() {
 
       {/* ── Target Verticals ── */}
       <section className="border-t border-border-light">
-        <div className="mx-auto max-w-6xl px-5 py-28 md:py-36 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-36 md:py-44 lg:px-8">
           <AnimateOnScroll>
             <div className="text-center">
               <p className="section-label">Verticals</p>
@@ -311,16 +311,19 @@ export default function HomePage() {
                 icon: Ship,
                 title: "Shipping & Maritime",
                 desc: "Screen vessel owners, operators, and beneficial ownership chains against OFAC, EU, and UN sanctions lists. Monitor ongoing exposure across fleet portfolios.",
+                lift: "92% audit prep reduction",
               },
               {
                 icon: Building2,
                 title: "Insurance",
                 desc: "Screen policyholders, counterparties, and reinsurance chains at underwriting and renewal. Batch-process portfolio-scale entity lists with full evidence.",
+                lift: "87% fewer false positives",
               },
               {
                 icon: Globe,
                 title: "Enterprise Platforms",
                 desc: "Embed CCAI as a screening layer within existing compliance workflows. API-first integration for platforms that need screening as infrastructure.",
+                lift: "<2s average latency",
               },
             ].map((item, i) => (
               <AnimateOnScroll key={item.title} delay={i * 0.08}>
@@ -334,6 +337,12 @@ export default function HomePage() {
                   <p className="mt-2.5 text-sm leading-relaxed text-muted">
                     {item.desc}
                   </p>
+                  {item.lift && (
+                    <div className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-accent-subtle px-3 py-1.5 text-[11px] font-semibold text-accent">
+                      <TrendingUp size={11} />
+                      {item.lift}
+                    </div>
+                  )}
                 </div>
               </AnimateOnScroll>
             ))}
@@ -343,7 +352,7 @@ export default function HomePage() {
 
       {/* ── Bottom CTA ── */}
       <section className="border-t border-border-light bg-surface">
-        <div className="mx-auto max-w-3xl px-5 py-28 md:py-36 lg:px-8 text-center">
+        <div className="mx-auto max-w-3xl px-5 py-36 md:py-44 lg:px-8 text-center">
           <AnimateOnScroll>
             <p className="section-label">Get Started</p>
             <h2 className="mt-4 text-2xl font-semibold tracking-tight md:text-[2.75rem] md:leading-[1.1]">
