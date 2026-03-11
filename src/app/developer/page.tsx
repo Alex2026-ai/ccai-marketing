@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
+import { ContinueReading } from "@/components/continue-reading"
 
 export const metadata: Metadata = {
   title: "Developer — CoreCompliance AI",
@@ -160,6 +161,12 @@ export default function DeveloperPage() {
           </div>
         </div>
       </AnimateOnScroll>
+
+      <ContinueReading
+        href="/evidence"
+        label="Evidence"
+        description="Decision packages, receipt binding, and regulatory audit exports."
+      />
     </div>
   )
 }

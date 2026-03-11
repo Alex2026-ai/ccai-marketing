@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Search, CheckCircle, AlertCircle, Download, ArrowRight } from "lucide-react"
 
 const demoEntities: Record<string, {
@@ -60,10 +60,24 @@ const demoEntities: Record<string, {
 
 const defaultEntity = "Acme Shipping Ltd"
 
-export function ReceiptDemo() {
+export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
   const [input, setInput] = useState("")
   const [result, setResult] = useState<typeof demoEntities[string] | null>(null)
   const [loading, setLoading] = useState(false)
+  const [hasAutoPlayed, setHasAutoPlayed] = useState(false)
+
+  useEffect(() => {
+    if (autoPlay && !hasAutoPlayed) {
+      setHasAutoPlayed(true)
+      setInput(defaultEntity)
+      setLoading(true)
+      const t = setTimeout(() => {
+        setResult(demoEntities[defaultEntity])
+        setLoading(false)
+      }, 1200)
+      return () => clearTimeout(t)
+    }
+  }, [autoPlay, hasAutoPlayed])
 
   function runDemo() {
     setLoading(true)

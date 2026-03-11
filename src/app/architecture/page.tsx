@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
+import { ContinueReading } from "@/components/continue-reading"
 
 export const metadata: Metadata = {
   title: "Architecture — CoreCompliance AI",
@@ -150,6 +151,12 @@ export default function ArchitecturePage() {
           </table>
         </div>
       </AnimateOnScroll>
+
+      <ContinueReading
+        href="/developer"
+        label="Developer"
+        description="API endpoints, batch screening, webhooks, and integration patterns."
+      />
     </div>
   )
 }

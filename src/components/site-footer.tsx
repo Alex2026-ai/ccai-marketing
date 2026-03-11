@@ -15,6 +15,7 @@ const footerNav = [
     links: [
       { label: "API Overview", href: "/developer" },
       { label: "Evaluation", href: "/evaluation" },
+      { label: "Contact", href: "/contact" },
     ],
   },
 ]
@@ -62,10 +63,21 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-border pt-6">
+        <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[12px] text-muted-light">
             &copy; {new Date().getFullYear()} CoreCompliance AI. All rights reserved.
           </p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className="text-[12px] text-muted-light transition-colors hover:text-foreground">
+              Privacy
+            </Link>
+            <Link href="/terms" className="text-[12px] text-muted-light transition-colors hover:text-foreground">
+              Terms
+            </Link>
+            <Link href="/contact" className="text-[12px] text-muted-light transition-colors hover:text-foreground">
+              Contact
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

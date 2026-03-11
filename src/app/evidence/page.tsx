@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { ReceiptDemo } from "@/components/receipt-demo"
+import { ContinueReading } from "@/components/continue-reading"
 
 export const metadata: Metadata = {
   title: "Evidence — CoreCompliance AI",
@@ -249,6 +250,12 @@ export default function EvidencePage() {
           screening operations.
         </p>
       </AnimateOnScroll>
+
+      <ContinueReading
+        href="/evaluation"
+        label="Evaluation"
+        description="Test the protocol with your own data in a sandboxed environment."
+      />
     </div>
   )
 }

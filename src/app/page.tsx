@@ -20,6 +20,7 @@ import {
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { KpiSparkline } from "@/components/kpi-sparkline"
 import { ReceiptDemo } from "@/components/receipt-demo"
+import { HeroDiagram } from "@/components/hero-diagram"
 
 export default function HomePage() {
   return (
@@ -66,6 +67,9 @@ export default function HomePage() {
                 </span>
               ))}
             </div>
+
+            {/* Hero waterfall diagram */}
+            <HeroDiagram />
           </div>
         </div>
       </section>
@@ -288,7 +292,7 @@ export default function HomePage() {
           </AnimateOnScroll>
 
           <AnimateOnScroll className="mt-12">
-            <ReceiptDemo />
+            <ReceiptDemo autoPlay />
           </AnimateOnScroll>
         </div>
       </section>
