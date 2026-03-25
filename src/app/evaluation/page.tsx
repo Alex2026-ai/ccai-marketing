@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 
@@ -26,7 +27,7 @@ const limits = [
 
 const steps = [
   "Submit a request with your organization, use case, and estimated screening volume.",
-  "Receive evaluation tenant credentials — API key and dashboard access.",
+  "Receive evaluation access details after review.",
   "Submit test data, inspect results, validate integration patterns.",
   "Export evidence samples and audit reports for internal review.",
   "Proceed to production onboarding or schedule a technical discussion.",
@@ -104,13 +105,13 @@ export default function EvaluationPage() {
         <div className="rounded-2xl border border-accent/15 bg-accent/3 px-8 py-14 text-center">
           <h2 className="text-2xl font-semibold tracking-tight">Ready to evaluate.</h2>
           <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-muted">
-            Request evaluation access. We provision your tenant and credentials within one business day.
+            Request evaluation access. We&apos;ll follow up after reviewing your use case.
           </p>
           <div className="mt-8">
-            <span className="btn-primary text-base">
+            <Link href="/contact" className="btn-primary text-base">
               Request Evaluation Access
               <ArrowRight size={15} />
-            </span>
+            </Link>
           </div>
         </div>
       </AnimateOnScroll>

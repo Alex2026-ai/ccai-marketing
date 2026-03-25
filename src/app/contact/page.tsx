@@ -23,7 +23,7 @@ export default function ContactPage() {
 
       <AnimateOnScroll className="mt-16">
         <div className="rounded-2xl border border-border bg-surface p-8">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" action="mailto:contact@corecompliance.ai" method="GET" encType="text/plain">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground">
