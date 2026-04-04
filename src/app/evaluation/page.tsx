@@ -40,10 +40,13 @@ export default function EvaluationPage() {
         <p className="section-label">Evaluation</p>
         <div className="section-divider mt-4" />
         <h1 className="mt-6 text-[2.5rem] font-semibold tracking-tight leading-[1.08] md:text-[2.75rem]">
-          Test the protocol with your own data.
+          Test the API with your own data.
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-muted">
-          The evaluation environment runs the same engine and protocol as production. It is not a demo or simulation — it executes real screening logic against reference data.
+          The integration environment runs the same engine and protocol as
+          production. It is not a demo or simulation — it executes real
+          screening logic against reference data so you can validate your
+          integration before going live.
         </p>
       </div>
 
@@ -103,13 +106,13 @@ export default function EvaluationPage() {
 
       <AnimateOnScroll className="mt-24">
         <div className="rounded-2xl border border-accent/15 bg-accent/3 px-8 py-14 text-center">
-          <h2 className="text-2xl font-semibold tracking-tight">Ready to evaluate.</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">Ready to integrate.</h2>
           <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-muted">
-            Request evaluation access. We&apos;ll follow up after reviewing your use case.
+            Request API access. We&apos;ll follow up after reviewing your integration use case.
           </p>
           <div className="mt-8">
             <Link href="/contact" className="btn-primary text-base">
-              Request Evaluation Access
+              Request API Access
               <ArrowRight size={15} />
             </Link>
           </div>

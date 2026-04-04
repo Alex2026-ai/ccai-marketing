@@ -195,15 +195,15 @@ export default function InsuranceScreeningPage() {
       <AnimateOnScroll className="mt-24">
         <div className="rounded-2xl border border-accent/15 bg-accent/3 px-8 py-12 text-center">
           <h2 className="text-xl font-semibold tracking-tight">
-            Evaluate insurance screening.
+            Integrate insurance screening into your platform.
           </h2>
           <p className="mx-auto mt-3 max-w-md text-base leading-relaxed text-muted">
-            Submit test policyholder and counterparty lists, inspect evidence
-            output, and validate integration against your underwriting workflows.
+            Submit test policyholder and counterparty lists via API, inspect
+            evidence output, and validate integration against your underwriting workflows.
           </p>
           <div className="mt-8">
             <Link href="/evaluation" className="btn-primary">
-              Request Evaluation Access
+              Request API Access
               <ArrowRight size={15} />
             </Link>
           </div>

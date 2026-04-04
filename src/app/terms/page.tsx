@@ -36,7 +36,7 @@ export default function TermsPage() {
             </p>
             <p>
               CCAI produces structured evidence records for every screening decision.
-              The service is consumed via REST API and operator dashboard. Decisions
+              The service is consumed via REST API. Decisions
               are attested through Intelligent Analyst, a separate verification layer.
             </p>
           </div>

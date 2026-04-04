@@ -13,7 +13,7 @@ const nav = [
   { label: "Integrations", href: "/platform-integrations" },
   { label: "Developer", href: "/developer" },
   { label: "Evidence", href: "/evidence" },
-  { label: "Evaluation", href: "/evaluation" },
+  { label: "API Access", href: "/evaluation" },
 ]
 
 export function SiteHeader() {

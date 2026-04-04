@@ -46,7 +46,7 @@ export default function MaritimeScreeningPage() {
             <ArrowRight size={15} />
           </Link>
           <Link href="/evaluation" className="btn-secondary">
-            Request Evaluation
+            Request API Access
           </Link>
         </div>
       </div>
@@ -195,15 +195,15 @@ export default function MaritimeScreeningPage() {
       <AnimateOnScroll className="mt-24">
         <div className="rounded-2xl border border-accent/15 bg-accent/3 px-8 py-12 text-center">
           <h2 className="text-xl font-semibold tracking-tight">
-            Evaluate CCAI with your shipping data.
+            Integrate maritime screening into your platform.
           </h2>
           <p className="mx-auto mt-3 max-w-md text-base leading-relaxed text-muted">
-            Submit test vessel and counterparty lists, inspect evidence output,
-            and validate integration against your maritime compliance workflows.
+            Submit test vessel and counterparty lists via API, inspect evidence
+            output, and validate integration against your maritime workflows.
           </p>
           <div className="mt-8">
             <Link href="/evaluation" className="btn-primary">
-              Request Evaluation Access
+              Request API Access
               <ArrowRight size={15} />
             </Link>
           </div>
