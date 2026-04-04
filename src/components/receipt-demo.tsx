@@ -90,7 +90,30 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
     const key = Object.keys(demoEntities).find(
       (k) => k.toLowerCase() === name.trim().toLowerCase()
     )
-    const entity = demoEntities[key || defaultEntity]
+    const entity: typeof demoEntities[string] = key
+      ? demoEntities[key]
+      : {
+          entity: name.trim(),
+          result: `${name.trim()} → [No watchlist match]`,
+          state: "CLEARED",
+          riskLevel: "Low",
+          matchedRegistry: "OFAC SDN — No match",
+          layer: "L1",
+          layerLabel: "Deterministic Match",
+          confidence: "0.99",
+          time: "8ms",
+          lineage: [
+            { label: "Input received", detail: name.trim() },
+            { label: "Normalized", detail: name.trim().toLowerCase() },
+            { label: "L1 lookup", detail: "No exact or alias match found" },
+            { label: "Decision", detail: "CLEARED — no watchlist match" },
+          ],
+          receipt: {
+            id: "rct_demo…fixture",
+            hash: "sha256:demo…fixture",
+            status: "BOUND",
+          },
+        }
     const resolveLayer = parseInt(entity.layer.replace("L", ""), 10)
     const stepsToShow = Math.min(resolveLayer + 1, layerSteps.length)
 
@@ -319,7 +342,7 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
                     { label: "input_hash", value: "sha256:8a1c3b...d47e" },
                     { label: "output_hash", value: "sha256:f94b7a...19ad" },
                     { label: "decision_type", value: "sanctions_screening" },
-                    { label: "entity", value: "Acme Shipping Ltd" },
+                    { label: "entity", value: result.entity },
                     { label: "result", value: "CLEAR", highlight: "success" as const },
                     { label: "verification_status", value: "VERIFIED", highlight: "success" as const },
                     { label: "receipt_signature", value: "ECDSA-P256" },
@@ -335,7 +358,7 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
                     { label: "input_hash", value: "sha256:4d91aa...8c10" },
                     { label: "output_hash", value: "pending_final_decision" },
                     { label: "decision_type", value: "sanctions_screening" },
-                    { label: "entity", value: "Global Trade Partners" },
+                    { label: "entity", value: result.entity },
                     { label: "result", value: "REVIEW", highlight: "warn" as const },
                     { label: "verification_status", value: "PENDING_HUMAN_REVIEW", highlight: "warn" as const },
                     { label: "receipt_signature", value: "not_issued" },
