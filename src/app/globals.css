@@ -57,6 +57,34 @@
   to { background-position: 200% 0; }
 }
 
+/* ── Dark theme overrides ── */
+
+html.dark {
+  --color-background: #09090b;
+  --color-foreground: #f4f4f5;
+  --color-surface: #18181b;
+  --color-surface-2: #1e1e22;
+  --color-border: #2e2e33;
+  --color-border-light: #252529;
+  --color-muted: #a1a1aa;
+  --color-muted-light: #71717a;
+  --color-accent-subtle: rgba(14, 165, 233, 0.08);
+  --color-violet-subtle: rgba(167, 139, 250, 0.06);
+  --color-surface-light: #141416;
+  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-premium: 0 4px 20px rgba(14, 165, 233, 0.08);
+  --shadow-premium-hover: 0 8px 32px rgba(14, 165, 233, 0.12);
+}
+
+html.dark ::selection {
+  background: rgba(14, 165, 233, 0.2);
+  color: #f4f4f5;
+}
+
+html.dark img:not([data-no-invert]) {
+  opacity: 0.9;
+}
+
 /* ── Base ── */
 
 html {

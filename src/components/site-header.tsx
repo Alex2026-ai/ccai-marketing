@@ -3,8 +3,9 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Moon, Sun } from "lucide-react"
 import { VerifiedShieldIcon } from "@/components/icons/verified-shield"
+import { useTheme } from "@/components/theme-provider"
 
 const nav = [
   { label: "How It Works", href: "/how-it-works" },
@@ -19,6 +20,7 @@ const nav = [
 export function SiteHeader() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { theme, toggle: toggleTheme } = useTheme()
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-surface/80 backdrop-blur-xl">
@@ -50,20 +52,36 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        {/* CTA */}
-        <div className="hidden md:block">
+        {/* CTA + Theme toggle */}
+        <div className="hidden items-center gap-2 md:flex">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="rounded-lg p-1.5 text-muted hover:text-foreground hover:bg-surface-2/80 transition-colors"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
           <Link href="/evaluation" className="btn-primary !text-[13px] !py-1.5 !px-4">
             Request Access
           </Link>
         </div>
 
         {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="rounded-lg p-1.5 text-muted hover:text-foreground md:hidden"
-        >
-          {mobileOpen ? <X size={18} /> : <Menu size={18} />}
-        </button>
+        <div className="flex items-center gap-1 md:hidden">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="rounded-lg p-1.5 text-muted hover:text-foreground transition-colors"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="rounded-lg p-1.5 text-muted hover:text-foreground"
+          >
+            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

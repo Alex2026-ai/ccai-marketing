@@ -5,6 +5,7 @@ import "./globals.css"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { CookieBanner } from "@/components/cookie-banner"
+import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
   title: "CoreCompliance AI — Deterministic Sanctions Screening",
@@ -32,15 +33,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon-32.svg" />
       </head>
       <body className="min-h-screen antialiased">
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
-        <CookieBanner />
+        <ThemeProvider>
+          <SiteHeader />
+          <main>{children}</main>
+          <SiteFooter />
+          <CookieBanner />
+        </ThemeProvider>
       </body>
     </html>
   )
