@@ -71,18 +71,19 @@ export default function SecurityPage() {
       </div>
 
       <div className="mt-16">
-        <h2 className="text-xl font-semibold tracking-tight">Compliance Certifications</h2>
+        <h2 className="text-xl font-semibold tracking-tight">Security Controls</h2>
         <p className="mt-4 text-base leading-relaxed text-muted">
-          CCAI maintains compliance with industry standards for data security and privacy.
+          CCAI is built with security controls appropriate for regulated screening
+          workloads. Formal compliance certifications are on our roadmap.
         </p>
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {[
-            { cert: "SOC 2 Type II", scope: "Security, Availability" },
-            { cert: "HIPAA", scope: "Protected Health Information" },
-            { cert: "GDPR", scope: "EU Data Protection" },
+            { label: "Tenant-Isolated", scope: "Per-tenant data scoping" },
+            { label: "Encrypted at Rest", scope: "AES-256 via Cloud KMS" },
+            { label: "Regional Residency", scope: "US + EU deployments" },
           ].map((item) => (
-            <div key={item.cert} className="rounded-xl border border-border bg-surface px-5 py-4 text-center">
-              <p className="font-mono text-sm font-semibold text-foreground">{item.cert}</p>
+            <div key={item.label} className="rounded-xl border border-border bg-surface px-5 py-4 text-center">
+              <p className="font-mono text-sm font-semibold text-foreground">{item.label}</p>
               <p className="mt-1 text-xs text-muted">{item.scope}</p>
             </div>
           ))}
@@ -92,8 +93,7 @@ export default function SecurityPage() {
       <div className="mt-16 rounded-2xl border border-border bg-surface-2/30 px-6 py-5">
         <h3 className="text-[15px] font-semibold text-foreground">Security Inquiries</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          For security-related questions, vulnerability reports, or to request our
-          SOC 2 report, contact us at{" "}
+          For security-related questions or vulnerability reports, contact us at{" "}
           <span className="font-mono text-foreground">security@corecompliance.ai</span>.
         </p>
       </div>

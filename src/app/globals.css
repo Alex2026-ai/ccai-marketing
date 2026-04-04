@@ -48,6 +48,10 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up { animation: none; opacity: 1; transform: none; }
+}
+
 @keyframes shimmer {
   from { background-position: -200% 0; }
   to { background-position: 200% 0; }

@@ -21,14 +21,14 @@ export function HeroDiagram() {
     <div
       className="mx-auto mt-16 max-w-md"
       style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(12px)",
+        opacity: visible ? 1 : 0.85,
+        transform: visible ? "translateY(0)" : "translateY(6px)",
         transition: "opacity 1.2s cubic-bezier(0.16,1,0.3,1) 0.2s, transform 1.2s cubic-bezier(0.16,1,0.3,1) 0.2s",
       }}
     >
       {/* Entity input */}
       <div className="mx-auto mb-3 w-fit rounded-lg border border-border bg-surface px-4 py-2 font-mono text-xs text-muted">
-        entity_input
+        &quot;Acme Shipping Ltd&quot;
       </div>
 
       {/* Connector */}

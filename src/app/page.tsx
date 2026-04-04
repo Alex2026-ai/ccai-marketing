@@ -60,9 +60,9 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Trust badges */}
+            {/* Trust signals — factual, no unsupported certifications */}
             <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
-              {["SOC 2 Type II", "HIPAA", "GDPR"].map((badge) => (
+              {["Tenant-Isolated", "Encrypted at Rest", "Regional Residency"].map((badge) => (
                 <span
                   key={badge}
                   className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1.5 text-[11px] font-semibold tracking-wider text-muted-light"
@@ -140,7 +140,7 @@ export default function HomePage() {
                 Measurable compliance outcomes.
               </h2>
               <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted">
-                Production metrics from regulated screening operations.
+                Benchmarked on internal calibration data.
               </p>
             </div>
           </AnimateOnScroll>
@@ -490,21 +490,21 @@ export default function HomePage() {
                 title: "Shipping & Maritime",
                 href: "/maritime-screening",
                 desc: "Screen vessel owners, operators, and beneficial ownership chains against OFAC, EU, and UN sanctions lists. Monitor ongoing exposure across fleet portfolios.",
-                lift: "92% audit prep reduction",
+                lift: "Pre-assembled evidence",
               },
               {
                 icon: Building2,
                 title: "Insurance",
                 href: "/insurance-screening",
                 desc: "Screen policyholders, counterparties, and reinsurance chains at underwriting and renewal. Batch-process portfolio-scale entity lists with full evidence.",
-                lift: "87% fewer false positives",
+                lift: "Layered resolution",
               },
               {
                 icon: Globe,
                 title: "Enterprise Platforms",
                 href: "/platform-integrations",
                 desc: "Embed CCAI as a screening layer within existing compliance workflows. API-first integration for platforms that need screening as infrastructure.",
-                lift: "<2s average latency",
+                lift: "<2s avg latency",
               },
             ].map((item, i) => (
               <AnimateOnScroll key={item.title} delay={i * 0.08}>

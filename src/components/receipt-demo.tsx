@@ -132,7 +132,8 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
           Screening Demo
         </h3>
         <p className="mt-1 text-sm leading-relaxed text-muted">
-          Enter an entity name to see resolution, evidence lineage, and receipt binding.
+          Representative example of resolution, evidence lineage, and receipt binding.
+          Uses fixture data to illustrate the protocol flow.
         </p>
       </div>
 
