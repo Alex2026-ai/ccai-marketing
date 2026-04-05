@@ -62,6 +62,72 @@ const demoEntities: Record<string, {
       status: "ATTESTATION_PENDING",
     },
   },
+  "Vladimir Putin": {
+    entity: "Vladimir Putin",
+    result: "Vladimir Putin → PUTIN, Vladimir Vladimirovich",
+    state: "BLOCKED",
+    riskLevel: "Critical",
+    matchedRegistry: "OFAC SDN — Exact match",
+    layer: "L1",
+    layerLabel: "Deterministic Match",
+    confidence: "0.99",
+    time: "6ms",
+    lineage: [
+      { label: "Input received", detail: "Vladimir Putin" },
+      { label: "Normalized", detail: "vladimir putin" },
+      { label: "L1 exact match", detail: "PUTIN, Vladimir Vladimirovich [OFAC SDN]" },
+      { label: "Decision", detail: "BLOCKED — sanctions match confirmed" },
+    ],
+    receipt: {
+      id: "rct_c7f1…9a2d",
+      hash: "sha256:b41e…7f3c",
+      status: "BOUND",
+    },
+  },
+  "Kim Jong Un": {
+    entity: "Kim Jong Un",
+    result: "Kim Jong Un → KIM JONG UN",
+    state: "BLOCKED",
+    riskLevel: "Critical",
+    matchedRegistry: "OFAC SDN — Exact match",
+    layer: "L1",
+    layerLabel: "Deterministic Match",
+    confidence: "0.99",
+    time: "5ms",
+    lineage: [
+      { label: "Input received", detail: "Kim Jong Un" },
+      { label: "Normalized", detail: "kim jong un" },
+      { label: "L1 exact match", detail: "KIM JONG UN [OFAC SDN]" },
+      { label: "Decision", detail: "BLOCKED — sanctions match confirmed" },
+    ],
+    receipt: {
+      id: "rct_e2a8…4c1f",
+      hash: "sha256:d93a…5b2e",
+      status: "BOUND",
+    },
+  },
+  "Banco Nacional de Cuba": {
+    entity: "Banco Nacional de Cuba",
+    result: "Banco Nacional de Cuba → BANCO NACIONAL DE CUBA",
+    state: "BLOCKED",
+    riskLevel: "Critical",
+    matchedRegistry: "OFAC SDN — Exact match",
+    layer: "L1",
+    layerLabel: "Deterministic Match",
+    confidence: "0.99",
+    time: "7ms",
+    lineage: [
+      { label: "Input received", detail: "Banco Nacional de Cuba" },
+      { label: "Normalized", detail: "banco nacional de cuba" },
+      { label: "L1 exact match", detail: "BANCO NACIONAL DE CUBA [OFAC SDN]" },
+      { label: "Decision", detail: "BLOCKED — sanctions match confirmed" },
+    ],
+    receipt: {
+      id: "rct_f5b3…8d7e",
+      hash: "sha256:a72c…1e9f",
+      status: "BOUND",
+    },
+  },
 }
 
 const defaultEntity = "Acme Shipping Ltd"
@@ -94,24 +160,23 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
       ? demoEntities[key]
       : {
           entity: name.trim(),
-          result: `${name.trim()} → [No watchlist match]`,
-          state: "CLEARED",
-          riskLevel: "Low",
-          matchedRegistry: "OFAC SDN — No match",
+          result: `${name.trim()} → [Demo — not in fixture set]`,
+          state: "REVIEW",
+          riskLevel: "Unknown",
+          matchedRegistry: "Demo limited — use API for live screening",
           layer: "L1",
-          layerLabel: "Deterministic Match",
-          confidence: "0.99",
-          time: "8ms",
+          layerLabel: "Demo Mode",
+          confidence: "—",
+          time: "—",
           lineage: [
             { label: "Input received", detail: name.trim() },
-            { label: "Normalized", detail: name.trim().toLowerCase() },
-            { label: "L1 lookup", detail: "No exact or alias match found" },
-            { label: "Decision", detail: "CLEARED — no watchlist match" },
+            { label: "Demo scope", detail: "This entity is not in the demo fixture set" },
+            { label: "Result", detail: "Use the API or operator dashboard for live screening" },
           ],
           receipt: {
-            id: "rct_demo…fixture",
-            hash: "sha256:demo…fixture",
-            status: "BOUND",
+            id: "—",
+            hash: "—",
+            status: "ATTESTATION_PENDING",
           },
         }
     const resolveLayer = parseInt(entity.layer.replace("L", ""), 10)
@@ -197,7 +262,7 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
 
         {/* Helper text — always visible */}
         <p className="mt-2.5 text-xs text-muted-light">
-          Try <span className="font-medium text-muted">&quot;Acme Shipping Ltd&quot;</span> (L1 match) or <span className="font-medium text-muted">&quot;Global Trade Partners&quot;</span> (L4 escalation).
+          Try <span className="font-medium text-muted">&quot;Vladimir Putin&quot;</span> (sanctioned) or <span className="font-medium text-muted">&quot;Acme Shipping Ltd&quot;</span> (cleared).
         </p>
 
         {/* Loading — layer progress */}
@@ -260,7 +325,9 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
                 <span className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1 text-xs font-semibold ${
                   result.state === "CLEARED"
                     ? "bg-emerald-50 text-emerald-700 border border-emerald-100"
-                    : "bg-amber-50 text-amber-700 border border-amber-100"
+                    : result.state === "BLOCKED"
+                      ? "bg-red-50 text-red-700 border border-red-100"
+                      : "bg-amber-50 text-amber-700 border border-amber-100"
                 }`}>
                   {result.state === "CLEARED"
                     ? <CheckCircle size={11} />
