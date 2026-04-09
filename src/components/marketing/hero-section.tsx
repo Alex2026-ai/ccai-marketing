@@ -7,14 +7,16 @@ export function HeroSection() {
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:py-24">
         <div className="fade-in-up">
           <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-accent">
-            Compliance Execution Platform
+            Deterministic Compliance Execution Platform
           </span>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
             Compliance screening that doesn&apos;t guess.
           </h1>
           <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted">
-            Deterministic screening. Native UBO graph. Explainable adverse media
-            intelligence. All in one self-serve platform.
+            Upload your data &mdash; run screening + ownership intelligence +
+            structured adverse media signals &mdash; get auditable review cases
+            with complete evidence lineage and hash chain provenance.
+            Self-serve or embed via API.
           </p>
           <CTAPair className="mt-7" />
         </div>

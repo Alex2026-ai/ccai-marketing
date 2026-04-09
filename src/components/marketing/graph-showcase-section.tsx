@@ -8,7 +8,7 @@ export function GraphShowcaseSection() {
       <div className="mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-2 lg:items-center lg:px-8">
         <div>
           <SectionHeader
-            eyebrow="Graph Intelligence"
+            eyebrow="Graph Intelligence with Commercial Correlation"
             title="See the ownership chain. Not just the name."
           />
           <ul className="mt-8 space-y-3 text-[14px] text-muted">
@@ -22,7 +22,7 @@ export function GraphShowcaseSection() {
             </li>
             <li className="flex items-start gap-2.5">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-              Adverse media correlation on graph entities
+              Adverse media + commercial intelligence correlation (World-Check &amp; Dow Jones adapters ready)
             </li>
             <li className="flex items-start gap-2.5">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />

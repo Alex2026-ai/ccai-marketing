@@ -1,21 +1,36 @@
-import { Shield, FileCheck, Lock } from "lucide-react"
+import { Shield, FileCheck, Lock, Database, Hash, Zap } from "lucide-react"
 import { SectionHeader } from "./section-header"
 
 const pillars = [
   {
-    icon: Shield,
-    title: "Deterministic",
-    desc: "Same input, same output, every time. No probabilistic drift. No model retraining surprises.",
+    icon: Database,
+    title: "Immutable Snapshots",
+    desc: "Every screening run is against a frozen, versioned, content-hashed snapshot. Results are always reproducible.",
+  },
+  {
+    icon: Hash,
+    title: "Hash Chain Provenance",
+    desc: "Every decision includes a verifiable DecisionEventPackage with SHA-256 integrity hash and full decision path.",
   },
   {
     icon: FileCheck,
-    title: "Auditable",
-    desc: "Per-entity decision packages with SHA-256 integrity hashes. Full decision path recorded.",
+    title: "Signal Provenance",
+    desc: "Full provenance on every intelligence signal — traceable from structured output back to raw vendor hit.",
+  },
+  {
+    icon: Shield,
+    title: "Deterministic",
+    desc: "Same input always produces the same output. No probabilistic drift. No model retraining surprises.",
   },
   {
     icon: Lock,
-    title: "Isolated",
+    title: "Tenant Isolated",
     desc: "Tenant-scoped persistence. API key authentication. Cross-tenant access is structurally impossible.",
+  },
+  {
+    icon: Zap,
+    title: "Single Entity + Batch",
+    desc: "Single entity screening available via real-time API, or batch-process thousands. SOC-2 evidence preparation tools and audit exports.",
   },
 ]
 
@@ -24,12 +39,12 @@ export function TrustSection() {
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <SectionHeader
-          eyebrow="Trust & evidence"
+          eyebrow="Transparency by Design"
           title="Built for the audit that's coming."
           centered
         />
 
-        <div className="mt-14 grid gap-8 sm:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {pillars.map((p) => (
             <div key={p.title} className="rounded-xl border border-border bg-surface p-6 text-center">
               <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-accent/8 text-accent">

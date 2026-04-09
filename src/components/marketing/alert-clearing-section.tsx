@@ -11,13 +11,13 @@ const capabilities = [
   },
   {
     icon: Shield,
-    title: "Full Evidence Chain",
-    desc: "Each case carries the complete decision package: matched name, confidence score, resolution layer, adverse media signals, and ownership graph context.",
+    title: "Full Evidence Lineage",
+    desc: "Every case includes the complete DecisionEventPackage with hash chain and provenance — matched name, confidence, resolution layer, adverse media signals, ownership graph context.",
   },
   {
     icon: ClipboardCheck,
-    title: "Structured Review Workflow",
-    desc: "Analysts work through cases with disposition options (True Positive, False Positive, Escalate) and required justification fields. No free-form ambiguity.",
+    title: "Structured Disposition Workflow",
+    desc: "Analysts disposition with predefined types: True Positive, False Positive, Escalate. Required justification and notes fields. No free-form ambiguity.",
   },
   {
     icon: History,
@@ -26,13 +26,13 @@ const capabilities = [
   },
   {
     icon: Clock,
-    title: "Reduced Review Time",
-    desc: "Pre-attached evidence eliminates manual data gathering. Analysts review decisions, not raw data. Average case resolution drops from hours to minutes.",
+    title: "Status Workflow",
+    desc: "Open → In Review → Resolved. Pre-attached evidence eliminates manual data gathering. Analysts review decisions, not raw data.",
   },
   {
     icon: Download,
-    title: "Export-Ready Evidence",
-    desc: "Decision packages, case histories, and disposition records export as structured data for regulatory filing, internal audit, or client reporting.",
+    title: "Export-Ready Audit Bundles",
+    desc: "JSON export for regulators (PDF export coming soon). Decision packages, case histories, and disposition records ready for regulatory filing or internal audit.",
   },
 ]
 
@@ -41,7 +41,7 @@ export function AlertClearingSection() {
     <section className="py-20 lg:py-28 bg-surface-2/20">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <SectionHeader
-          eyebrow="Alert Clearing"
+          eyebrow="Alert Clearing — One of Our Strongest Features"
           title="Structured alert clearing that actually reduces manual work."
           description="Every screening hit becomes a structured case with full provenance. Your analysts review evidence, not raw data. Every resolution is auditable."
           centered

@@ -11,6 +11,7 @@ import { IntelligenceSection } from "@/components/marketing/intelligence-section
 import { AlertClearingSection } from "@/components/marketing/alert-clearing-section"
 import { ProvisioningSection } from "@/components/marketing/provisioning-section"
 import { TrustSection } from "@/components/marketing/trust-section"
+import { EnterpriseReadinessSection } from "@/components/marketing/enterprise-readiness-section"
 import { MetricsSection } from "@/components/marketing/metrics-section"
 import { FinalCTASection } from "@/components/marketing/final-cta-section"
 import { ScreeningDemo } from "@/components/marketing/screening-demo"
@@ -28,6 +29,7 @@ export default function HomePage() {
       <AlertClearingSection />
       <ProvisioningSection />
       <TrustSection />
+      <EnterpriseReadinessSection />
       <MetricsSection />
       <FinalCTASection />
     </>
