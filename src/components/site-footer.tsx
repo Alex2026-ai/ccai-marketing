@@ -3,27 +3,29 @@ import { VerifiedShieldIcon } from "@/components/icons/verified-shield"
 
 const footerNav = [
   {
-    heading: "Product",
+    heading: "Platform",
     links: [
-      { label: "How It Works", href: "/how-it-works" },
-      { label: "Architecture", href: "/architecture" },
-      { label: "Evidence", href: "/evidence" },
-    ],
-  },
-  {
-    heading: "Verticals",
-    links: [
-      { label: "Maritime Screening", href: "/maritime-screening" },
-      { label: "Insurance Screening", href: "/insurance-screening" },
-      { label: "Platform Integrations", href: "/platform-integrations" },
+      { label: "Product", href: "/product" },
+      { label: "Graph Intelligence", href: "/graph" },
+      { label: "Media Intelligence", href: "/intelligence" },
+      { label: "Pricing", href: "/pricing" },
     ],
   },
   {
     heading: "Developers",
     links: [
-      { label: "API Overview", href: "/developer" },
-      { label: "Evaluation", href: "/evaluation" },
+      { label: "API Documentation", href: "/developers" },
+      { label: "Try the Sandbox", href: "/evaluation" },
       { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "About", href: "/company" },
+      { label: "Security", href: "/security" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
     ],
   },
 ]
@@ -44,8 +46,8 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-muted">
-              Deterministic sanctions screening infrastructure with verifiable
-              evidence for every decision.
+              Deterministic screening. Native UBO graph. Explainable adverse media
+              intelligence. All in one self-serve platform.
             </p>
           </div>
 

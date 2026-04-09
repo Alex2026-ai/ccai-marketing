@@ -8,13 +8,12 @@ import { VerifiedShieldIcon } from "@/components/icons/verified-shield"
 import { useTheme } from "@/components/theme-provider"
 
 const nav = [
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Maritime", href: "/maritime-screening" },
-  { label: "Insurance", href: "/insurance-screening" },
-  { label: "Integrations", href: "/platform-integrations" },
-  { label: "Developer", href: "/developer" },
-  { label: "Evidence", href: "/evidence" },
-  { label: "API Access", href: "/evaluation" },
+  { label: "Product", href: "/product" },
+  { label: "Graph", href: "/graph" },
+  { label: "Intelligence", href: "/intelligence" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Developers", href: "/developers" },
+  { label: "Company", href: "/company" },
 ]
 
 export function SiteHeader() {
@@ -62,7 +61,7 @@ export function SiteHeader() {
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <Link href="/evaluation" className="btn-primary !text-[13px] !py-1.5 !px-4">
-            Request Access
+            Try the Live Sandbox
           </Link>
         </div>
 
@@ -104,7 +103,7 @@ export function SiteHeader() {
             ))}
             <div className="mt-3 border-t border-border pt-3">
               <Link href="/evaluation" className="btn-primary w-full justify-center !text-[14px]">
-                Request Access
+                Try the Live Sandbox
               </Link>
             </div>
           </nav>
