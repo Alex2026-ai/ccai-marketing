@@ -1,4 +1,4 @@
-import { Upload, Database, Shield, Network, FileCheck } from "lucide-react"
+import { Upload, Database, Shield, Network, FileCheck, ClipboardCheck } from "lucide-react"
 import { SectionHeader } from "./section-header"
 import { ScreenshotPlaceholder } from "./screenshot-placeholder"
 
@@ -7,7 +7,8 @@ const steps = [
   { icon: Database, label: "Snapshot", desc: "Immutable, content-hashed, versioned. Every run is reproducible." },
   { icon: Shield, label: "Screen", desc: "Deterministic L1 exact + L2 fuzzy against 72K+ sanctions entries." },
   { icon: Network, label: "Enrich", desc: "UBO graph. Adverse media intelligence. Risk paths. Shell indicators." },
-  { icon: FileCheck, label: "Review", desc: "Structured cases for flagged entities. Full evidence chain." },
+  { icon: FileCheck, label: "Cases", desc: "Automated case generation for BLOCKED and REVIEW hits with full evidence." },
+  { icon: ClipboardCheck, label: "Clear", desc: "Structured alert clearing. Disposition, audit trail, export-ready evidence." },
 ]
 
 export function HowItWorksSection() {
@@ -16,12 +17,12 @@ export function HowItWorksSection() {
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <SectionHeader
           eyebrow="How it works"
-          title="Five steps. Full audit trail. Zero black boxes."
+          title="Six steps. Full audit trail. Zero black boxes."
           centered
         />
 
         {/* Steps */}
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-5">
+        <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
           {steps.map((step, i) => (
             <div key={step.label} className="flex flex-col items-center text-center">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/8 text-accent">

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 import { HowItWorksSection } from "@/components/marketing/how-it-works-section"
 import { GraphShowcaseSection } from "@/components/marketing/graph-showcase-section"
 import { IntelligenceSection } from "@/components/marketing/intelligence-section"
+import { AlertClearingSection } from "@/components/marketing/alert-clearing-section"
 import { ProvisioningSection } from "@/components/marketing/provisioning-section"
 import { TrustSection } from "@/components/marketing/trust-section"
 import { MetricsSection } from "@/components/marketing/metrics-section"
@@ -24,6 +25,7 @@ export default function HomePage() {
       <HowItWorksSection />
       <GraphShowcaseSection />
       <IntelligenceSection />
+      <AlertClearingSection />
       <ProvisioningSection />
       <TrustSection />
       <MetricsSection />
