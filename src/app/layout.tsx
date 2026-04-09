@@ -8,22 +8,25 @@ import { CookieBanner } from "@/components/cookie-banner"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  title: "CoreCompliance AI — Deterministic Sanctions Screening",
+  title: {
+    default: "CoreCompliance AI — Deterministic Screening, UBO Graph, Adverse Media Intelligence",
+    template: "%s | CoreCompliance AI",
+  },
   description:
-    "Deterministic compliance screening infrastructure with verifiable evidence for every decision.",
-  metadataBase: new URL("https://ccai-marketing.vercel.app"),
+    "Deterministic screening. Native UBO graph. Explainable adverse media intelligence. All in one self-serve, auditable platform.",
+  metadataBase: new URL("https://corecomplianceai.com"),
   openGraph: {
-    title: "CoreCompliance AI — Deterministic Sanctions Screening",
+    title: "CoreCompliance AI",
     description:
-      "Deterministic compliance screening infrastructure with verifiable evidence for every decision.",
+      "Deterministic screening. Native UBO graph. Explainable adverse media intelligence. All in one self-serve platform.",
     siteName: "CoreCompliance AI",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CoreCompliance AI — Deterministic Sanctions Screening",
+    title: "CoreCompliance AI",
     description:
-      "Deterministic compliance screening infrastructure with verifiable evidence for every decision.",
+      "Deterministic screening. Native UBO graph. Explainable adverse media intelligence. All in one self-serve platform.",
   },
 }
 
