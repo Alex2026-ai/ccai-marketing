@@ -35,9 +35,10 @@ export default function TermsPage() {
               a layered resolution protocol.
             </p>
             <p>
-              CCAI produces structured evidence records for every screening decision.
-              The service is consumed via REST API. Decisions
-              are attested through Intelligent Analyst, a separate verification layer.
+              CCAI produces structured evidence records for every screening result.
+              These outputs are screening signals, not final compliance determinations.
+              The service is consumed via REST API. Results are attested through
+              Intelligent Analyst, a separate verification layer.
             </p>
           </div>
         </section>

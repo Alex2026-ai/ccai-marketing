@@ -18,14 +18,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // On mount: read from localStorage or system preference
   useEffect(() => {
-    const stored = localStorage.getItem("ccai-theme") as Theme | null
-    if (stored === "dark" || stored === "light") {
-      setTheme(stored)
-      document.documentElement.classList.toggle("dark", stored === "dark")
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark")
-      document.documentElement.classList.add("dark")
-    }
+    const t = window.setTimeout(() => {
+      const stored = localStorage.getItem("ccai-theme") as Theme | null
+      if (stored === "dark" || stored === "light") {
+        setTheme(stored)
+        document.documentElement.classList.toggle("dark", stored === "dark")
+      } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        setTheme("dark")
+        document.documentElement.classList.add("dark")
+      }
+    }, 0)
+    return () => window.clearTimeout(t)
   }, [])
 
   const toggle = useCallback(() => {

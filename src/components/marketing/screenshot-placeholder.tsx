@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 interface ScreenshotPlaceholderProps {
   label: string
   aspectRatio?: string
@@ -9,11 +11,12 @@ export function ScreenshotPlaceholder({ label, aspectRatio = "16/9", src }: Scre
   if (src) {
     return (
       <div className="relative overflow-hidden rounded-xl border border-border shadow-soft">
-        <img
+        <Image
           src={src}
           alt={label}
+          width={1600}
+          height={900}
           className="w-full h-auto"
-          loading="lazy"
         />
       </div>
     )

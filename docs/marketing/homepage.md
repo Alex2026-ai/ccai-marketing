@@ -153,13 +153,13 @@ Create a tenant, generate an API key, upload your first list, and screen it — 
 Built for the audit that's coming.
 
 **Copy:**
-Every screening decision in CCAI produces a complete evidence chain. Deterministic matching means identical inputs always produce identical outputs. Content-hashed snapshots mean you can prove exactly which data was used. Tenant isolation means your data never leaks.
+Every screening result in CCAI produces a complete evidence chain. Deterministic matching means identical canonical inputs, rules, and snapshots produce identical outputs. Content-hashed snapshots mean you can prove exactly which data was used. Tenant-scoped boundaries reduce cross-tenant exposure risk.
 
 **Evidence pillars (3-column grid):**
 
-1. **Deterministic** — Same input, same output, every time. No probabilistic drift. No model retraining surprises.
+1. **Deterministic** — Same canonical input, rules, and snapshot produce the same output. No probabilistic drift. No model retraining surprises.
 2. **Auditable** — Per-entity decision packages with SHA-256 integrity hashes. Full decision path recorded: which layer, which threshold, which data version.
-3. **Isolated** — Tenant-scoped persistence. API key authentication. Cross-tenant access is structurally impossible.
+3. **Isolated** — Tenant-scoped persistence, API key authentication, and explicit boundary checks reduce cross-tenant exposure risk.
 
 **Tailwind/layout notes:**
 - Light background

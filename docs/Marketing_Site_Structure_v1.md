@@ -58,16 +58,16 @@ Engineering teams responsible for integrating screening into existing workflows.
 
 ### 4.1 What CCAI Is
 
-Deterministic compliance screening infrastructure. CCAI screens entities against sanctions and watchlists using a layered resolution protocol that produces verifiable evidence for every decision.
+Deterministic compliance screening infrastructure. CCAI screens entities against sanctions and watchlists using a layered resolution protocol that produces verifiable evidence for every screening result.
 
 ### 4.2 Positioning Pillars
 
 | Pillar                  | Statement                                                                 |
 |-------------------------|---------------------------------------------------------------------------|
-| Deterministic screening | Decisions are produced by a defined protocol, not opaque models           |
-| Evidence-first          | Every decision generates a structured evidence bundle with full lineage   |
+| Deterministic screening | Screening results are produced by a defined protocol, not opaque models   |
+| Evidence-first          | Every result generates a structured evidence bundle with full lineage     |
 | API + Dashboard         | Consumed as infrastructure via API, operated via dashboard                |
-| Attestation via IA      | Decisions are attested and receipted through the Intelligent Analyst truth layer |
+| Attestation via IA      | Screening results are attested and receipted through the Intelligent Analyst truth layer |
 
 ### 4.3 What CCAI Is Not
 

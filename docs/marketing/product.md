@@ -35,7 +35,7 @@ Deterministic screening, native UBO graph, explainable adverse media intelligenc
 Matching you can explain to a regulator.
 
 **Copy:**
-CCAI's screening engine uses deterministic L1 exact matching and L2 fuzzy matching against 72,859 sanctions and restricted-party entries across 15 source lists. Every match decision is reproducible: same input, same watchlist version, same output.
+CCAI's screening engine uses deterministic L1 exact matching and L2 fuzzy matching against 72,859 sanctions and restricted-party entries across 15 source lists. Every match result is reproducible for the same canonical input, tenant rules, and watchlist version.
 
 - L1 exact match: O(1) lookup against normalized watchlist
 - L2 fuzzy match: token-sort ratio with configurable thresholds (≥95% BLOCKED, ≥85% REVIEW)
@@ -74,7 +74,7 @@ CCAI's native graph engine traverses multi-hop ownership chains and identifies u
 - Depth control: 1–5 levels of traversal
 - Risk paths: shell chains, unknown UBOs, deep structures (≥4 levels)
 - Snapshot-scoped: every graph query tied to a specific data version
-- Deterministic: same entity + same data = same graph, always
+- Deterministic: same entity and same data snapshot produce the same graph
 
 [REAL SCREENSHOT: ownership graph panel — multi-node chain with UBO resolution]
 
@@ -137,7 +137,7 @@ CCAI is designed for self-serve operation from day one. Create a tenant, generat
 ## Section: Auditability
 
 **Headline:**
-Every decision has a receipt.
+Every screening result has a receipt.
 
 **Copy:**
 - Per-entity decision packages with SHA-256 integrity hashes
