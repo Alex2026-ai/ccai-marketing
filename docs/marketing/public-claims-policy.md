@@ -20,3 +20,5 @@ Public copy must describe CCAI outputs as screening signals, evidence records, o
 ## Why this exists
 
 The marketing site is a public representation of the product. Claim safety protects customers, preserves the system-of-record boundary, and keeps public copy aligned with the engine's modular architecture.
+
+See `compliance-certification-narrative.md` for the public framing of the cross-repo certification story.
