@@ -200,8 +200,10 @@ export function ReceiptDemo({ autoPlay = false }: { autoPlay?: boolean }) {
 
   useEffect(() => {
     if (autoPlay && !hasAutoPlayed) {
-      setHasAutoPlayed(true)
-      const t = setTimeout(() => runDemo(defaultEntity), 600)
+      const t = setTimeout(() => {
+        setHasAutoPlayed(true)
+        runDemo(defaultEntity)
+      }, 600)
       return () => clearTimeout(t)
     }
   }, [autoPlay, hasAutoPlayed, runDemo])

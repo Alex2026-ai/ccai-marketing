@@ -8,7 +8,7 @@ Deterministic sanctions screening with verifiable evidence.
 
 ### Subheadline
 
-CCAI is compliance screening infrastructure. Every entity screened produces a structured decision with full lineage, evidence artifacts, and cryptographic attestation — ready for regulatory examination.
+CCAI is compliance screening infrastructure. Every entity screened produces a structured screening result with full lineage, evidence artifacts, and cryptographic attestation — ready to support regulatory examination.
 
 ### Primary CTA
 
@@ -24,7 +24,7 @@ Read How It Works →
 
 CoreCompliance AI is a sanctions and watchlist screening engine built for regulated institutions. It resolves entities against sanctions lists, PEP databases, and adverse media sources using a deterministic, layered protocol.
 
-Unlike opaque scoring systems, CCAI produces a complete evidence record for every screening decision. Each decision includes the resolution path, the data sources consulted, the rules applied, and the confidence basis — all bound to an immutable receipt through Intelligent Analyst.
+Unlike opaque scoring systems, CCAI produces a complete evidence record for every screening result. Each result includes the resolution path, the data sources consulted, the rules applied, and the confidence basis — all bound to an immutable receipt through Intelligent Analyst.
 
 CCAI is consumed as infrastructure: via API for platform teams, via operator dashboard for compliance officers.
 
@@ -34,7 +34,7 @@ CCAI is consumed as infrastructure: via API for platform teams, via operator das
 
 ### Deterministic Protocol
 
-Screening decisions follow a defined resolution waterfall. The same input, rules, and data produce the same output. Decisions are reproducible and replayable.
+Screening results follow a defined resolution waterfall. The same canonical input, rules, and data snapshot produce the same output. Results are reproducible and replayable.
 
 ### Evidence by Default
 
@@ -42,7 +42,7 @@ Every decision generates a DecisionEventPackage containing resolution lineage, r
 
 ### Separation of Screening and Attestation
 
-CCAI produces decisions. Intelligent Analyst attests them. The screening engine and the truth ledger are architecturally separate. Neither can modify the other's records.
+CCAI produces screening signals and evidence records. Intelligent Analyst attests them. The screening engine and the truth ledger are architecturally separate. Neither can modify the other's records.
 
 ### Layered Resolution
 
@@ -56,7 +56,7 @@ Entities pass through up to five resolution layers — from deterministic matchi
 |-----------------------------|------------------------------------------------------------------|
 | Batch screening             | Upload entity files (CSV, XLSX, JSON, Parquet) for bulk resolution |
 | Real-time API               | Single-entity resolution via REST endpoint                       |
-| Evidence generation         | Structured decision packages with full lineage per entity        |
+| Evidence generation         | Structured evidence packages with full lineage per entity        |
 | Continuous monitoring       | Ongoing re-screening against updated watchlist snapshots         |
 | Audit export                | Regulatory-formatted evidence bundles and PDF audit reports      |
 | Multi-tenant isolation      | Tenant-scoped data, configuration, and access controls           |

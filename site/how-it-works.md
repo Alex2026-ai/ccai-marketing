@@ -29,7 +29,7 @@ Each entity passes through the resolution waterfall — a sequence of layers ord
 | L1    | Deterministic matching  | $0      | Exact match, normalized match, known alias/parent lookup |
 | L2    | Vector similarity       | $0      | Character n-gram vectorization with cosine similarity against canonical index |
 | L3    | Semantic reasoning      | ~$0.005 | LLM-based entity resolution for ambiguous cases  |
-| L4    | Human review            | Variable| Escalation to operator queue for manual decision  |
+| L4    | Human review            | Variable| Escalation to operator queue for manual disposition |
 
 An entity stops at the first layer that produces a confident resolution. Most entities resolve at L1 or L2. L3 and L4 handle the long tail.
 
@@ -39,7 +39,7 @@ Each layer records its result, confidence score, execution time, and the rules a
 
 ## 3. Evidence
 
-Every screening decision produces a DecisionEventPackage — the structured evidence object that records:
+Every screening result produces a DecisionEventPackage — the structured evidence object that records:
 
 - **Resolution path** — which layers were attempted and what each returned
 - **Rule binding** — which rule pack version and specific rules were applied
@@ -77,6 +77,6 @@ Intelligent Analyst:
 - Stores the receipt for long-term retention and regulatory retrieval
 - Enables independent verification and replay
 
-CCAI produces the screening decision. Intelligent Analyst attests it. These are separate systems with separate data stores. CCAI cannot modify IA records. IA cannot influence CCAI screening logic.
+CCAI produces the screening signal and evidence record. Intelligent Analyst attests it. These are separate systems with separate data stores. CCAI cannot modify IA records. IA cannot influence CCAI screening logic.
 
 This separation ensures that the evidence record is independently verifiable and that no single system controls both the decision and its attestation.

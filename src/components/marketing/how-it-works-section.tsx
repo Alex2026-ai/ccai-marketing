@@ -4,7 +4,7 @@ import { ScreenshotPlaceholder } from "./screenshot-placeholder"
 
 const steps = [
   { icon: Upload, label: "Upload", desc: "Your data is versioned and frozen. Every result is traceable to an exact snapshot." },
-  { icon: Shield, label: "Screen", desc: "Same input, same rules, same output — always. Full ownership chains with risk paths and commercial intelligence correlation." },
+  { icon: Shield, label: "Screen", desc: "Same canonical input, rules, and snapshot produce the same output. Full ownership chains with risk paths and commercial intelligence correlation." },
   { icon: Network, label: "Intelligence", desc: "Raw hits become structured signals with justification, evidence snippets, severity, and full provenance including hash chain." },
   { icon: ClipboardCheck, label: "Cases & Clearing", desc: "Flagged entities become structured cases. Analysts disposition with predefined types + required justification and notes." },
   { icon: Bell, label: "Webhooks", desc: "Instant webhooks on batch.completed, batch.failed, and case.status_changed. Full retry + dead-letter handling." },

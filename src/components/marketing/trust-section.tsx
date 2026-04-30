@@ -5,7 +5,7 @@ const pillars = [
   {
     icon: Database,
     title: "Immutable Snapshots",
-    desc: "Every screening run is against a frozen, versioned, content-hashed snapshot. Results are always reproducible.",
+    desc: "Every screening run is bound to a frozen, versioned, content-hashed snapshot. Results can be replayed against the same data.",
   },
   {
     icon: Hash,
@@ -20,12 +20,12 @@ const pillars = [
   {
     icon: Shield,
     title: "Deterministic",
-    desc: "Same input always produces the same output. No probabilistic drift. No model retraining surprises.",
+    desc: "Same canonical input, rules, and snapshot produce the same output. No probabilistic drift. No model retraining surprises.",
   },
   {
     icon: Lock,
     title: "Tenant Isolated",
-    desc: "Tenant-scoped persistence. API key authentication. Cross-tenant access is structurally impossible.",
+    desc: "Tenant-scoped persistence, API key authentication, and explicit boundary checks reduce cross-tenant exposure risk.",
   },
   {
     icon: Zap,
