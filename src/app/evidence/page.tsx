@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { ReceiptDemo } from "@/components/receipt-demo"
 import { ContinueReading } from "@/components/continue-reading"
@@ -248,6 +249,17 @@ export default function EvidencePage() {
           evidence infrastructure that allows regulated institutions to
           demonstrate the rigor, consistency, and traceability of their
           screening operations.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-muted">
+          For regulator-facing packaging, review{" "}
+          <Link href="/regulatory-examination" className="text-accent underline-offset-2 hover:underline">
+            examination readiness
+          </Link>
+          . For source-age context, review{" "}
+          <Link href="/data-freshness" className="text-accent underline-offset-2 hover:underline">
+            data freshness
+          </Link>
+          .
         </p>
       </AnimateOnScroll>
 

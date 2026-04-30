@@ -106,6 +106,9 @@ This separation ensures:
 │   └── /insurance         Insurance industry use case
 ├── /developer             Developer documentation and API access
 ├── /evidence              Evidence model and transparency
+├── /regulatory-examination Evidence packaging and reliance boundary
+├── /evaluation-boundaries Evaluation limits and sandbox reliance boundary
+├── /data-freshness        Snapshot freshness and stale-window framing
 └── /evaluation            Evaluation methodology and benchmarks
 ```
 
@@ -119,6 +122,9 @@ This separation ensures:
 | `/use-cases/*`     | Buyers, Operators     | Demonstrate domain applicability with concrete scenarios        |
 | `/developer`       | Developers            | Provide integration guidance and API consumption model         |
 | `/evidence`        | Operators, Buyers     | Explain the evidence model that supports regulatory defense    |
+| `/regulatory-examination` | Operators, Buyers, Counsel | Explain regulator-readable examination package expectations |
+| `/evaluation-boundaries` | All | Make sandbox limits and reliance boundaries explicit |
+| `/data-freshness` | Operators, Buyers | Explain snapshot age, source timestamps, and stale-window handling |
 | `/evaluation`      | All                   | Guide users into hands-on evaluation with clear scope          |
 
 ### 6.3 Page Descriptions
@@ -150,6 +156,18 @@ Technical entry point for integration teams. Covers API overview, authentication
 **`/evidence` — Evidence Model**
 
 Explains the evidence and transparency architecture. Covers DecisionEventPackage structure, VeracityReceipt binding, lineage traceability, audit export capabilities, and how evidence supports regulatory examination.
+
+**`/regulatory-examination` — Examination Readiness**
+
+Explains how CCAI evidence can be organized into a regulator-readable package: process narrative, evidence inventory, human review trail, freshness disclosure, and reliance boundary.
+
+**`/evaluation-boundaries` — Evaluation Boundaries**
+
+Explains sandbox limits, reference data boundaries, retention, credential scope, and why evaluation output is not production reliance.
+
+**`/data-freshness` — Data Freshness**
+
+Explains snapshot build timestamps, upstream source timestamps, snapshot age, freshness policy, and stale-window review concepts.
 
 **`/evaluation` — Evaluation Methodology**
 

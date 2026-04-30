@@ -23,6 +23,7 @@ const limits = [
   { constraint: "Data scope", limit: "Reference watchlist data (not production feeds)" },
   { constraint: "Retention", limit: "Evaluation data retained for 30 days" },
   { constraint: "Tenant isolation", limit: "Evaluation tenants fully isolated from production" },
+  { constraint: "Reliance", limit: "Sandbox results are screening signals for testing, not final compliance determinations" },
 ]
 
 const steps = [
@@ -66,6 +67,13 @@ export default function EvaluationPage() {
         <h2 className="text-2xl font-semibold tracking-tight">Limits and safety.</h2>
         <p className="mt-4 text-base leading-relaxed text-muted">
           The evaluation environment has defined boundaries. Evaluation access does not grant production API keys, production data, or system configuration access.
+        </p>
+        <p className="mt-3 text-base leading-relaxed text-muted">
+          For the complete reliance model, review the{" "}
+          <Link href="/evaluation-boundaries" className="text-accent underline-offset-2 hover:underline">
+            evaluation boundaries
+          </Link>
+          .
         </p>
         <div className="mt-8 overflow-hidden rounded-2xl border border-border">
           <table className="w-full text-left">
