@@ -22,6 +22,7 @@ Complete content, information architecture, and page specifications for the mark
 | `regulatory-examination.md` | Regulatory Examination Readiness | `/regulatory-examination` |
 | `evaluation-boundaries.md` | Evaluation Boundaries | `/evaluation-boundaries` |
 | `data-freshness.md` | Data Freshness | `/data-freshness` |
+| `compliance-certification-narrative.md` | Public certification narrative | Content governance |
 
 ## Implementation Notes
 
