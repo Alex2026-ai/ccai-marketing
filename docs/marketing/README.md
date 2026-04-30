@@ -19,6 +19,9 @@ Complete content, information architecture, and page specifications for the mark
 | `pricing.md` | Pricing | `/pricing` |
 | `developers-api.md` | Developers / API | `/developers` |
 | `company.md` | Company | `/company` |
+| `regulatory-examination.md` | Regulatory Examination Readiness | `/regulatory-examination` |
+| `evaluation-boundaries.md` | Evaluation Boundaries | `/evaluation-boundaries` |
+| `data-freshness.md` | Data Freshness | `/data-freshness` |
 
 ## Implementation Notes
 

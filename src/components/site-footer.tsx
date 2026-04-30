@@ -16,6 +16,7 @@ const footerNav = [
     links: [
       { label: "API Documentation", href: "/developers" },
       { label: "Try the Sandbox", href: "/evaluation" },
+      { label: "Evaluation Boundaries", href: "/evaluation-boundaries" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -24,6 +25,8 @@ const footerNav = [
     links: [
       { label: "About", href: "/company" },
       { label: "Security", href: "/security" },
+      { label: "Exam Readiness", href: "/regulatory-examination" },
+      { label: "Data Freshness", href: "/data-freshness" },
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
     ],
@@ -92,6 +95,9 @@ export function SiteFooter() {
             </Link>
             <Link href="/evaluation" className="text-[12px] text-muted-light transition-colors hover:text-foreground">
               Evaluation
+            </Link>
+            <Link href="/regulatory-examination" className="text-[12px] text-muted-light transition-colors hover:text-foreground">
+              Exam Readiness
             </Link>
             <Link href="/contact" className="text-[12px] text-muted-light transition-colors hover:text-foreground">
               Contact
