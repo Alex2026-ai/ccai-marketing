@@ -14,6 +14,7 @@ Complete content, information architecture, and page specifications for the mark
 |------|------|-----|
 | `homepage.md` | Homepage | `/` |
 | `product.md` | Product | `/product` |
+| `why-ccai.md` | Why CCAI | `/why-ccai` |
 | `graph.md` | Graph Intelligence | `/graph` |
 | `intelligence.md` | Adverse Media Intelligence | `/intelligence` |
 | `pricing.md` | Pricing | `/pricing` |

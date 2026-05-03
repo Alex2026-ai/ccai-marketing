@@ -29,6 +29,7 @@ ccai-marketing/
 | `/`                | Homepage — positioning, value prop, CTA  |
 | `/how-it-works`    | Protocol walkthrough                     |
 | `/architecture`    | System architecture overview             |
+| `/why-ccai`        | Buyer adoption and selection rationale   |
 | `/use-cases/shipping`  | Shipping industry use case           |
 | `/use-cases/insurance` | Insurance industry use case          |
 | `/developer`       | Developer documentation and API access   |
