@@ -6,6 +6,7 @@ const footerNav = [
     heading: "Platform",
     links: [
       { label: "Product", href: "/product" },
+      { label: "Why CCAI", href: "/why-ccai" },
       { label: "Graph Intelligence", href: "/graph" },
       { label: "Media Intelligence", href: "/intelligence" },
       { label: "Pricing", href: "/pricing" },

@@ -9,6 +9,7 @@ import { useTheme } from "@/components/theme-provider"
 
 const nav = [
   { label: "Product", href: "/product" },
+  { label: "Why CCAI", href: "/why-ccai" },
   { label: "Graph", href: "/graph" },
   { label: "Intelligence", href: "/intelligence" },
   { label: "Pricing", href: "/pricing" },
