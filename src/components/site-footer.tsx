@@ -27,6 +27,8 @@ const footerNav = [
       { label: "Security", href: "/security" },
       { label: "Exam Readiness", href: "/regulatory-examination" },
       { label: "Data Freshness", href: "/data-freshness" },
+      { label: "Human Review", href: "/human-review" },
+      { label: "PI Boundary", href: "/pi-assistive" },
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
     ],
