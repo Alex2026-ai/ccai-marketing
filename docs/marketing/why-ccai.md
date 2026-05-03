@@ -19,4 +19,5 @@ Package the commercial case for CCAI without overclaiming. The page should help 
 2. Buyer fit: before / with CCAI / after launch.
 3. Reasons: proof before procurement, API-first, defensible evidence, bounded PI.
 4. Selection criteria: evaluation, operational fit, review model, freshness posture, exam readiness.
-5. Adoption paths: self-serve, embedded platform, enterprise review.
+5. Proof controls: exam package exports, risk-scaled approvals, PI contradiction guardrails, freshness-aware review.
+6. Adoption paths: self-serve, embedded platform, enterprise review.
