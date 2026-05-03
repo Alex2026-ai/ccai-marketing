@@ -12,6 +12,7 @@ const nav = [
   { label: "Graph", href: "/graph" },
   { label: "Intelligence", href: "/intelligence" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Trust", href: "/trust-review" },
   { label: "Developers", href: "/developers" },
   { label: "Company", href: "/company" },
 ]
