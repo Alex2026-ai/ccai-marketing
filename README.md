@@ -34,3 +34,4 @@ ccai-marketing/
 | `/developer`       | Developer documentation and API access   |
 | `/evidence`        | Evidence model and transparency          |
 | `/evaluation`      | Evaluation methodology and benchmarks    |
+| `/trust-review`    | Trust, review, PI, freshness, and exam boundaries |

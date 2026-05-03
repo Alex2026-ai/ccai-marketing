@@ -17,6 +17,7 @@ const footerNav = [
       { label: "API Documentation", href: "/developers" },
       { label: "Try the Sandbox", href: "/evaluation" },
       { label: "Evaluation Boundaries", href: "/evaluation-boundaries" },
+      { label: "Trust & Review", href: "/trust-review" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -100,6 +101,9 @@ export function SiteFooter() {
             </Link>
             <Link href="/regulatory-examination" className="text-[12px] text-muted-light transition-colors hover:text-foreground">
               Exam Readiness
+            </Link>
+            <Link href="/trust-review" className="text-[12px] text-muted-light transition-colors hover:text-foreground">
+              Trust & Review
             </Link>
             <Link href="/contact" className="text-[12px] text-muted-light transition-colors hover:text-foreground">
               Contact

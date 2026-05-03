@@ -22,6 +22,7 @@ Complete content, information architecture, and page specifications for the mark
 | `regulatory-examination.md` | Regulatory Examination Readiness | `/regulatory-examination` |
 | `evaluation-boundaries.md` | Evaluation Boundaries | `/evaluation-boundaries` |
 | `data-freshness.md` | Data Freshness | `/data-freshness` |
+| `trust-review.md` | Trust & Review | `/trust-review` |
 | `human-review.md` | Human Review by Design | `/human-review` |
 | `pi-assistive.md` | PI Is Assistive, Not Authoritative | `/pi-assistive` |
 | `compliance-certification-narrative.md` | Public certification narrative | Content governance |
