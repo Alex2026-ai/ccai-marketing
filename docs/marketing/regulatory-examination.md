@@ -14,4 +14,5 @@ CCAI provides screening signals and evidence records. The customer remains respo
 - Evidence inventory: DecisionEventPackage references, receipts, snapshots, rules, configuration, and source lineage.
 - Human review trail: operator actions, review-quality requirements, approvals, timestamps, and PI involvement.
 - Freshness disclosure: snapshot build time, upstream source time, snapshot age, and stale-window handling.
+- Operational evidence: Sentinel findings, required-action queues, restore-evidence readiness, and human handoff status.
 - Reliance boundary: explicit statement that output supports review and is not a final legal determination.

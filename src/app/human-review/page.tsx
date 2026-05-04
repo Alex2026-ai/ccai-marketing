@@ -14,6 +14,7 @@ const controls = [
   ["Second-review paths", "Critical cases can require a distinct reviewer before final disposition."],
   ["PI draft boundaries", "PI can draft and summarize, but operator review remains required."],
   ["Stale-context checks", "Stale or changed context is surfaced before approval-adjacent actions."],
+  ["Operational queue visibility", "Required-action and recovery-readiness items are surfaced for humans without giving agents outcome authority."],
 ]
 
 export default function HumanReviewPage() {

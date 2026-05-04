@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, CheckCircle2, Eye, FileText, Scale, ShieldCheck } from "lucide-react"
+import { Activity, ArrowRight, CheckCircle2, Eye, FileText, Scale, ShieldCheck } from "lucide-react"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 
 export const metadata: Metadata = {
@@ -29,6 +29,12 @@ const pillars = [
     icon: Eye,
   },
   {
+    title: "Operational evidence",
+    body: "Sentinel findings and required-action queues give operators recovery and freshness context without autonomous outcome authority.",
+    href: "/human-review",
+    icon: Activity,
+  },
+  {
     title: "Exam narrative",
     body: "Regulator-readable packages connect what was screened, what data was used, and what operators reviewed.",
     href: "/regulatory-examination",
@@ -48,6 +54,7 @@ const boundaries = [
   ["Data freshness", "Freshness context is part of reliance, especially when upstream sources change after screening."],
   ["Customer judgment", "CCAI supports a defensible process; regulated customers remain responsible for final compliance decisions."],
   ["Agentic operations", "Sentinel and PI are assistive surfaces. They do not mutate screening truth or approve external actions."],
+  ["Operational queue visibility", "Required-action queues show attention and recovery context; they do not replace operator review."],
 ]
 
 export default function TrustReviewPage() {
