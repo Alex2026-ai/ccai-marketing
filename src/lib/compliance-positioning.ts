@@ -16,6 +16,10 @@ export const examPackageSections = [
     body: "Snapshot build time, upstream source timestamp when available, snapshot age, and any stale-window handling.",
   },
   {
+    title: "Operational evidence",
+    body: "Sentinel findings, required-action queues, restore-evidence readiness, and human handoff status when operational context affects review.",
+  },
+  {
     title: "Reliance boundary",
     body: "Explicit statement that CCAI provides screening signals and evidence records while the customer owns final compliance decisions.",
   },
@@ -60,5 +64,13 @@ export const freshnessSignals = [
   {
     signal: "Stale-window review",
     purpose: "Identifies results that may need review or re-screening after newer source data arrives.",
+  },
+  {
+    signal: "Sentinel observations",
+    purpose: "Surfaces source-age findings and freshness evidence for operator attention.",
+  },
+  {
+    signal: "Operational queue items",
+    purpose: "Shows when freshness or restore-evidence context needs a human handoff instead of silent automation.",
   },
 ]

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 const boundaries = [
   ["PI can draft", "Case summaries, disposition language, and exam narratives can be prepared for review."],
   ["PI can explain", "Explanations must be checked against structured decision evidence before reliance."],
+  ["PI can surface context", "Queue summaries and readiness findings can be shown for operator attention."],
   ["PI cannot decide", "PI does not change routing states, thresholds, final dispositions, approvals, or outbound sends."],
   ["PI can be removed", "The system is designed so operator workflows continue when PI is unavailable."],
 ]

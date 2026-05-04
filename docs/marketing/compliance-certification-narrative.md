@@ -2,7 +2,7 @@
 
 **Status:** Public positioning draft  
 **Scope:** `ccai-marketing` public website and content docs  
-**Last updated:** 2026-04-30
+**Last updated:** 2026-05-04
 
 This document defines how the public site should describe CCAI's compliance certification story without overstating product authority.
 
@@ -22,9 +22,9 @@ Public copy must not say or imply that CCAI:
 
 | Repository | Certification responsibility |
 |---|---|
-| `ccai-engine` | Source of record for deterministic screening, reliance metadata, jurisdiction semantics, PI safety, exam package generation, durability posture, and audit controls |
-| `ccai-frontend` | Operator surface for BFF-safe workflows, review-quality friction, PI draft review, and clearly labeled exam package drafts |
-| `ccai-marketing` | Public explanation of the system, evaluation boundaries, data freshness, reliance boundaries, and examination readiness |
+| `ccai-engine` | Source of record for deterministic screening, reliance metadata, jurisdiction semantics, PI safety, exam package generation, durability posture, operational job evidence, and audit controls |
+| `ccai-frontend` | Operator surface for BFF-safe workflows, review-quality friction, PI draft review, read-only operational queue visibility, and clearly labeled exam package drafts |
+| `ccai-marketing` | Public explanation of the system, evaluation boundaries, data freshness, reliance boundaries, operational evidence, and examination readiness |
 
 The marketing site should point prospects toward the certification story, but it must not invent implementation details that the engine and frontend do not support.
 
@@ -36,6 +36,8 @@ The marketing site should point prospects toward the certification story, but it
 - Data freshness is part of reliance context.
 - PI can assist with drafts and explanations, but PI does not own outcomes.
 - Exam packages organize evidence for review; they do not transform software output into legal advice.
+- Operational queues surface required attention and recovery context; they do not execute customer compliance decisions.
+- Restore-evidence readiness describes how durability checks can be configured and reviewed; it is not a substitute for the customer's disaster recovery program.
 
 ## Public Pages Supporting the Narrative
 
