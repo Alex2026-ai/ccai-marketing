@@ -131,8 +131,8 @@ All diagrams should be produced as SVG. Style: monochrome with single teal accen
 | Consumption model diagram SVG      | Complete | `/architecture`, `/developer` | Yes |
 | Layer distribution visual SVG      | Complete | `/how-it-works`, `/evaluation` | No |
 | Example DecisionEventPackage       | Complete | `/evidence`        | Yes           |
-| Sample API: POST /resolve          | Not started | `/developer`       | Yes           |
-| Sample API: POST /batch-upload     | Not started | `/developer`       | Yes           |
+| Sample API: POST /api/v1/lists/upload | Complete | `/developer`       | Yes           |
+| Sample API: POST /api/v1/batches/run | Complete | `/developer`       | Yes           |
 | Sample API: GET /audit/{trace_id}  | Not started | `/developer`       | No            |
 | Sample webhook payload             | Not started | `/developer`       | No            |
 | Regulated-use rationale            | Not started | `/evidence`        | No            |

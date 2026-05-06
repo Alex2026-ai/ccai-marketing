@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { ContinueReading } from "@/components/continue-reading"
 import { ConsumptionModelDiagram } from "@/components/marketing/consumption-model-diagram"
+import { DeveloperApiSamples } from "@/components/marketing/developer-api-samples"
 
 export const metadata: Metadata = {
   title: "Developer — CoreCompliance AI",
@@ -12,12 +13,12 @@ export const metadata: Metadata = {
 }
 
 const endpoints = [
-  { method: "POST", path: "/resolve", desc: "Screen a single entity" },
-  { method: "POST", path: "/batch", desc: "Submit a batch of entities (JSON array)" },
-  { method: "POST", path: "/batch-upload", desc: "Upload a file for batch screening (multipart)" },
-  { method: "GET", path: "/audit/{trace_id}", desc: "Retrieve full audit trail for a screening" },
-  { method: "GET", path: "/health", desc: "System health with component status" },
-  { method: "GET", path: "/stats", desc: "Global performance metrics" },
+  { method: "POST", path: "/api/v1/lists/upload", desc: "Upload CSV or JSON entities and create a snapshot" },
+  { method: "POST", path: "/api/v1/batches/run", desc: "Run screening against an uploaded snapshot" },
+  { method: "GET", path: "/api/v1/batches/{batch_id}", desc: "Check batch status" },
+  { method: "GET", path: "/api/v1/batches/{batch_id}/results", desc: "Retrieve per-entity screening results" },
+  { method: "GET", path: "/api/v1/batches/{batch_id}/media-signals", desc: "Retrieve adverse-media signals when available" },
+  { method: "POST", path: "/api/v1/review-cases/create-from-batch", desc: "Create review cases from flagged results" },
 ]
 
 const events = [
@@ -49,7 +50,7 @@ export default function DeveloperPage() {
       <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">API Endpoints</h2>
         <p className="mt-4 text-base leading-relaxed text-muted">
-          Authentication via API key. Tenant context bound via request header. All responses include trace identifiers for audit correlation.
+          Authentication uses an API key. Tenant context is resolved from the key, and responses carry identifiers for audit correlation.
         </p>
         <div className="mt-8 overflow-hidden rounded-2xl border border-border">
           <table className="w-full text-left">
@@ -75,10 +76,20 @@ export default function DeveloperPage() {
         </div>
       </AnimateOnScroll>
 
+      <AnimateOnScroll className="mt-14">
+        <h2 className="text-2xl font-semibold tracking-tight">API Samples</h2>
+        <p className="mt-4 text-base leading-relaxed text-muted">
+          These examples use synthetic data and the product API routes documented in the engine.
+        </p>
+        <div className="mt-8">
+          <DeveloperApiSamples />
+        </div>
+      </AnimateOnScroll>
+
       <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">Batch Screening</h2>
         <p className="mt-4 text-base leading-relaxed text-muted">
-          Batch processing is the primary operational mode for most integrations. Batches support up to 10,000 entities per submission, parallelized across resolution layers.
+          Batch processing is the primary operational mode for most integrations. Batches return durable identifiers that connect uploaded snapshots, screening jobs, results, and review cases.
         </p>
         <div className="mt-8 rounded-2xl border border-border bg-[#111827] px-6 py-5">
           <ol className="space-y-3">
