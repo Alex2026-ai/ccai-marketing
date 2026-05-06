@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { ContinueReading } from "@/components/continue-reading"
 import { ExecutionVerificationFlow } from "@/components/marketing/execution-verification-flow"
+import { LayerDistributionVisual } from "@/components/marketing/layer-distribution-visual"
 import { ResolutionWaterfallDiagram } from "@/components/marketing/resolution-waterfall-diagram"
 
 export const metadata: Metadata = {
@@ -100,6 +101,7 @@ export default function HowItWorksPage() {
             {stage.showLayers && (
               <div className="mt-10 ml-11 space-y-6">
                 <ResolutionWaterfallDiagram />
+                <LayerDistributionVisual />
                 <div className="overflow-hidden rounded-2xl border border-border">
                   <table className="w-full text-left">
                     <thead>
