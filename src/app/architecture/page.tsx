@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { ContinueReading } from "@/components/continue-reading"
+import { ArchitectureOverviewDiagram } from "@/components/marketing/architecture-overview-diagram"
 
 export const metadata: Metadata = {
   title: "Architecture — CoreCompliance AI",
@@ -44,6 +45,10 @@ export default function ArchitecturePage() {
           responsibilities, separate data stores, and enforced boundaries.
         </p>
       </div>
+
+      <AnimateOnScroll className="mt-16">
+        <ArchitectureOverviewDiagram />
+      </AnimateOnScroll>
 
       <AnimateOnScroll className="mt-24">
         <div className="flex items-baseline gap-4">
