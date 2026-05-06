@@ -3,6 +3,7 @@ import Link from "next/link"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { ReceiptDemo } from "@/components/receipt-demo"
 import { ContinueReading } from "@/components/continue-reading"
+import { DecisionEventPackageExample } from "@/components/marketing/decision-event-package-example"
 import { EvidenceAttestationFlow } from "@/components/marketing/evidence-attestation-flow"
 
 export const metadata: Metadata = {
@@ -100,23 +101,11 @@ export default function EvidencePage() {
         <h3 className="text-base font-semibold text-foreground">
           Example evidence record
         </h3>
-        <div className="mt-5 overflow-x-auto rounded-2xl border border-border bg-[#111827] px-6 py-5 font-mono text-[13px] leading-[1.7]">
-          {[
-            ["trace_id", "tr_2026_03_11_08421234"],
-            ["decision_state", "CLEARED"],
-            ["resolution_layer", "L1_EXACT"],
-            ["confidence", "0.98"],
-            ["rule_pack_version", "rp_v3.2.1"],
-            ["watchlist_snapshot", "ws_2026_03_10_daily"],
-            ["config_snapshot", "cs_2026_03_11_0842"],
-            ["receipt_id", "rct_5b6d\u2026e91c"],
-            ["receipt_status", "BOUND"],
-          ].map(([key, val]) => (
-            <div key={key} className="text-gray-400">
-              <span className="text-gray-500">{key}:</span>{" "}
-              <span className="text-sky-400">{val}</span>
-            </div>
-          ))}
+        <p className="mt-3 text-sm leading-relaxed text-muted">
+          This public example shows the shape of the evidence object without using customer data or live provider data.
+        </p>
+        <div className="mt-5">
+          <DecisionEventPackageExample />
         </div>
       </AnimateOnScroll>
 
