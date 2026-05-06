@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { ContinueReading } from "@/components/continue-reading"
 import { ArchitectureOverviewDiagram } from "@/components/marketing/architecture-overview-diagram"
+import { ConsumptionModelDiagram } from "@/components/marketing/consumption-model-diagram"
 
 export const metadata: Metadata = {
   title: "Architecture — CoreCompliance AI",
@@ -132,6 +133,9 @@ export default function ArchitecturePage() {
           <p className="mt-4 text-base leading-relaxed text-muted">
             The API is the primary integration surface. The dashboard is the operational interface. Both consume the same underlying engine.
           </p>
+          <div className="mt-8">
+            <ConsumptionModelDiagram />
+          </div>
         </div>
       </AnimateOnScroll>
 
