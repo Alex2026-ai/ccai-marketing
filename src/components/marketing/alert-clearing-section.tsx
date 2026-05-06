@@ -32,7 +32,7 @@ const capabilities = [
   {
     icon: Download,
     title: "Export-Ready Audit Bundles",
-    desc: "JSON export for regulators (PDF export coming soon). Decision packages, case histories, and disposition records ready for regulatory filing or internal audit.",
+    desc: "Regulator-readable exam package views and JSON exports connect decision packages, case histories, disposition records, and reliance boundaries for internal audit review.",
   },
 ]
 
