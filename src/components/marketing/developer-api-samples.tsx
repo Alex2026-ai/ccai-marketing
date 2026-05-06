@@ -36,6 +36,36 @@ const apiSamples = [
   "status": "queued"
 }`,
   },
+  {
+    title: "Retrieve the audit summary",
+    method: "GET",
+    path: "/api/v1/batches/{batch_id}/audit",
+    description: "Returns compact evidence navigation metadata for a completed batch.",
+    request: `curl https://api.corecomplianceai.com/api/v1/batches/0196a3f7-7e04-76f2-9ef5-4daef6caa019/audit \\
+  -H "X-API-Key: ccai_your_key"`,
+    response: `{
+  "batch_id": "0196a3f7-7e04-76f2-9ef5-4daef6caa019",
+  "snapshot_id": "0196a3f7-24b8-7cf2-b35d-b78dcda743a1",
+  "status": "completed",
+  "record_count": 2,
+  "result_count": 2,
+  "decision_counts": {
+    "CLEARED": 1,
+    "REVIEW": 1
+  },
+  "layer_distribution": {
+    "L1_DETERMINISTIC": 1,
+    "L2_VECTOR": 1
+  },
+  "media_signal_count": 0,
+  "evidence_refs": {
+    "results": "/api/v1/batches/0196a3f7-7e04-76f2-9ef5-4daef6caa019/results",
+    "media_signals": "/api/v1/batches/0196a3f7-7e04-76f2-9ef5-4daef6caa019/media-signals"
+  },
+  "regulatory_status": "SCREENING_SIGNAL",
+  "generated_at": "2026-05-04T14:31:00+00:00"
+}`,
+  },
 ]
 
 export function DeveloperApiSamples() {

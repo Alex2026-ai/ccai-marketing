@@ -17,6 +17,7 @@ const endpoints = [
   { method: "POST", path: "/api/v1/batches/run", desc: "Run screening against an uploaded snapshot" },
   { method: "GET", path: "/api/v1/batches/{batch_id}", desc: "Check batch status" },
   { method: "GET", path: "/api/v1/batches/{batch_id}/results", desc: "Retrieve per-entity screening results" },
+  { method: "GET", path: "/api/v1/batches/{batch_id}/audit", desc: "Retrieve batch audit summary and evidence refs" },
   { method: "GET", path: "/api/v1/batches/{batch_id}/media-signals", desc: "Retrieve adverse-media signals when available" },
   { method: "POST", path: "/api/v1/review-cases/create-from-batch", desc: "Create review cases from flagged results" },
 ]
