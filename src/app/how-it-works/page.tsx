@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { ContinueReading } from "@/components/continue-reading"
+import { ExecutionVerificationFlow } from "@/components/marketing/execution-verification-flow"
 
 export const metadata: Metadata = {
   title: "How It Works — CoreCompliance AI",
@@ -73,6 +74,10 @@ export default function HowItWorksPage() {
       </div>
 
       <div className="mt-24 space-y-24">
+        <AnimateOnScroll>
+          <ExecutionVerificationFlow />
+        </AnimateOnScroll>
+
         {stages.map((stage) => (
           <AnimateOnScroll key={stage.num}>
             <div className="flex items-baseline gap-4">

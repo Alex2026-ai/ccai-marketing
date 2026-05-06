@@ -1,6 +1,6 @@
 import { Upload, Shield, Network, ClipboardCheck, Bell } from "lucide-react"
 import { SectionHeader } from "./section-header"
-import { ScreenshotPlaceholder } from "./screenshot-placeholder"
+import { ExecutionVerificationFlow } from "./execution-verification-flow"
 
 const steps = [
   { icon: Upload, label: "Upload", desc: "Your data is versioned and frozen. Every result is traceable to an exact snapshot." },
@@ -37,10 +37,7 @@ export function HowItWorksSection() {
         </div>
 
         <div className="mt-14">
-          <ScreenshotPlaceholder
-            label="Batch results table — input names, decisions, matched names, confidence scores"
-            src="/screenshots/batch-results.png"
-          />
+          <ExecutionVerificationFlow />
         </div>
       </div>
     </section>
