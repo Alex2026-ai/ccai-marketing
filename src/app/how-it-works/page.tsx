@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { ContinueReading } from "@/components/continue-reading"
 import { ExecutionVerificationFlow } from "@/components/marketing/execution-verification-flow"
+import { ResolutionWaterfallDiagram } from "@/components/marketing/resolution-waterfall-diagram"
 
 export const metadata: Metadata = {
   title: "How It Works — CoreCompliance AI",
@@ -97,27 +98,30 @@ export default function HowItWorksPage() {
             </div>
 
             {stage.showLayers && (
-              <div className="mt-10 ml-11 overflow-hidden rounded-2xl border border-border">
-                <table className="w-full text-left">
-                  <thead>
-                    <tr className="border-b border-border bg-surface-2/50">
-                      <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">Layer</th>
-                      <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">Method</th>
-                      <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">Cost</th>
-                      <th className="hidden px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light sm:table-cell">Description</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {layers.map((layer) => (
-                      <tr key={layer.id} className="border-b border-border-light last:border-0">
-                        <td className="px-4 py-3 font-mono text-sm font-semibold text-accent">{layer.id}</td>
-                        <td className="px-4 py-3 text-sm font-medium text-foreground">{layer.name}</td>
-                        <td className="px-4 py-3 font-mono text-sm text-muted">{layer.cost}</td>
-                        <td className="hidden px-4 py-3 text-sm text-muted sm:table-cell">{layer.desc}</td>
+              <div className="mt-10 ml-11 space-y-6">
+                <ResolutionWaterfallDiagram />
+                <div className="overflow-hidden rounded-2xl border border-border">
+                  <table className="w-full text-left">
+                    <thead>
+                      <tr className="border-b border-border bg-surface-2/50">
+                        <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">Layer</th>
+                        <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">Method</th>
+                        <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light">Cost</th>
+                        <th className="hidden px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-light sm:table-cell">Description</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {layers.map((layer) => (
+                        <tr key={layer.id} className="border-b border-border-light last:border-0">
+                          <td className="px-4 py-3 font-mono text-sm font-semibold text-accent">{layer.id}</td>
+                          <td className="px-4 py-3 text-sm font-medium text-foreground">{layer.name}</td>
+                          <td className="px-4 py-3 font-mono text-sm text-muted">{layer.cost}</td>
+                          <td className="hidden px-4 py-3 text-sm text-muted sm:table-cell">{layer.desc}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             )}
           </AnimateOnScroll>
