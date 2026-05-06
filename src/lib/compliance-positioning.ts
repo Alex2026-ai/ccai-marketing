@@ -20,6 +20,10 @@ export const examPackageSections = [
     body: "Sentinel findings, required-action queues, restore-evidence readiness, and human handoff status when operational context affects review.",
   },
   {
+    title: "Launch readiness evidence",
+    body: "Read-only preflight reports, provider activation posture, persistence configuration, restore-evidence references, and remaining environment blockers.",
+  },
+  {
     title: "Reliance boundary",
     body: "Explicit statement that CCAI provides screening signals and evidence records while the customer owns final compliance decisions.",
   },

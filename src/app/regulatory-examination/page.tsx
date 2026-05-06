@@ -33,7 +33,8 @@ export default function RegulatoryExaminationPage() {
         <p className="mt-4 text-base leading-relaxed text-muted">
           A regulator-ready package should connect machine evidence to a plain
           operational story: what was screened, which data was used, what the
-          system returned, who reviewed it, and what the customer decided.
+          system returned, what launch-readiness evidence was available, who
+          reviewed it, and what the customer decided.
         </p>
         <div className="mt-8">
           <PositioningTable rows={examPackageSections} />
