@@ -128,7 +128,7 @@ All diagrams should be produced as SVG. Style: monochrome with single teal accen
 | Resolution waterfall diagram SVG   | Complete | `/how-it-works`    | Yes           |
 | Evidence + attestation flow SVG    | Complete | `/evidence`        | Yes           |
 | Architecture overview diagram SVG  | Complete | `/architecture`    | Yes           |
-| Consumption model diagram SVG      | Not started | `/architecture`, `/developer` | Yes |
+| Consumption model diagram SVG      | Complete | `/architecture`, `/developer` | Yes |
 | Layer distribution visual SVG      | Not started | `/how-it-works`, `/evaluation` | No |
 | Example DecisionEventPackage       | Not started | `/evidence`        | Yes           |
 | Sample API: POST /resolve          | Not started | `/developer`       | Yes           |

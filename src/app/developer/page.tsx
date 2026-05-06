@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { ContinueReading } from "@/components/continue-reading"
+import { ConsumptionModelDiagram } from "@/components/marketing/consumption-model-diagram"
 
 export const metadata: Metadata = {
   title: "Developer — CoreCompliance AI",
@@ -40,6 +41,10 @@ export default function DeveloperPage() {
           screening into existing workflows without adopting a standalone product.
         </p>
       </div>
+
+      <AnimateOnScroll className="mt-16">
+        <ConsumptionModelDiagram />
+      </AnimateOnScroll>
 
       <AnimateOnScroll className="mt-24">
         <h2 className="text-2xl font-semibold tracking-tight">API Endpoints</h2>
