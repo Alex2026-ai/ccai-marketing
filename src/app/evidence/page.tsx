@@ -3,6 +3,7 @@ import Link from "next/link"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { ReceiptDemo } from "@/components/receipt-demo"
 import { ContinueReading } from "@/components/continue-reading"
+import { EvidenceAttestationFlow } from "@/components/marketing/evidence-attestation-flow"
 
 export const metadata: Metadata = {
   title: "Evidence — CoreCompliance AI",
@@ -87,6 +88,10 @@ export default function EvidencePage() {
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className="mt-8">
+          <EvidenceAttestationFlow />
         </div>
       </AnimateOnScroll>
 
