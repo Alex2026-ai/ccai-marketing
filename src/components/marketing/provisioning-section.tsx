@@ -1,6 +1,6 @@
 import { SectionHeader } from "./section-header"
 import { PrimaryCTA } from "./cta-buttons"
-import { ScreenshotPlaceholder } from "./screenshot-placeholder"
+import { ProvisioningVisual } from "./provisioning-visual"
 
 export function ProvisioningSection() {
   return (
@@ -13,7 +13,7 @@ export function ProvisioningSection() {
           centered
         />
         <div className="mt-10">
-          <ScreenshotPlaceholder label="REAL SCREENSHOT: Provisioning — API key creation or onboarding guide" />
+          <ProvisioningVisual />
         </div>
         <PrimaryCTA className="mt-8" />
       </div>

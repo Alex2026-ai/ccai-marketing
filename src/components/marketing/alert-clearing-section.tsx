@@ -1,7 +1,7 @@
 import { FileCheck, ClipboardCheck, History, Download, Shield, Clock } from "lucide-react"
 import { SectionHeader } from "./section-header"
 import { PrimaryCTA } from "./cta-buttons"
-import { ScreenshotPlaceholder } from "./screenshot-placeholder"
+import { CaseReviewVisual } from "./case-review-visual"
 
 const capabilities = [
   {
@@ -63,9 +63,7 @@ export function AlertClearingSection() {
         </div>
 
         <div className="mt-14">
-          <ScreenshotPlaceholder
-            label="Case review dashboard — entity detail, evidence chain, disposition workflow, audit log"
-          />
+          <CaseReviewVisual />
         </div>
 
         <div className="mt-10 text-center">

@@ -136,6 +136,8 @@ All diagrams should be produced as SVG. Style: monochrome with single teal accen
 | Sample API: GET /audit/{trace_id}  | Not started | `/developer`       | No            |
 | Sample webhook payload             | Not started | `/developer`       | No            |
 | Regulated-use rationale            | Not started | `/evidence`        | No            |
+| Case review visual                 | Complete | Homepage alert-clearing section | No |
+| Provisioning visual                | Complete | Homepage self-serve section | No |
 
 ---
 
