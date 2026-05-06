@@ -38,6 +38,7 @@ The marketing site should point prospects toward the certification story, but it
 - Exam packages organize evidence for review; they do not transform software output into legal advice.
 - Operational queues surface required attention and recovery context; they do not execute customer compliance decisions.
 - Restore-evidence readiness describes how durability checks can be configured and reviewed; it is not a substitute for the customer's disaster recovery program.
+- Launch preflight reports describe configuration posture and blockers; they do not replace operator launch approval, legal review, or customer acceptance testing.
 
 ## Public Pages Supporting the Narrative
 

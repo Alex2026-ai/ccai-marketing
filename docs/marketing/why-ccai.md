@@ -12,12 +12,13 @@ Package the commercial case for CCAI without overclaiming. The page should help 
 - Say "helps teams explain what happened and why" rather than "ensures compliance."
 - Tie PI to assistance, verification, and senior-review escalation when contradiction exists.
 - Treat data freshness, human review, and exam readiness as adoption criteria, not legal guarantees.
+- Treat launch preflight as configuration evidence, not approval to rely on the system.
 
 ## Page Structure
 
 1. Hero: adoption speed plus defensible evidence.
 2. Buyer fit: before / with CCAI / after launch.
 3. Reasons: proof before procurement, API-first, defensible evidence, bounded PI.
-4. Selection criteria: evaluation, operational fit, review model, freshness posture, exam readiness.
-5. Proof controls: exam package exports, risk-scaled approvals, PI contradiction guardrails, freshness-aware review.
+4. Selection criteria: evaluation, operational fit, launch posture, review model, freshness posture, exam readiness.
+5. Proof controls: exam package exports, risk-scaled approvals, PI contradiction guardrails, freshness-aware review, launch preflight evidence.
 6. Adoption paths: self-serve, embedded platform, enterprise review.

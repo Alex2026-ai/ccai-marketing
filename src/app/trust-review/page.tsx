@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Activity, ArrowRight, CheckCircle2, Eye, FileText, Scale, ShieldCheck } from "lucide-react"
+import { Activity, ArrowRight, CheckCircle2, ClipboardCheck, Eye, FileText, Scale, ShieldCheck } from "lucide-react"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 
 export const metadata: Metadata = {
@@ -35,6 +35,12 @@ const pillars = [
     icon: Activity,
   },
   {
+    title: "Launch readiness evidence",
+    body: "Read-only preflight checks surface persistence, restore evidence, provider activation, and admin-key posture before production use.",
+    href: "/regulatory-examination",
+    icon: ClipboardCheck,
+  },
+  {
     title: "Exam narrative",
     body: "Regulator-readable packages connect what was screened, what data was used, and what operators reviewed.",
     href: "/regulatory-examination",
@@ -55,6 +61,7 @@ const boundaries = [
   ["Customer judgment", "CCAI supports a defensible process; regulated customers remain responsible for final compliance decisions."],
   ["Agentic operations", "Sentinel and PI are assistive surfaces. They do not mutate screening truth or approve external actions."],
   ["Operational queue visibility", "Required-action queues show attention and recovery context; they do not replace operator review."],
+  ["Launch readiness", "Preflight reports describe configuration posture and blockers; they do not replace operator launch approval or legal review."],
 ]
 
 export default function TrustReviewPage() {
@@ -163,7 +170,7 @@ export default function TrustReviewPage() {
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted">
             Buyers can evaluate CCAI by reviewing how decisions are scoped, how
             data freshness is disclosed, how PI is bounded, and how exam
-            packages are prepared.
+            packages and launch-readiness evidence are prepared.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link href="/data-freshness" className="btn-primary text-base">

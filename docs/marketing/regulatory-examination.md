@@ -15,4 +15,5 @@ CCAI provides screening signals and evidence records. The customer remains respo
 - Human review trail: operator actions, review-quality requirements, approvals, timestamps, and PI involvement.
 - Freshness disclosure: snapshot build time, upstream source time, snapshot age, and stale-window handling.
 - Operational evidence: Sentinel findings, required-action queues, restore-evidence readiness, and human handoff status.
+- Launch readiness evidence: read-only preflight reports, provider activation posture, persistence configuration, restore-evidence references, and remaining environment blockers.
 - Reliance boundary: explicit statement that output supports review and is not a final legal determination.

@@ -35,6 +35,7 @@ const reasons = [
 const buyerChecks = [
   ["Evaluation", "Run sample workflows, inspect output, and validate integration patterns without treating sandbox results as production reliance."],
   ["Operational fit", "Use the dashboard for reviewers or embed screening into existing systems through the REST API."],
+  ["Launch posture", "Review read-only preflight evidence for persistence, restore evidence, provider activation, and required environment setup."],
   ["Review model", "Keep high-risk approvals from becoming one-click acceptance with review-quality evidence and second-review paths."],
   ["Freshness posture", "Show snapshot age, upstream publication context, and stale-window handling instead of hiding source-data timing."],
   ["Exam readiness", "Assemble regulator-readable packages that connect input, evidence, review, freshness, and reliance language."],
@@ -60,6 +61,11 @@ const proofControls = [
     title: "Freshness-aware review",
     body: "Snapshot age, upstream lag, and stale-window warnings are part of the review story, not hidden implementation details.",
     icon: Blocks,
+  },
+  {
+    title: "Launch preflight evidence",
+    body: "Read-only checks surface persistence, restore evidence, outbound-provider activation, commercial-provider posture, and admin-key setup.",
+    icon: ClipboardCheck,
   },
 ]
 

@@ -19,9 +19,9 @@ CCAI is a system for producing and organizing screening evidence. It supports cu
 ## Page Sections
 
 1. Hero: the review boundary is clear
-2. Five pillars: screening evidence, human review quality, PI assistance boundary, operational evidence, exam narrative
+2. Six pillars: screening evidence, human review quality, PI assistance boundary, operational evidence, launch readiness evidence, exam narrative
 3. Operating model: signal, context, review, explain
-4. Boundaries: evaluation output, data freshness, customer judgment, agentic operations, operational queue visibility
+4. Boundaries: evaluation output, data freshness, customer judgment, agentic operations, operational queue visibility, launch readiness
 5. CTA: continue into data freshness and human review
 
 ## Claim Discipline
@@ -31,3 +31,4 @@ CCAI is a system for producing and organizing screening evidence. It supports cu
 - Say "PI assists" instead of "PI decides"
 - Say "freshness context is part of reliance" instead of promising source completeness
 - Say "operational evidence is visible for review" instead of implying autonomous operational resolution
+- Say "preflight reports describe configuration posture" instead of implying launch approval or legal review
