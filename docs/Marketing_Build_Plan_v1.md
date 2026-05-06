@@ -129,7 +129,7 @@ All diagrams should be produced as SVG. Style: monochrome with single teal accen
 | Evidence + attestation flow SVG    | Complete | `/evidence`        | Yes           |
 | Architecture overview diagram SVG  | Complete | `/architecture`    | Yes           |
 | Consumption model diagram SVG      | Complete | `/architecture`, `/developer` | Yes |
-| Layer distribution visual SVG      | Not started | `/how-it-works`, `/evaluation` | No |
+| Layer distribution visual SVG      | Complete | `/how-it-works`, `/evaluation` | No |
 | Example DecisionEventPackage       | Not started | `/evidence`        | Yes           |
 | Sample API: POST /resolve          | Not started | `/developer`       | Yes           |
 | Sample API: POST /batch-upload     | Not started | `/developer`       | Yes           |

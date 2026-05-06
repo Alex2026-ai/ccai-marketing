@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
+import { LayerDistributionVisual } from "@/components/marketing/layer-distribution-visual"
 
 export const metadata: Metadata = {
   title: "Evaluation — CoreCompliance AI",
@@ -60,6 +61,9 @@ export default function EvaluationPage() {
               <p className="mt-2 text-sm leading-relaxed text-muted">{item.desc}</p>
             </div>
           ))}
+        </div>
+        <div className="mt-8">
+          <LayerDistributionVisual />
         </div>
       </AnimateOnScroll>
 
