@@ -124,7 +124,7 @@ All diagrams should be produced as SVG. Style: monochrome with single teal accen
 
 | Asset                              | Status   | Required For        | Blocks Launch |
 |------------------------------------|----------|---------------------|---------------|
-| Execution + verification flow SVG  | Not started | `/`, `/how-it-works` | Yes         |
+| Execution + verification flow SVG  | Complete | `/`, `/how-it-works` | Yes         |
 | Resolution waterfall diagram SVG   | Not started | `/how-it-works`    | Yes           |
 | Evidence + attestation flow SVG    | Not started | `/evidence`        | Yes           |
 | Architecture overview diagram SVG  | Not started | `/architecture`    | Yes           |
