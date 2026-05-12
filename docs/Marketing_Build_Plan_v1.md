@@ -134,7 +134,7 @@ All diagrams should be produced as SVG. Style: monochrome with single teal accen
 | Sample API: POST /api/v1/lists/upload | Complete | `/developer`       | Yes           |
 | Sample API: POST /api/v1/batches/run | Complete | `/developer`       | Yes           |
 | Sample API: GET /api/v1/batches/{batch_id}/audit | Complete | `/developer`       | No |
-| Sample webhook payload             | Not started | `/developer`       | No            |
+| Sample webhook payload             | Complete | `/developer`       | No            |
 | Regulated-use rationale            | Not started | `/evidence`        | No            |
 | Case review visual                 | Complete | Homepage alert-clearing section | No |
 | Provisioning visual                | Complete | Homepage self-serve section | No |
