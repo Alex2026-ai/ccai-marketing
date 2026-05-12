@@ -5,6 +5,7 @@ import { ReceiptDemo } from "@/components/receipt-demo"
 import { ContinueReading } from "@/components/continue-reading"
 import { DecisionEventPackageExample } from "@/components/marketing/decision-event-package-example"
 import { EvidenceAttestationFlow } from "@/components/marketing/evidence-attestation-flow"
+import { RegulatedUseRationale } from "@/components/marketing/regulated-use-rationale"
 
 export const metadata: Metadata = {
   title: "Evidence — CoreCompliance AI",
@@ -236,6 +237,10 @@ export default function EvidencePage() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10">
+          <RegulatedUseRationale />
         </div>
 
         <p className="mt-10 text-base leading-relaxed text-muted">
