@@ -5,6 +5,7 @@ import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { ContinueReading } from "@/components/continue-reading"
 import { ConsumptionModelDiagram } from "@/components/marketing/consumption-model-diagram"
 import { DeveloperApiSamples } from "@/components/marketing/developer-api-samples"
+import { WebhookPayloadSample } from "@/components/marketing/webhook-payload-sample"
 
 export const metadata: Metadata = {
   title: "Developer — CoreCompliance AI",
@@ -74,6 +75,9 @@ export default function DeveloperPage() {
               ))}
             </tbody>
           </table>
+        </div>
+        <div className="mt-8">
+          <WebhookPayloadSample />
         </div>
       </AnimateOnScroll>
 
