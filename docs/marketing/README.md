@@ -27,6 +27,7 @@ Complete content, information architecture, and page specifications for the mark
 | `human-review.md` | Human Review by Design | `/human-review` |
 | `pi-assistive.md` | PI Is Assistive, Not Authoritative | `/pi-assistive` |
 | `compliance-certification-narrative.md` | Public certification narrative | Content governance |
+| `beta-trial-package.md` | Logistics / vessel beta trial package | Sales and evaluation enablement |
 
 ## Implementation Notes
 
